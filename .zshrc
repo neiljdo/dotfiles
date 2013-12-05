@@ -21,4 +21,4 @@ source $ZSH/oh-my-zsh.sh
 WORKON_HOME=$HOME/.virtualenvs
 
 # tmux - support 256 colors
-TERM='xterm-256color'
+TERM="xterm-256color"

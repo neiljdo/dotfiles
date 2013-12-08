@@ -1,0 +1,81 @@
+# Dir navigation
+# alias lll='tree --dirsfirst -ChFupDaLg 1'
+
+# Utilities
+alias c="pygmentize -O style=monokai -f console256 -g"
+alias d="du -h -d=1"
+alias df="df -h"
+alias g="git"
+alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
+alias h="history"
+alias sz="source ~/.zshrc"
+alias zs='sz'
+
+# virtualenv aliases
+# http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
+alias v='workon'
+alias v.deactivate='deactivate'
+alias v.mk='mkvirtualenv --no-site-packages'
+alias v.mk_withsitepackages='mkvirtualenv'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
+
+# a few more git shortcuts
+alias gcob='git checkout -b'
+alias gclo='git clone'
+alias gmm='git merge master'
+alias grm='git rm'
+
+# pip aliases
+alias pf='pip freeze'
+alias pi='pip install'
+alias pir='pip install -r'
+alias pun='pip uninstall'
+
+
+function get_settings {
+    # Check if this is a Git repo
+    PROJECT_ROOT=`git rev-parse --show-toplevel 2> /dev/null`
+    if (( $? != 0 )); then
+        PROJECT_ROOT="."
+    fi
+
+    # If we have manage.py in the directory, we are in a django
+    # project. We now look for a .settings override
+    if [[ -f "$PROJECT_ROOT/manage.py" ]]; then
+        if [[ -f "$PROJECT_ROOT/.settings" ]]; then
+            DJANGO_SETTINGS_MODULE_DEV=`cat $PROJECT_ROOT/.settings`
+        fi
+    else
+        unset DJANGO_SETTINGS_MODULE_DEV
+    fi
+}
+
+# Append workon_cwd to the chpwd_functions array, so it will be called on cd
+# http://zsh.sourceforge.net/Doc/Release/Functions.html
+# TODO: replace with 'add-zsh-hook chpwd workon_cwd' when oh-my-zsh min version is raised above 4.3.4
+if (( ${+chpwd_functions} )); then
+    if (( $chpwd_functions[(I)get_settings] == 0 )); then
+        set -A chpwd_functions $chpwd_functions get_settings
+    fi
+else
+    set -A chpwd_functions get_settings
+fi
+
+# django aliases
+alias pm='v ahyrbk && python $PWD/manage.py'
+alias pms='pm shell --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmy='pm syncdb --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmm='pm migrate --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmsci='pm schemamigration --initial --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmsca='pm schemamigration --auto --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmdm='pm datamigration --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmdd='pm dumpdata --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmld='pm loaddata --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmr='pm runserver 0.0.0.0:8000 --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmcl='pm celery worker --loglevel=debug --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmcs='pm collectstatic --noinput --settings=$DJANGO_SETTINGS_MODULE_DEV'

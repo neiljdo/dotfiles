@@ -1,3 +1,6 @@
+# TODO: Refactor these into my fork of oh-my-zsh
+# [https://github.com/neiljdo/oh-my-zsh]
+
 # Dir navigation
 # alias lll='tree --dirsfirst -ChFupDaLg 1'
 

@@ -67,7 +67,7 @@ else
 fi
 
 # django aliases
-alias pm='v ahyrbk && python $PWD/manage.py'
+alias pm='python $PWD/manage.py'
 alias pms='pm shell --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmy='pm syncdb --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmm='pm migrate --settings=$DJANGO_SETTINGS_MODULE_DEV'

@@ -1,0 +1,10 @@
+{
+    "sublimelinter_mark_style": "outline",
+    "sublimelinter_notes": true,
+    "sublimelinter_delay": 5,
+    "sublimelinter_executable_map":
+    {
+        "coffeescript": "/usr/lib/node_modules/coffee-script/bin/coffee"
+    },
+    "annotations": ["TODO", "README", "FIXME", "NOOP"]
+}

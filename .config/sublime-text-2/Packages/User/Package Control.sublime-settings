@@ -1,0 +1,26 @@
+{
+	"auto_upgrade_last_run": null,
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"AngularJS",
+		"Backbone.js",
+		"CoffeeLint",
+		"CoffeeScript",
+		"Color Highlighter",
+		"ColorPicker",
+		"Djaneiro",
+		"Dotfiles Syntax Highlighting",
+		"EJS",
+		"Monokai Blueberry Color Scheme",
+		"Monokai Extended",
+		"Nodejs",
+		"Package Control",
+		"Sass",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeReStructuredText",
+		"Theme - Night",
+		"Theme - Soda"
+	]
+}

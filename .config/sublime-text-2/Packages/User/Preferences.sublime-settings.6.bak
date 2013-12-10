@@ -1,0 +1,16 @@
+{
+    "ensure_newline_at_eof_on_save": true,
+    "font_size": 9, 
+    "translate_tabs_to_spaces": true,
+    "font_face": "DejaVu Sans Mono",
+    "rulers": [
+        70,
+        80
+    ], 
+    "theme": "Soda Dark 3.sublime-theme",
+    "word_wrap": false,
+    "color_scheme": "Packages/Monokai Extended/Monokai Extended Bright.tmTheme",
+    "highlight_line": true,
+    "soda_folder_icons": true,
+    "draw_white_space": "all"
+}

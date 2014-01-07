@@ -17,4 +17,4 @@ Annotations are enabled when syntax is set to JSON.
 
 Screenshots
 -----------
-![JSONLint in action](http://i.imgur.com/ooxwnNu.png)
+![JSONLint in action](http://i.imgur.com/G0Awkyy.png)

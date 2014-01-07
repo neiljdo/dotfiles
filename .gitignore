@@ -9,3 +9,6 @@ Settings/
 # Package Control
 Package\ Control.cache/
 *.last-run
+
+*.bak
+*.chback

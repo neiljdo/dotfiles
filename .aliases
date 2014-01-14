@@ -49,7 +49,9 @@ function get_settings {
 
     # If we have manage.py in the directory, we are in a django
     # project. We now look for a .settings override
-    if [[ -f "$PROJECT_ROOT/manage.py" ]]; then
+    if [[ -f "$PWD/.settings" && $PWD = $PROJECT_ROOT/* ]]; then
+        DJANGO_SETTINGS_MODULE_DEV=`cat "$PWD/.settings"`
+    elif [[ -f "$PROJECT_ROOT/manage.py" ]]; then
         if [[ -f "$PROJECT_ROOT/.settings" ]]; then
             DJANGO_SETTINGS_MODULE_DEV=`cat $PROJECT_ROOT/.settings`
         fi

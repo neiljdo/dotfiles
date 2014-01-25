@@ -36,7 +36,9 @@ alias grm='git rm'
 # pip aliases
 alias pf='pip freeze'
 alias pi='pip install'
+alias pinw='pip install --no-use-wheel'
 alias pir='pip install -r'
+alias pinwr='pip install --no-use-wheel -r'
 alias pun='pip uninstall'
 
 

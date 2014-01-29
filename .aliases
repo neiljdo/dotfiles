@@ -87,6 +87,7 @@ alias pmcs='pm collectstatic --noinput --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmm='pm migrate --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmsci='pm schemamigration --initial --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmsca='pm schemamigration --auto --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmscau='pm schemamigration --auto --update --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmdm='pm datamigration --settings=$DJANGO_SETTINGS_MODULE_DEV'
 
 # django-celery

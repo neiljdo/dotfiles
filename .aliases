@@ -31,7 +31,7 @@ alias v.lssitepackages='lssitepackages'
 alias gcob='git checkout -b'
 alias gclo='git clone'
 alias gplo='git pull origin'
-alias glom='gplo master'
+alias gplom='gplo master'
 alias gmm='git merge master'
 alias grm='git rm'
 

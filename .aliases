@@ -30,6 +30,8 @@ alias v.lssitepackages='lssitepackages'
 # a few more git shortcuts
 alias gcob='git checkout -b'
 alias gclo='git clone'
+alias gpo='git pull origin'
+alias gpom='gpo master'
 alias gmm='git merge master'
 alias grm='git rm'
 

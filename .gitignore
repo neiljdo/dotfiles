@@ -12,3 +12,6 @@ Package\ Control.cache/
 
 *.bak
 *.chback
+
+# Specific files in package directories
+.config/sublime-text-2/Packages/PyV8/linux64/config.json

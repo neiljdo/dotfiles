@@ -320,19 +320,9 @@ class AngularJS():
 			return []
 
 	def js_completions(self):
-		# ugly hack to fix ST bug
-		# https://github.com/angular-ui/AngularJS-sublime-package/issues/14
-		current_word_separators = r'./\\()\"\'-:,.;<>~!@#%^&*|+=[]{}`~?'
-		def st_hack():
-			self.active_view().settings().set('word_separators', current_word_separators)
-
 		if self.settings.get('disable_default_js_completions'): return []
 		else:
-			# ugly hack to fix ST bug
-			self.active_view().settings().set('word_separators', "/\()\"'-:,;<>~!@#%^&*|+=[]{}`~?")
-			completions = [tuple(completion) for completion in list(self.settings_js_completions.get('js_completions', []))]
-			sublime.set_timeout(st_hack, 300)
-			return completions
+			return [tuple(completion) for completion in list(self.settings_js_completions.get('js_completions', []))]
 
 	def add_indexed_directives(self):
 		if self.settings.get('disable_indexed_directive_completions'): return []
@@ -399,13 +389,16 @@ class AngularJSEventListener(sublime_plugin.EventListener):
 		all_matched = True
 		_scope = view.sel()[0].a
 
-		if(view.score_selector(_scope, 'source.js - string.quoted - comment')):
+		if(
+			view.score_selector(_scope, ng.settings.get('js_scope'))
+			and not view.substr(locations[0] - 1) in ng.settings.get('js_prefixes')
+		):
 			return (ng.js_completions(), 0)
 		if(ng.at_html_attribute('ng-controller', locations)):
 			all_defs = ng.get_current_project_indexes().get('definitions')
 			controllers = [(completion[0].split(':  ')[1] + '\tAngularJS', completion[0].split(':  ')[1]) for completion in all_defs if completion[0].startswith('controller')]
 			return list(set(controllers))
-		if(view.score_selector(_scope, 'text.html string.quoted')):
+		if(view.score_selector(_scope, ng.settings.get('filter_scope'))):
 			return ng.filter_completions()
 		for selector in ng.settings.get('attribute_avoided_scopes'):
 			if view.score_selector(_scope, selector):

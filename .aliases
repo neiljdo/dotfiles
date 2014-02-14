@@ -10,8 +10,9 @@ alias d="du -h -d=1"
 alias df="df -h"
 alias g="git"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
-alias h="history"
-alias sz="source ~/.zshrc"
+alias h='history'
+alias ifc='ifconfig'
+alias sz='source ~/.zshrc'
 alias zs='sz'
 
 # virtualenv aliases

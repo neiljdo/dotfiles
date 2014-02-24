@@ -22,3 +22,5 @@ WORKON_HOME=$HOME/.virtualenvs
 
 # tmux - support 256 colors
 TERM="xterm-256color"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

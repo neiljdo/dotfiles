@@ -95,3 +95,9 @@ alias pmdm='pm datamigration --settings=$DJANGO_SETTINGS_MODULE_DEV'
 
 # django-celery
 alias pmcl='pm celery worker --loglevel=debug --settings=$DJANGO_SETTINGS_MODULE_DEV'
+
+# fabric
+alias fabi='fab -s "/bin/bash -ic"'
+alias fabil='fab -s "/bin/bash -ilc"'
+alias fabl='fab -s "/bin/bash -lc"'
+alias fab='fabi'

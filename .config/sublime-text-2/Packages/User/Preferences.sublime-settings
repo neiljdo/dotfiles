@@ -8,8 +8,12 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
+		"Markdown",
+		"MarkdownEditing",
+		"RestructuredText",
 		"JSLint",
-		"RestructuredText"
+		"Markdown Preview",
+		"Markdown Extended"
 	],
 	"rulers":
 	[

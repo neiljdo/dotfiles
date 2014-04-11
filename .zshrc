@@ -10,7 +10,7 @@ ZSH_THEME="monokai-prose"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(django git git-extras django node python pyenv tmux virtualenv virtualenvwrapper z)
+plugins=(anaconda django git git-extras django node python pyenv tmux virtualenv virtualenvwrapper z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -23,11 +23,16 @@ WORKON_HOME=$HOME/.virtualenvs
 # tmux - support 256 colors
 TERM="xterm-256color"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
 
+# pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
 
 if [ -d "${PYENV_ROOT}" ]; then
   export PATH="${PYENV_ROOT}/bin:${PATH}"
   eval "$(pyenv init -)"
 fi
+
+# anaconda
+ANACONDA=".anaconda"

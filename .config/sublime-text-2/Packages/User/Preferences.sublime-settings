@@ -13,7 +13,12 @@
 		"RestructuredText",
 		"JSLint",
 		"Markdown Preview",
-		"Markdown Extended"
+		"Markdown Extended",
+		"Color Highlighter",
+		"ColorPicker",
+		"Git",
+		"Pretty JSON",
+		"RestructuredText Improved"
 	],
 	"rulers":
 	[

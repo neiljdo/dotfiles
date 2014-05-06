@@ -20,6 +20,7 @@ Markdown plugin for Sublime Text. Provides a decent Markdown color scheme (light
 * [Configuration](#configuration)
 * [Tips](#tips)
 * [Similar Plugins](#similar-plugins)
+* [Known Bugs](#known-bugs)
 * [Contributing](#contributing)
 * [Credits](#credits)
 * [License](#license)
@@ -82,6 +83,10 @@ Strikethrough is supported:
 ### Fix Underlined Headers
 
 Adjusts every setext-style header to add or remove `=` or `-` characters as needed to match the lengths of their header text.
+
+### Convert Underlined Headers to ATX
+
+Converts every setext-style header into an ATX style header. If something is selected only the headers in the selections will be converted, otherwise the conversion will be applied to the whole view.
 
 ### Add Missing Link Labels
 
@@ -152,6 +157,10 @@ We are maintaining a [tips section][tips] in our [Wiki][]. Jump there to learn f
 * [Sublime Markdown Extended][]
 * [SmartMarkdown][]
 
+## Known Bugs
+
+* Setext-style headers (`===` and `---`) do not show up in the symbol list. This is due to a Sublime Text limitation (see [#158][]). However, we are able to put a placeholder to indicate the existence of the header. We encourage you to use Atx-style headers (`#`).
+
 ## Contributing
 
 See `CONTRIBUTING.md` file.
@@ -197,3 +206,4 @@ MarkdownEditing is released under the [MIT License][opensource].
 [tips]: https://github.com/SublimeText-Markdown/MarkdownEditing/wiki/Tips
 [Wiki]: https://github.com/SublimeText-Markdown/MarkdownEditing/wiki
 [GFM]: https://help.github.com/articles/github-flavored-markdown
+[#158]: https://github.com/SublimeText-Markdown/MarkdownEditing/issues/158

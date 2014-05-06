@@ -28,17 +28,21 @@ For snippets check out `Restructured Text (RST) Snippets`_.
 Changes
 -------
 
-2013-01-16
+2014-04-01
+    - added some type-guessing for preformatted text for highlighted 
+      preformatted text
+
+2014-01-16
     - simplified list highlighting.  Only list-bullets or list-numbers are
       highlighted.  Such that issue #1 is fixed on all platforms.
 
     - made options to entity names and put them also into symbol list
 
-2013-01-07
+2014-01-07
     - issue #1 was not fixed. list is not completely highlighted anymore in 
       ST3, but no hanging or crashes in ST2 anymore.
 
-2013-01-03
+2014-01-03
     - fix issue #1: st2 hangs in list parsing
 
 2013-12-31

@@ -14,6 +14,9 @@ class JSONLintCommand(sublime_plugin.EventListener):
     def __init__(self):
         self.pending = 0
 
+    def on_load(self, view):
+        self.on_modified(view)
+
     def on_modified(self, view):
         syntax = view.settings().get('syntax')
         syntax = os.path.basename(syntax).replace('.tmLanguage', '').lower() if syntax is not None else ''

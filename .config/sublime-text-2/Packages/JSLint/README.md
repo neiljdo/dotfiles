@@ -1,7 +1,7 @@
 Sublime-JSLint
 ==============
 
-Fast and easy JSLint build system for Sublime Text 2 and Node.JS.
+Fast and easy JSLint build system for Sublime Text and Node.JS.
 
    * Does not require Java&trade;.
    * It has jslint built in; only needs [Node.JS](http://nodejs.org) installed on your system.
@@ -48,14 +48,18 @@ Unzip the files from the package archive here.
 Usage
 -----
 Any of the following will work:
-   * Select 'JSLint' under Tools > Build System and run Build.
-   * Select Tools > JSLint
-   * Press ctrl-L
-   * Just save a .js file
+   * Bring up the **Command Palette** (`Command+Shift+P` on OS X, `Control+Shift+P` on Linux/Windows), then type `JSLint`.
+   * Click the **Tools > JSLint** menu entry.
+   * Press `CTRL+L`.
+   * Just save a `.js` file.
 
 Settings
 --------
-   * Edit filename extensions under Preferences > Package Settings > JSLint. Any filename extensions there will be jslinted on save.
+* Navigate to **Preferences > Package Settings > JSLint > Settings - Default**.
+* To preserve custom settings:
+  * copy default settings to **Preferences > Package Settings > JSLint > Settings - User**
+  * modify them to your requirements
+
 
 Troubleshooting
 ---------------
@@ -68,7 +72,15 @@ When, on saving a .js file, you get this:
     [cmd:  [u'node', ...]]
 
 
-then probably the command to run nodejs is different on your system.
-Go to Preferences -> Package settings -> JSLint -> Advanced build settings to change it.
-The first item in the list under ``cmd`` is the name of the binary.
+the command to run node might not be in your path. 
+
+Mac OS X users, ensure that `/usr/local/bin` is in your `$PATH` environment variable.
+
+Linux users, if your node command is 'nodejs', as is the case when installing from some Linux repos,  
+navigate to **Preferences > Package Settings > JSLint > Settings - User** to change it, e.g.
+```js
+{
+   "jslint": ["nodejs", "~/.config/sublime-text-2/Packages/JSLint/linter.js"]
+}
+```
 

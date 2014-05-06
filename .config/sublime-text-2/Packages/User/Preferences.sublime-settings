@@ -13,7 +13,17 @@
 		"RestructuredText",
 		"JSLint",
 		"Markdown Preview",
-		"Markdown Extended"
+		"Markdown Extended",
+		"ColorPicker",
+		"GitGutter",
+		"JSONLint",
+		"LESS",
+		"Monokai Extended",
+		"Nodejs",
+		"OmniMarkupPreviewer",
+		"Pretty JSON",
+		"RestructuredText Improved",
+		"Sass"
 	],
 	"rulers":
 	[

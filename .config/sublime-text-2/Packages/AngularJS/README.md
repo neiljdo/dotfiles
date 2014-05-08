@@ -38,12 +38,20 @@ Update your User Settings to the following. This setting update will automatical
 
 Keymaps/Command Palette
 ---
-`super+ctrl+l` : If not indexed: Indexes current project; If indexed: Opens quick panel with a list of definitions to search through
+`super+ctrl+l` : If not indexed: Indexes current project; If indexed: Opens quick panel with a list of definitions to search through [command: angularjs_find]
 
-`super+ctrl+alt+l`: Attempts to goto definition (project must be indexed first)
+`super+ctrl+alt+l`: Attempts to goto definition (project must be indexed first) [command: angularjs_go_to_definition]
 
-`super+shift+ctrl+l`: Attempts to open browser to directive documentation at current cursor location
+`super+shift+ctrl+l`: Attempts to open browser to directive documentation at current cursor location [command: angularjs_go_to_documentation]
 
+>----------
+>**notice**
+>
+>The above keymaps could be used by other plugins as well, so, you my need to remap them via `Preferences > Key Bindings - User`
+>
+>To check if another plugin is using the above keymaps all you have to do is open the ST console (ctrl+\`) and write out `sublime.log_commands(True)` and that will log all the commands ran in ST.
+>
+>----------
 
 Plug-in Details
 ---
@@ -193,6 +201,11 @@ Completion Settings
 
 Preferences > Package Settings > AngularJS > **Settings - User**
 
+**js_scope**: "source.js - string.quoted - comment - meta.brace.square"; Scope to return JS completions in
+
+**filter_scope**: "text.html string.quoted"; Scope to return filters in
+
+**js_prefixes**: [","]; add characters that you want to prevent completion triggers
 
 **disable_all_completions**: false,
 
@@ -206,7 +219,15 @@ Preferences > Package Settings > AngularJS > **Settings - User**
 
 **disable_default_js_completions**: false;
 
-**enable_data_prefix**: bool (false); *adds the 'data-' prefix to attribute completions*
+**enable_data_prefix**: bool (false); *adds the 'data-' prefix to attribute completions, note that you must still type 'ng-' to get autocompletion-list*
+
+Example *Settings - User*, enable "data-" prefix
+
+```json
+{
+	"enable_data_prefix": true
+}
+```
 
 ___
 
@@ -273,3 +294,11 @@ Quick Panel Options
 Preferences > Package Settings > AngularJS > **Settings - User** *(Sublime Text 3 Only)*
 
 **show_file_preview**: bool(true); As you type, the current file and definition will be shown in the buffer
+
+Example *Settings - User*, hide file preview
+
+```json
+{
+	"show_file_preview": false
+}
+```

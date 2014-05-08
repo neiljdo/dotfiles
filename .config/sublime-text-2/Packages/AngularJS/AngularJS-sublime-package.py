@@ -1,5 +1,17 @@
 import sublime, sublime_plugin, os, re, codecs, threading, json, time, glob, itertools
 
+isST2 = int(sublime.version()) < 3000
+
+if isST2:
+	import jscompletions
+	import viewlocation
+	import message
+else:
+	from . import jscompletions
+	from . import viewlocation
+	from . import message
+
+
 class AngularJS():
 	def init(self, isST2):
 		self.isST2 = isST2
@@ -22,11 +34,6 @@ class AngularJS():
 		except:
 			pass
 
-		self.settings_completions.add_on_change('core_attribute_list', self.process_attributes)
-		self.settings_completions.add_on_change('extended_attribute_list', self.process_attributes)
-		self.settings_completions.add_on_change('AngularUI_attribute_list', self.process_attributes)
-		self.settings.add_on_change('enable_data_prefix', self.process_attributes)
-		self.settings.add_on_change('enable_AngularUI_directives', self.process_attributes)
 		self.process_attributes()
 
 	def view_settings(self):
@@ -39,19 +46,19 @@ class AngularJS():
 		return self.active_window().active_view()
 
 	def get_folders(self):
-		return ng.view_settings().get('folders', ng.active_window().folders())
+		return self.view_settings().get('folders', self.active_window().folders())
 
 	def get_index_key(self):
-		return "".join(ng.get_folders())
+		return "".join(self.get_folders())
 
 	def get_project_indexes_at(self, index_key):
 		return self.projects_index_cache[index_key]['definitions']
 
 	def exclude_dirs(self):
 		exclude_dirs = []
-		for folder in ng.get_folders():
-			exclude_dirs += [glob.glob(folder+"/"+path) for path in ng.settings.get('exclude_dirs', [])]
-			exclude_dirs += [glob.glob(folder+"/"+path) for path in ng.view_settings().get('exclude_dirs', [])]
+		for folder in self.get_folders():
+			exclude_dirs += [glob.glob(folder+"/"+path) for path in self.settings.get('exclude_dirs', [])]
+			exclude_dirs += [glob.glob(folder+"/"+path) for path in self.view_settings().get('exclude_dirs', [])]
 		return list(itertools.chain(*exclude_dirs))
 
 	def get_current_project_indexes(self):
@@ -61,8 +68,8 @@ class AngularJS():
 			return self.projects_index_cache[self.get_index_key()]
 		else:
 			return {'definitions':[], 'attributes': {}}
-	def add_indexes_to_cache(self, indexes):
 
+	def add_indexes_to_cache(self, indexes):
 		self.projects_index_cache[self.get_index_key()] = {
 			'definitions': indexes[0],
 			'attributes': indexes[1]
@@ -72,47 +79,11 @@ class AngularJS():
 		j_data.write(json.dumps(self.projects_index_cache))
 		j_data.close()
 
-	def at_html_attribute(self, attribute, locations):
-		view = self.active_view()
-		selector = view.match_selector(locations[0], 'text.html string')
-		if not selector: return False
-		check_attribute = ''
-		view_point = locations[0]
-		char = ''
-		while(char != ' ' and view_point > -1):
-			char = view.substr(view_point)
-			if(char != ' '): check_attribute += char
-			view_point -= 1
-		check_attribute = check_attribute[::-1]
-		if check_attribute.startswith(attribute):
-			return True
-		return False
-
-	def find_word(self, region):
-		non_char = re.compile(self.settings.get('non_word_chars'))
-		look_up_found = ""
-		start_point = region.end()
-		begin_point = start_point-1
-		end_point = start_point+1
-
-		while (not non_char.search(self.active_view().substr(sublime.Region(start_point, end_point))) 
-		and end_point):
-			end_point += 1
-		while (not non_char.search(self.active_view().substr(sublime.Region(begin_point, start_point)))):
-			begin_point -= 1
-
-		look_up_found = self.active_view().substr(sublime.Region(begin_point+1, end_point-1))
-		self.alert('Looking up: ' + look_up_found)
-		return look_up_found
-
 	def handle_file_open_go_to(self, line):
 		if not self.active_view().is_loading():
 			self.active_view().run_command('goto_line', {'line': line} )
 		else:
 			sublime.set_timeout(lambda: self.handle_file_open_go_to(line), 100)
-
-	def alert(self, status_message):
-		sublime.status_message('AngularJS: %s' % status_message)
 
 	#
 	# completions definitions/logic
@@ -193,6 +164,7 @@ class AngularJS():
 		# pattern to find multiple attributes within the completion
 		jadeAttrRegex = re.compile(r'([A-z-]+-\w+|\w+=)')
 		hamlAttrRegex = re.compile(r'([A-z-]+-\w+.|\w+=)')
+
 		def convertToHamlCompletion(attr):
 			attrList = hamlAttrRegex.findall(attr)
 			if attrList:
@@ -221,7 +193,7 @@ class AngularJS():
 		if self.isSource('source.jade'):
 			return [(attr[0], convertMultipleAttrExpantionToJade(attr[1])) for attr in attrs]
 		if self.isSource('text.haml'): return [(attr[0], convertToHamlCompletion(attr[1])) for attr in attrs]
-		return attrs;
+		return attrs
 
 	def convertIndexedDirectiveToTag(self, directive):
 		'''
@@ -232,7 +204,8 @@ class AngularJS():
 			return directive.replace('="$1"$0','')+'${1:($2)}$0'
 		elif self.isSource('text.haml'):
 			return '%' + directive.replace('="$1"$0','')+'${1:\\{$2\\}}$0'
-		else: #assume HTML
+		else:
+			#assume HTML
 			return directive.replace('="$1"$0','')+'$1>$0</'+directive.replace('="$1"$0','')+'>'
 
 	def completions(self, view, prefix, locations, is_inside_tag):
@@ -240,9 +213,13 @@ class AngularJS():
 			pt = locations[0] - len(prefix) - 1
 			ch = view.substr(sublime.Region(pt, pt + 1))
 
-			if(ch != '<' 
-			and not ng.settings.get('disable_default_directive_completions')): attrs = self.attributes[:]
-			else: attrs = []
+			if(
+				ch != '<'
+				and not self.settings.get('disable_default_directive_completions')
+			):
+				attrs = self.attributes[:]
+			else:
+				attrs = []
 			attrs += self.get_isolate_completions(view, prefix, locations, pt)
 			attrs += self.add_indexed_directives()
 
@@ -251,13 +228,13 @@ class AngularJS():
 			return (attrs, 0)
 
 		if not is_inside_tag:
-			if not ng.isST2 and ng.isSource('text.html'):
+			if not self.isST2 and self.isSource('text.html'):
 				if(view.substr(view.sel()[0].b-1) == '<'): return []
-			if ng.isST2 and ng.isSource('text.html'):
+			if self.isST2 and self.isSource('text.html'):
 				if(view.substr(view.sel()[0].b-1) != '<'): return []
 			in_scope = False
 
-			for scope in ng.settings.get('component_defined_scopes'):
+			for scope in self.settings.get('component_defined_scopes'):
 				if view.match_selector(locations[0], scope):
 					in_scope = True
 
@@ -267,8 +244,8 @@ class AngularJS():
 				completions += [
 					(directive[0], self.convertIndexedDirectiveToTag(directive[1])) for directive in self.add_indexed_directives()
 				]
-				if not ng.settings.get('disable_default_element_completions'):
-					elems = [tuple(element) for element in list(ng.settings_completions.get('angular_elements', []))]
+				if not self.settings.get('disable_default_element_completions'):
+					elems = [tuple(element) for element in list(self.settings_completions.get('angular_elements', []))]
 					elems = self.convertElementToSourceType(elems)
 					completions += elems
 				return (completions, 0)
@@ -276,7 +253,8 @@ class AngularJS():
 				return []
 
 	def get_isolate_completions(self, view, prefix, locations, pt):
-		if ng.settings.get('disable_indexed_isolate_completions'): return []
+		if self.settings.get('disable_indexed_isolate_completions'):
+			return []
 
 		# pulled lots from html_completions.py
 		SEARCH_LIMIT = 500
@@ -313,37 +291,22 @@ class AngularJS():
 			return []
 
 	def filter_completions(self):
-		current_point = ng.active_view().sel()[0].end()
-		previous_text_block = ng.active_view().substr(sublime.Region(current_point-2,current_point))
+		current_point = self.active_view().sel()[0].end()
+		previous_text_block = self.active_view().substr(sublime.Region(current_point-2,current_point))
 		if(previous_text_block == '| '):
-			filter_list = ng.get_current_project_indexes().get('definitions')
+			filter_list = self.get_current_project_indexes().get('definitions')
 			filter_list = [(i[0], i[0][9:]) for i in filter_list if i[0][:6] == 'filter']
 			filter_list = list(set(filter_list)) #attempt to remove duplicates
-			filter_list += [tuple(completion)  for completion in ng.settings_completions.get('filter_list', [])]
+			filter_list += [tuple(completion)  for completion in self.settings_completions.get('filter_list', [])]
 			return(filter_list)
 		else:
 			return []
 
-	def js_completions(self):
-		# ugly hack to fix ST bug
-		# https://github.com/angular-ui/AngularJS-sublime-package/issues/14
-		current_word_separators = r'./\\()\"\'-:,.;<>~!@#%^&*|+=[]{}`~?'
-		def st_hack():
-			ng.active_view().settings().set('word_separators', current_word_separators)
-
-		if self.settings.get('disable_default_js_completions'): return []
-		else:
-			# ugly hack to fix ST bug
-			ng.active_view().settings().set('word_separators', "/\()\"'-:,;<>~!@#%^&*|+=[]{}`~?")
-			completions = [tuple(completion) for completion in list(self.settings_js_completions.get('js_completions', []))]
-			sublime.set_timeout(st_hack, 300)
-			return completions
-
 	def add_indexed_directives(self):
-		if ng.settings.get('disable_indexed_directive_completions'): return []
+		if self.settings.get('disable_indexed_directive_completions'): return []
 
 		try:
-			indexes = ng.get_current_project_indexes().get('definitions')
+			indexes = self.get_current_project_indexes().get('definitions')
 		except:
 			return []
 
@@ -359,22 +322,22 @@ class AngularJS():
 		return re.sub('([a-z0-9])([A-Z])', r'\1-\2', directive[0].replace('directive:  ', '')).lower()
 
 	def process_attributes(self):
-		add_data_prefix = ng.settings.get('enable_data_prefix')
+		add_data_prefix = self.settings.get('enable_data_prefix')
 
-		for attr in ng.settings_completions.get('core_attribute_list'):
+		for attr in self.settings_completions.get('core_attribute_list'):
 			if add_data_prefix:
 				attr[1] = "data-" + attr[1]
 
 			self.attributes.append(attr)
 
-		for attr in ng.settings_completions.get('extended_attribute_list'):
+		for attr in self.settings_completions.get('extended_attribute_list'):
 			if add_data_prefix:
 				attr[1] = "data-" + attr[1]
 
 			self.attributes.append(attr)
 
-		if ng.settings.get('enable_AngularUI_directives'):
-			for attr in ng.settings_completions.get('AngularUI_attribute_list'):
+		if self.settings.get('enable_AngularUI_directives'):
+			for attr in self.settings_completions.get('AngularUI_attribute_list'):
 				if add_data_prefix:
 					attr[1] = 'data-' + attr[1]
 
@@ -387,9 +350,11 @@ ng = AngularJS()
 if int(sublime.version()) < 3000:
 	ng.init(isST2=True)
 
+
 def plugin_loaded():
 	global ng
 	ng.init(isST2=False)
+
 
 class AngularJSEventListener(sublime_plugin.EventListener):
 	global ng
@@ -404,13 +369,30 @@ class AngularJSEventListener(sublime_plugin.EventListener):
 		all_matched = True
 		_scope = view.sel()[0].a
 
-		if(view.score_selector(_scope, 'source.js - string.quoted - comment')):
-			return (ng.js_completions(), 0)
-		if(ng.at_html_attribute('ng-controller', locations)):
-			all_defs = ng.get_current_project_indexes().get('definitions')
-			controllers = [(completion[0].split(':  ')[1] + '\tAngularJS', completion[0].split(':  ')[1]) for completion in all_defs if completion[0].startswith('controller')]
-			return list(set(controllers))
-		if(view.score_selector(_scope, 'text.html string.quoted')):
+		if(
+			view.score_selector(_scope, ng.settings.get('js_scope'))
+			and not view.substr(locations[0] - 1) in ng.settings.get('js_prefixes')
+		):
+			word = None
+			if prefix == '':
+				word = view.substr(view.word(locations[0] - 2))
+				# Check if we're possibly at a directive attrs param
+				if 'attrs' in word.lower():
+					word = 'attrs'
+				# Check if we're possibly at a scope var
+				if 'scope' in word.lower():
+					word = '$rootScope'
+			return jscompletions.global_completions(word)
+		if(view.score_selector(_scope, 'source.js string.quoted')):
+			if viewlocation.at_line_with_module(view, locations):
+				return jscompletions.get(('module'), ng.get_current_project_indexes())
+			return jscompletions.in_string_completions(prefix, ng.get_current_project_indexes())
+
+		if(viewlocation.at_html_attribute(view, 'ng-controller', locations)):
+			return jscompletions.get(('controller'), ng.get_current_project_indexes())
+		if(viewlocation.at_html_attribute(view, 'ng-app', locations)):
+			return jscompletions.get(('module'), ng.get_current_project_indexes())
+		if(view.score_selector(_scope, ng.settings.get('filter_scope'))):
 			return ng.filter_completions()
 		for selector in ng.settings.get('attribute_avoided_scopes'):
 			if view.score_selector(_scope, selector):
@@ -445,12 +427,18 @@ class AngularJSEventListener(sublime_plugin.EventListener):
 		)
 		thread.start()
 
+
 class AngularjsDeleteCacheCommand(sublime_plugin.WindowCommand):
 	global ng
 
 	def run(self):
-		ng.alert('Deleting Cache')
-		os.remove(ng.index_cache_location)
+		message.alert('Deleting Cache')
+		try:
+			os.remove(ng.index_cache_location)
+		except:
+			message.alert('Deleting Cache: No cache file found.')
+		ng.projects_index_cache = {}
+
 
 class AngularjsFileIndexCommand(sublime_plugin.WindowCommand):
 
@@ -458,7 +446,7 @@ class AngularjsFileIndexCommand(sublime_plugin.WindowCommand):
 
 	def run(self):
 		if not ng.active_view():
-			ng.alert('There was no active view found to process this command')
+			message.alert('There was no active view found to process this command')
 			return
 
 		ng.is_indexing = True
@@ -476,13 +464,13 @@ class AngularjsFileIndexCommand(sublime_plugin.WindowCommand):
 		self.track_walk_thread(thread)
 
 	def track_walk_thread(self, thread):
-		ng.alert('indexing definitions')
+		message.alert('indexing definitions')
 
 		if thread.is_alive():
 			sublime.set_timeout(lambda: self.track_walk_thread(thread), 1000)
 		else:
 			ng.add_indexes_to_cache(thread.result)
-			ng.alert('indexing completed in ' + str(thread.time_taken))
+			message.alert('indexing completed in ' + str(thread.time_taken))
 			ng.is_indexing = False
 
 
@@ -542,14 +530,13 @@ class AngularjsFindCommand(sublime_plugin.WindowCommand):
 
 
 class AngularjsGoToDefinitionCommand(sublime_plugin.WindowCommand):
-
 	global ng
 
 	def run(self):
 		self.active_view = ng.active_view()
 
 		if not ng.get_current_project_indexes().get('definitions'):
-			ng.alert('No indexing found for project')
+			message.alert('No indexing found for project')
 			return
 
 		# grab first region
@@ -558,7 +545,7 @@ class AngularjsGoToDefinitionCommand(sublime_plugin.WindowCommand):
 		# no selection has been made
 		# so begin expanding to find word
 		if not region.size():
-			definition = ng.find_word(region)
+			definition = viewlocation.find_word(self.active_view, region)
 		else:
 			definition = self.active_view.substr(region)
 
@@ -574,11 +561,10 @@ class AngularjsGoToDefinitionCommand(sublime_plugin.WindowCommand):
 				self.active_view = ng.active_window().open_file(item[1])
 				ng.handle_file_open_go_to(int(item[2]))
 				return
-		ng.alert('definition "%s" could not be found' % definition)
+		message.alert('definition "%s" could not be found' % definition)
 
 
 class AngularjsGoToDocumentationCommand(sublime_plugin.WindowCommand):
-
 	global ng
 
 	def run(self):
@@ -592,7 +578,7 @@ class AngularjsGoToDocumentationCommand(sublime_plugin.WindowCommand):
 		# no selection has been made
 		# so begin expanding to find word
 		if not region.size():
-			definition = ng.find_word(region)
+			definition = viewlocation.find_word(ng.active_view(), region)
 		else:
 			definition = self.active_view.substr(region)
 
@@ -608,7 +594,6 @@ class AngularjsGoToDocumentationCommand(sublime_plugin.WindowCommand):
 
 
 class AngularJSThread(threading.Thread):
-
 	global ng
 
 	def __init__(self, **kwargs):
@@ -688,7 +673,7 @@ class AngularJSThread(threading.Thread):
 		if (not file_path.endswith(tuple(self.kwargs['exclude_file_suffixes']))
 		and index_key in ng.projects_index_cache
 		and not [skip for skip in self.kwargs['exclude_dirs'] if os.path.normpath(skip) in file_path]):
-			ng.alert('Reindexing ' + self.kwargs['file_path'])
+			message.alert('Reindexing ' + self.kwargs['file_path'])
 			project_index = ng.get_project_indexes_at(index_key)
 
 			project_index[:] = [

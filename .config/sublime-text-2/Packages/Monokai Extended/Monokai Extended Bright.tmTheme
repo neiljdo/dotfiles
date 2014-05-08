@@ -10,45 +10,11 @@
 <key>name</key>
 <string>mon_color</string>
 <key>scope</key>
-<string>mcol_0044CCFF</string>
+<string>mcol_FFFFFFFF</string>
 <key>settings</key>
 <dict>
 <key>background</key>
-<string>#0044CCFF</string>
-<key>caret</key>
 <string>#FFFFFFFF</string>
-<key>foreground</key>
-<string>#FFFFFFFF</string>
-</dict>
-</dict>
-
-
-<dict>
-<key>name</key>
-<string>mon_color</string>
-<key>scope</key>
-<string>mcol_6677BBFF</string>
-<key>settings</key>
-<dict>
-<key>background</key>
-<string>#6677BBFF</string>
-<key>caret</key>
-<string>#FFFFFFFF</string>
-<key>foreground</key>
-<string>#FFFFFFFF</string>
-</dict>
-</dict>
-
-
-<dict>
-<key>name</key>
-<string>mon_color</string>
-<key>scope</key>
-<string>mcol_67B6CFFF</string>
-<key>settings</key>
-<dict>
-<key>background</key>
-<string>#67B6CFFF</string>
 <key>caret</key>
 <string>#000000FF</string>
 <key>foreground</key>
@@ -61,28 +27,11 @@
 <key>name</key>
 <string>mon_color</string>
 <key>scope</key>
-<string>mcol_44DD44FF</string>
+<string>mcol_F51EACFF</string>
 <key>settings</key>
 <dict>
 <key>background</key>
-<string>#44DD44FF</string>
-<key>caret</key>
-<string>#000000FF</string>
-<key>foreground</key>
-<string>#000000FF</string>
-</dict>
-</dict>
-
-
-<dict>
-<key>name</key>
-<string>mon_color</string>
-<key>scope</key>
-<string>mcol_4D4D4DFF</string>
-<key>settings</key>
-<dict>
-<key>background</key>
-<string>#4D4D4DFF</string>
+<string>#F51EACFF</string>
 <key>caret</key>
 <string>#FFFFFFFF</string>
 <key>foreground</key>
@@ -631,9 +580,7 @@
 			<key>name</key>
 			<string>diff.deleted</string>
 			<key>scope</key>
-<!--XX-->
-			<!--<string>markup.deleted</string>-->
-			<string>Markdown.deleted</string>
+			<string>markup.deleted</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -644,9 +591,7 @@
 			<key>name</key>
 			<string>diff.inserted</string>
 			<key>scope</key>
-<!--XX-->
-			<!--<string>markup.inserted</string>-->
-			<string>Markdown.inserted</string>
+			<string>markup.inserted</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -657,9 +602,7 @@
 			<key>name</key>
 			<string>diff.changed</string>
 			<key>scope</key>
-<!--XX-->
-			<!--<string>markup.changed</string>-->
-			<string>Markdown.changed</string>
+			<string>markup.changed</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

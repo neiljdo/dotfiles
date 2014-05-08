@@ -1,5 +1,6 @@
 {
 	"color_scheme": "Packages/Monokai Extended/Monokai Extended Bright.tmTheme",
+	"dictionary": "Packages/Language - English/en_US.dic",
 	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "DejaVu Sans Mono",
@@ -7,17 +8,24 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"ColorPicker",
-		"Color Highlighter",
-		"Sass",
-		"Nodejs",
-		"JSONLint",
+		"Markdown",
+		"MarkdownEditing",
 		"RestructuredText",
-		"Pretty JSON",
-		"Theme - Soda",
+		"JSLint",
+		"Markdown Preview",
+		"Markdown Extended",
+		"Color Highlighter",
+		"ColorPicker",
+		"Git",
+		"GitGutter",
+		"JSONLint",
+		"LESS",
 		"Monokai Extended",
-		"Djaneiro",
-		"Dotfiles Syntax Highlighting"
+		"Nodejs",
+		"OmniMarkupPreviewer",
+		"Pretty JSON",
+		"RestructuredText Improved",
+		"Sass"
 	],
 	"rulers":
 	[

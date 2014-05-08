@@ -10,8 +10,9 @@ alias d="du -h -d=1"
 alias df="df -h"
 alias g="git"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
-alias h="history"
-alias sz="source ~/.zshrc"
+alias h='history'
+alias ifc='ifconfig'
+alias sz='source ~/.zshrc'
 alias zs='sz'
 
 # virtualenv aliases
@@ -30,13 +31,18 @@ alias v.lssitepackages='lssitepackages'
 # a few more git shortcuts
 alias gcob='git checkout -b'
 alias gclo='git clone'
+alias gf='git fetch'
+alias gplo='git pull origin'
+alias gplom='gplo master'
 alias gmm='git merge master'
 alias grm='git rm'
 
 # pip aliases
 alias pf='pip freeze'
 alias pi='pip install'
+alias pinw='pip install --no-use-wheel'
 alias pir='pip install -r'
+alias pinwr='pip install --no-use-wheel -r'
 alias pun='pip uninstall'
 
 
@@ -49,12 +55,17 @@ function get_settings {
 
     # If we have manage.py in the directory, we are in a django
     # project. We now look for a .settings override
-    if [[ -f "$PROJECT_ROOT/manage.py" ]]; then
+    if [[ -f "$PWD/.settings" && $PWD = $PROJECT_ROOT/* ]]; then
+        DJANGO_SETTINGS_MODULE_DEV=`cat "$PWD/.settings"`
+        DJANGO_SETTINGS_MODULE_TEST=`cat "$PWD/.test_settings"`
+    elif [[ -f "$PROJECT_ROOT/manage.py" ]]; then
         if [[ -f "$PROJECT_ROOT/.settings" ]]; then
             DJANGO_SETTINGS_MODULE_DEV=`cat $PROJECT_ROOT/.settings`
+            DJANGO_SETTINGS_MODULE_TEST=`cat "$PWD/.test_settings"`
         fi
     else
         unset DJANGO_SETTINGS_MODULE_DEV
+        unset DJANGO_SETTINGS_MODULE_TEST
     fi
 }
 
@@ -71,14 +82,37 @@ fi
 
 # django aliases
 alias pm='python $PWD/manage.py'
+alias pmsa='pm startapp --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pms='pm shell --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmy='pm syncdb --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmdd='pm dumpdata --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmld='pm loaddata --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmrr='pm runserver --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmr='pm runserver 0.0.0.0:8000 --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmcs='pm collectstatic --noinput --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias -g mt='$PWD/manage.py test --settings=$DJANGO_SETTINGS_MODULE_TEST'
+alias -g mtff='mt --failfast'
+alias pmt='python mt'
+
+# django-south
 alias pmm='pm migrate --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmsci='pm schemamigration --initial --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmsca='pm schemamigration --auto --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmscau='pm schemamigration --auto --update --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmdm='pm datamigration --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmdd='pm dumpdata --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmld='pm loaddata --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmr='pm runserver 0.0.0.0:8000 --settings=$DJANGO_SETTINGS_MODULE_DEV'
+
+# django-celery
 alias pmcl='pm celery worker --loglevel=debug --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmcs='pm collectstatic --noinput --settings=$DJANGO_SETTINGS_MODULE_DEV'
+
+# fabric
+alias fabi='fab -s "/bin/bash -ic"'
+alias fabil='fab -s "/bin/bash -ilc"'
+alias fabl='fab -s "/bin/bash -lc"'
+alias fab='fabi'
+
+# coverage
+alias -g cr='coverage run'
+alias -g ce='coverage erase'
+alias -g ch='coverage html'
+alias crmt='ce && cr mt'
+alias crmtff='ce && cr mtff'

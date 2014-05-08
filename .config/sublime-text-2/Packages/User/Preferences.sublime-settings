@@ -9,23 +9,23 @@
 	"ignored_packages":
 	[
 		"Markdown",
-		"MarkdownEditing",
-		"RestructuredText",
-		"JSLint",
-		"Markdown Preview",
-		"Markdown Extended",
-		"Color Highlighter",
 		"ColorPicker",
-		"Git",
-		"GitGutter",
-		"JSONLint",
+		"Color Highlighter",
+		"MarkdownEditing",
 		"LESS",
-		"Monokai Extended",
-		"Nodejs",
-		"OmniMarkupPreviewer",
+		"JSONLint",
+		"RestructuredText",
+		"GitGutter",
 		"Pretty JSON",
 		"RestructuredText Improved",
-		"Sass"
+		"JSLint",
+		"Git",
+		"Markdown Preview",
+		"Nodejs",
+		"Monokai Extended",
+		"OmniMarkupPreviewer",
+		"Sass",
+		"Markdown Extended"
 	],
 	"rulers":
 	[

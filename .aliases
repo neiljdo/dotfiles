@@ -85,6 +85,7 @@ fi
 alias pm='python $PWD/manage.py'
 alias pmsa='pm startapp --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pms='pm shell --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmsp='pm shell_plus --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmds='pm dbshell --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmy='pm syncdb --settings=$DJANGO_SETTINGS_MODULE_DEV'
 alias pmdd='pm dumpdata --settings=$DJANGO_SETTINGS_MODULE_DEV'

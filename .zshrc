@@ -36,4 +36,4 @@ fi
 
 # anaconda
 ANACONDA=".anaconda"
-ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/kaggle $HOME/Documents/compumech)
+ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/numerical)

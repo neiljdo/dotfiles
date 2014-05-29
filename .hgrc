@@ -11,7 +11,7 @@ editor = vim
 color =
 bookmarks =
 hgext.extdiff =
-hgshelve = ~/.hgext/hgshelve/hgshelve.py
+# hgshelve = ~/.hgext/hgshelve/hgshelve.py
 fetch =
 prompt = ~/.hgext/hg-prompt/prompt.py
 

@@ -36,3 +36,4 @@ fi
 
 # anaconda
 ANACONDA=".anaconda"
+ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/numerical)

@@ -12,11 +12,16 @@ class JsLintExecCommand(sublime_plugin.WindowCommand):
 
 	def run(self, files=[]):
 		settings = sublime.load_settings(SETTINGS_FILE)
+		if os.name == "posix":
+			path = "/usr/local/bin:" + os.environ['PATH']
+		else:
+			path = os.environ['PATH']
 		self.window.run_command('exec', {
 			'cmd':
-				map(os.path.expanduser, settings.get('jslint', ['node', sublime.packages_path() + '/JSLint/linter.js']))  +
+				list(map(os.path.expanduser, settings.get('jslint', ['node', sublime.packages_path() + '/JSLint/linter.js']))) +
 				settings.get('options', []) +
 				files,
+			'path': path,
 			'line_regex': settings.get('line_regex', '.*// Line ([0-9]*), Pos ([0-9]*)$'),
 			'file_regex': settings.get('file_regex', '(^[^# ]+.*$)')
 		})

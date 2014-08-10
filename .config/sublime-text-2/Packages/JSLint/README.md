@@ -18,7 +18,7 @@ Installation
 ------------
 
 ### Using Package Control:
-
+   * Install the [Package Control](https://sublime.wbond.net/installation) plugin if you don't have it
    * Press Ctrl+Shift+P to bring up the Command Palette (or use Tools > Command Palette menu)
    * Select Package Control: Install Package
    * Type 'JSLint' to find JSLint (with node) for Sublime Text 2
@@ -26,24 +26,12 @@ Installation
 
 
 ### Not using Package Control:
-   * Save files to the Packages/JSLint directory, then relaunch Sublime:
+   * Get files from the [package archive](https://github.com/darrenderidder/Sublime-JSLint/archive/master.zip)
+   * unzip to Packages/JSLint directory (use "2" or "3" depending on which version you have):
       * Linux: ~/.config/sublime-text-2/Packages/JSLint
       * Mac: ~/Library/Application Support/Sublime Text 2/Packages/JSLint
       * Windows: %APPDATA%/Sublime Text 2/Packages/JSLint
-
-### Note for Sublime Text 3 Users:
-   * Get files from the [package archive](https://github.com/darrenderidder/Sublime-JSLint/archive/master.zip) and unzip to Packages/JSLint directory:
-      * Linux: ~/.config/sublime-text-3/Packages/JSLint
-      * Mac: ~/Library/Application Support/Sublime Text 3/Packages/JSLint
-      * Windows: %APPDATA%/Sublime Text 3/Packages/JSLint
-
-```
-cd "%APPDATA%/Sublime Text 3/Packages"
-C:> mkdir JSHint
-C:> cd JSHint
-
-Unzip the files from the package archive here.
-```
+   * Relaunch Sublime Text
 
 Usage
 -----

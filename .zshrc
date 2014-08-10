@@ -10,7 +10,7 @@ ZSH_THEME="monokai-prose"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(anaconda django git git-extras django node python pyenv tmux virtualenv virtualenvwrapper z)
+plugins=(anaconda django git git-extras django node python pyenv tmux virtualenv virtualenvwrapper z hadoop)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,3 +37,6 @@ fi
 # anaconda
 ANACONDA=".anaconda"
 ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/numerical)
+
+# hadoop
+export HADOOP_HOME="/usr/lib/"

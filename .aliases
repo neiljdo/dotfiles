@@ -83,32 +83,35 @@ fi
 
 # django aliases
 alias pm='python $PWD/manage.py'
-alias pmsa='pm startapp --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pms='pm shell --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmsp='pm shell_plus --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmds='pm dbshell --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmy='pm syncdb --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmdd='pm dumpdata --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmld='pm loaddata --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmrr='pm runserver --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmr='pm runserver 0.0.0.0:8000 --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmcs='pm collectstatic --noinput --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias -g mt='$PWD/manage.py test --settings=$DJANGO_SETTINGS_MODULE_TEST'
+alias -g _ds='--settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias -g _ts='--settings=$DJANGO_SETTINGS_MODULE_TEST'
+alias pmsa='pm startapp _ds'
+alias pms='pm shell _ds'
+alias pmsp='pm shell_plus _ds'
+alias pmds='pm dbshell _ds'
+alias pmy='pm syncdb _ds'
+alias pmdd='pm dumpdata _ds'
+alias pmld='pm loaddata _ds'
+alias pmrr='pm runserver _ds'
+alias pmr='pm runserver 0.0.0.0:8000 _ds'
+alias pmcs='pm collectstatic --noinput _ds'
+alias -g mt='$PWD/manage.py test _ts'
 alias -g mtff='mt --failfast'
 alias pmt='python mt'
+alias pmcsu='pm createsuperuser _ds'
 
 # django-south
-alias pmm='pm migrate --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmsci='pm schemamigration --initial --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmsca='pm schemamigration --auto --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmscau='pm schemamigration --auto --update --settings=$DJANGO_SETTINGS_MODULE_DEV'
-alias pmdm='pm datamigration --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmm='pm migrate _ds'
+alias pmsci='pm schemamigration --initial _ds'
+alias pmsca='pm schemamigration --auto _ds'
+alias pmscau='pm schemamigration --auto --update _ds'
+alias pmdm='pm datamigration _ds'
 
 # django-celery
-alias pmcl='pm celery worker --loglevel=debug --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmcl='pm celery worker --loglevel=debug _ds'
 
 # django-bower
-alias pmbi='pm bower_install --settings=$DJANGO_SETTINGS_MODULE_DEV'
+alias pmbi='pm bower_install _ds'
 
 # fabric
 alias fabi='fab -s "/bin/bash -ic"'

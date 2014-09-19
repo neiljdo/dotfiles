@@ -59,31 +59,39 @@ no_unnumbered_list_char = [^\*\+\-•‣\⁃]
 MAIN
 	#block
 
-inline
+string-specials
 	constant.character.escape.restructuredtext
 		\\.
 
 	constant.constant.character.entity.restructuredtext
 		--
 
+
+inline
+	#string-specials
+
 	variable.other.substitution.restructuredtext 
 		\|[^|\s]+\|
 
-	meta.restructuredtext.link-explicit
+	meta.restructuredtext.link-explicit <string.other.ref.restructuredtext>
 		(`)([^`<]+)(`)(__?)\b
 		1: keyword.operator.restructuredtext.group
 		2: string.other.ref.restructuredtext
 		3: keyword.operator.restructuredtext.group
 		4: keyword.operator.restructuredtext.link-explicit
 
-	meta.restructuredtext.link-explicit
-		(`)([^`<]+)(<)([^>]+)(>)(`)(__?)\b
+	meta.restructuredtext.link-explicit <string.other.ref.restructuredtext>
+		(`)(?=[^`<]+<[^>]+>`__?\b)
 		1: keyword.operator.restructuredtext.group
-		2: string.other.restructuredtext.caption
+
+		(<)([^>]+)(>)(`)(__?)\b
+		1: keyword.operator.restructuredtext.link
+		2: markup.underline.link.restructuredtext
 		3: keyword.operator.restructuredtext.link
-		4: markup.underline.link.restructuredtext
-		5: keyword.operator.restructuredtext.link
-		6: keyword.operator.restructuredtext.link-explicit
+		4: keyword.operator.restructuredtext.link-explicit
+		5: keyword.operator.restructuredtext.link-explicit
+
+		#string-specials
 
 	meta.restructuredtext.link-explicit
 		([\w\-]+)(__?)\b
@@ -122,6 +130,28 @@ inline
 
 		(``)(?!`)|^\s*$
 		1: keyword.operator.code.restructuredtext
+
+	meta.restructuredtext.link-explicit <string.other.ref.restructuredtext>
+		(:)(doc|ref)(:`)(?=[^`<]+<[^>]+>`)
+		1: keyword.operator.restructuredtext.role
+		2: keyword.restructuredtext.role
+		3: keyword.operator.restructuredtext.role
+
+		(<)([^>]+)(>)(`)
+		1: keyword.operator.restructuredtext.link
+		2: markup.underline.link.restructuredtext
+		3: keyword.operator.restructuredtext.link
+		4: keyword.operator.restructuredtext.role
+
+		#string-specials
+
+	meta.restructuredtext.link-explicit
+		(:)(doc|ref)(:`)([^`<]*)(`)
+		1: keyword.operator.restructuredtext.role
+		2: keyword.restructuredtext.role
+		3: keyword.operator.restructuredtext.role
+		4: markup.underline.link.restructuredtext
+		5: keyword.operator.restructuredtext.role
 
 	meta.restructuredtext.role
 		(:)([\w\-]+)(?:(:)([\w\-]+))?(:`)([^`]*)(`)
@@ -269,7 +299,7 @@ option-list
 
 directive
 	<string.other.restructuredtext.directive.parameter>
-		^({hws}*)(\.\.)\s+([\w\-]+)(::)\s+
+		^({hws}*)(\.\.)\s+([\w\-]+(?::[\w\-]+)*)(::)\s+
 		2: keyword.operator.restructuredtext.directive
 		3: keyword.restructuredtext.directive
 		4: keyword.operator.restructuredtext.directive
@@ -448,7 +478,7 @@ preformatted
 
 		#preformatted-content
 
-		(?x) ^ (?=.)
+		^(?=.)
 
 	# [\S\s])
 
@@ -461,6 +491,13 @@ continuation
 	punctuation.separator.continuation.restructuredtext
 		\\$
 
+preformatted-block
+
+	meta.preformatted.block.restructuredtext
+		^(?=({hws}+))
+		^(?!\1)
+
+		#preformatted-content
 # whitespace-line
 # 	invalid.illegal.whitespace-line
 # 		(?x) {hws}+ $
@@ -508,11 +545,6 @@ preformatted-content
 
 		#shell
 
-	string.unquoted.heredoc.preformatted.preformatted
-		^({hws}+)(?=\S)
-
-		^(?!\1|$)
-
 #		#shell
 
 	string.unquoted.heredoc.preformatted.preformatted
@@ -522,6 +554,12 @@ preformatted-content
 		meta.preformatted.quoted.line.restructuredtext
 			^{hws}*((?:>{space}?)+)
 			1: keyword.operator.preformatted-line.restructuredtext
+
+	# string.unquoted.heredoc.preformatted.preformatted
+	# 	^({hws}+)(?=\S)
+
+	# 	^(?!\1)
+
 
 shell
 	keyword.operator.shell.restructuredtext

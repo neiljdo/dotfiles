@@ -28,6 +28,15 @@ For snippets check out `Restructured Text (RST) Snippets`_.
 Changes
 -------
 
+2014-09-13
+    - fix issue #6, only recognized preformatted code will be highlighted, other is skipped unhighlighted.
+
+    - fix issue #7, domain names in directives
+
+    - fix partly issue #5, doc and ref are highlighted in a special way
+
+    - fix issue #4, render escapes in captions
+
 2014-04-01
     - added some type-guessing for preformatted text for highlighted 
       preformatted text

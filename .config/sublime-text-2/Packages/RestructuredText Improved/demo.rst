@@ -553,3 +553,31 @@ There should be six messages in the following, auto-generated
 section, "Docutils System Messages":
 
 .. section should be added by Docutils automatically
+
+
+Sublime Text Highlighting Issues
+================================
+
+.. py:class:: Window
+
+:doc:`foo\- foo <foo>`  :doc:`bar`
+
+
+Issue #4:
+   `Bash\-Hacker's Wiki \- Debugging a script <http://wiki.bash-hackers.org/scripting/debuggingtips>`_
+
+.. class:: Window
+
+    Item
+        Some definition::
+
+          class python:
+            foo bar
+
+            foo bar glork
+
+            Source code
+
+        Definition continues
+
+    Another item

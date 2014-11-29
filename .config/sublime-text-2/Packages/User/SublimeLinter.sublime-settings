@@ -4,7 +4,8 @@
     "sublimelinter_delay": 5,
     "sublimelinter_executable_map":
     {
-        "coffeescript": "/usr/lib/node_modules/coffee-script/bin/coffee"
+        "coffeescript": "/usr/lib/node_modules/coffee-script/bin/coffee",
+        "js": "/home/alpha/.nvm/v0.10.32/bin/node"
     },
     "annotations": ["TODO", "README", "FIXME", "NOOP"]
 }

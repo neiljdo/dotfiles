@@ -8,12 +8,12 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"JSONLint",
-		"JSLint",
 		"Nodejs",
-		"Monokai Extended",
+		"JSONLint",
+		"RestructuredText",
 		"Pretty JSON",
-		"RestructuredText"
+		"JSLint",
+		"Monokai Extended"
 	],
 	"rulers":
 	[

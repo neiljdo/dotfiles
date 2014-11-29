@@ -17,6 +17,7 @@ fetch =
 prompt = ~/.hgext/hg-prompt/prompt.py
 flow = ~/.hgext/hgflow/src/hgflow.py
 mq =
+rebase =
 
 [bookmarks]
 track.current = True

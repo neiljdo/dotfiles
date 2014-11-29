@@ -2,7 +2,7 @@
 	"color_scheme": "Packages/Monokai Extended/Monokai Extended Bright.tmTheme",
 	"dictionary": "Packages/Language - English/en_US.dic",
 	"draw_white_space": "all",
-	"ensure_newline_at_eof_on_save": false,
+	"ensure_newline_at_eof_on_save": true,
 	"font_face": "DejaVu Sans Mono",
 	"font_size": 8,
 	"highlight_line": true,
@@ -13,8 +13,8 @@
 		"JSONLint",
 		"RestructuredText",
 		"Pretty JSON",
-		"Monokai Extended",
-		"JSLint"
+		"JSLint",
+		"Monokai Extended"
 	],
 	"rulers":
 	[

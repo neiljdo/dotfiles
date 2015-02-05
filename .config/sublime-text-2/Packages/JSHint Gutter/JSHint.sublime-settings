@@ -4,7 +4,7 @@
   // http://nodejs.org/#download
   "node_path": {
     "windows": "C:/Program Files/nodejs/node.exe",
-    "linux": "/home/alpha/.nvm/v0.10.32/bin/node",
+    "linux": "/usr/bin/nodejs",
     "osx": "/usr/local/bin/node"
   },
 

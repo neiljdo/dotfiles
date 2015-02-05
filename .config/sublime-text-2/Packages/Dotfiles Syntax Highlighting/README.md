@@ -39,6 +39,7 @@ Install via [Package Control](https://sublime.wbond.net/)
 - `.zprofile`
 - `.zshenv`
 - `.zshrc`
+- `.zsh-theme`
 - `.zpreztorc`
 - `.xsessionrc`
 - `.wgetrc`
@@ -67,3 +68,4 @@ If you want other file types add them in or submit a pull request.
 - [theskumar](https://github.com/theskumar)
 - [kikobeats](https://github.com/kikobeats)
 - [fainder](https://github.com/fainder)
+- [Jeloi](https://github.com/Jeloi)

@@ -18,8 +18,9 @@
         ,"--vars"
         // tolerate ++ and --.
         ,"--plusplus"
-        // tolerate Douglas Crockford.
+        // tolerate blocking -Sync methods
         ,"--stupid"
+        // tolerate comments starting with TODO
         ,"--todo"
 
     ]
@@ -31,7 +32,7 @@
     // should be run on a file.
     // if a match is found (i.e. re.search(filename_filter, filename)),
     // the file will be linted.
-    ,"filename_filter": "(\\.js|\\.json|\\.html|\\.sass|\\.less|\\.html)$"
+    ,"filename_filter": "(\\.js|\\.json)$"
 
 
     // jslint command you want to run as an array of strings.

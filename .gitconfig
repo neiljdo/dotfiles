@@ -42,8 +42,12 @@
 [diff "exif"]
   textconv = exiftool
 
+[diff]
+  submodule = log
+
 [merge]
   log = true
+  renameLimit = 5000
 
 [push]
   default = current

@@ -12,8 +12,6 @@ ZSH_THEME="monokai-prose"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(anaconda django git git-extras git-flow-avh mercurial node npm nvm python pyenv tmux virtualenv virtualenvwrapper z)
 
-source $ZSH/oh-my-zsh.sh
-
 # Aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
@@ -44,3 +42,7 @@ export HADOOP_HOME="/usr/lib/"
 # nvm
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+
+# Make sure that this is the last thing that gets executed
+source $ZSH/oh-my-zsh.sh

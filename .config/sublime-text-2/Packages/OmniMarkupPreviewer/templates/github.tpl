@@ -5,9 +5,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='utf-8'/>
+    <meta charset="utf-8">
     <title>{{filename}}—{{dirname}}</title>
-    <link rel="stylesheet" type="text/css" href="/public/github.css" />
+    <link rel="stylesheet" type="text/css" href="/public/github.css">
   </head>
   <body>
     <div class="container">
@@ -29,8 +29,8 @@
       mathjax_enabled: {{'true' if mathjax_enabled else 'false'}}
     };
   </script>
-  <script type="text/javascript" src="/public/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript" src="/public/jquery.imagesloaded.min.js"></script>
+  <script type="text/javascript" src="/public/jquery-2.1.3.min.js"></script>
+  <script type="text/javascript" src="/public/imagesloaded.pkgd.min.js"></script>
   <script type="text/javascript" src="/public/app.js"></script>
   %if mathjax_enabled:
   <script type="text/x-mathjax-config">

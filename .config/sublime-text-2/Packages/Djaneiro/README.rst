@@ -1,6 +1,10 @@
 ==================================
 Django support for Sublime Text 2/3
 ==================================
+
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Join the chat at https://gitter.im/squ1b3r/Djaneiro
+   :target: https://gitter.im/squ1b3r/Djaneiro?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 Overview
 --------
 
@@ -50,6 +54,7 @@ Snippets for Django templates
  static          ``{% static %}``
  templatetag     ``{% templatetag %}``
  url             ``{% url %}``
+ verbatim        ``{% verbatim %} {% endverbatim %}``
  widthratio      ``{% widthratio %}``
  with            ``{% with as %} {% endwith %}``
  trans           ``{% trans %}``
@@ -145,6 +150,7 @@ Snippets for Django Views
 =================== ======================================================
  view               ``Function Based View``
  createview         ``Generic Create View``
+ updateview         ``Generic Update View``
  deleteview         ``Generic Delete View``
  detailview         ``Generic Detail View``
  listview           ``Generic List View``
@@ -170,6 +176,7 @@ Snippets for Python
 =================== ======================================================
  Abbreviation                        Tag
 =================== ======================================================
+ __init__           ``__init__(self, *args, **kwargs)``
  pdb                ``import pdb ; pdb.set_trace()``
  ipdb               ``import ipdb ; ipdb.set_trace()``
  npdb               ``from nose.tools import set_trace; set_trace()``

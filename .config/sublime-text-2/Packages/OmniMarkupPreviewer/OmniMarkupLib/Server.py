@@ -45,6 +45,12 @@ import bottle
 from bottle import Bottle, ServerAdapter
 from bottle import static_file, request, template
 
+try:
+    from urllib.parse import unquote
+except ImportError:
+    from urllib import unquote
+
+
 DEFAULT_STATIC_FILES_DIR = os.path.normpath(os.path.join(__path__, '..', 'public'))
 USER_STATIC_FILES_DIR = None
 DEFAULT_TEMPLATE_FILES_DIR = os.path.normpath(os.path.join(__path__, '..', 'templates'))
@@ -84,15 +90,16 @@ def get_static_public_file(filepath):
 
 @app.route('/public/<filepath:path>')
 def handler_public(filepath):
-    """ Serving static files """
+    """Serving static files."""
     # User static files have a higher priority
     return get_static_public_file(filepath)
 
 
 @app.route('/local/<base64_encoded_path>')
 def handler_local(base64_encoded_path):
-    """ Serving local files """
+    """Serving local files."""
     fullpath = base64.urlsafe_b64decode(base64_encoded_path).decode('utf-8')
+    fullpath = unquote(fullpath)
     basename = os.path.basename(fullpath)
     dirname = os.path.dirname(fullpath)
     return static_file(basename, root=dirname)
@@ -100,7 +107,7 @@ def handler_local(base64_encoded_path):
 
 @app.post('/api/query')
 def handler_api_query():
-    """ Querying for updates """
+    """Querying for updates."""
     entry = None
     try:
         obj = request.json
@@ -129,7 +136,7 @@ def handler_api_query():
 
 @app.post('/api/revive')
 def handler_api_revive():
-    """ Revive buffer """
+    """Revive buffer."""
     try:
         obj = request.json
         revivable_key = obj['revivable_key']
@@ -160,9 +167,13 @@ def handler_view(buffer_id):
     entry = f.result()
     entry = entry or RenderedMarkupCache.instance().get_entry(buffer_id)
     if entry is None:
-        return bottle.HTTPError(
-            404,
-            'buffer_id(%d) is not valid (closed or unsupported file format)' % buffer_id)
+        error_msg = """\
+'buffer_id(%d) is not valid (closed or unsupported file format)'
+
+**NOTE:** If you run multiple instances of Sublime Text, you may want to adjust
+the `server_port` option in order to get this plugin work again."""
+        error_msg = error_msg % buffer_id
+        raise bottle.HTTPError(404, error_msg)
     setting = Setting.instance()
     return template(setting.html_template_name,
                     buffer_id=buffer_id,

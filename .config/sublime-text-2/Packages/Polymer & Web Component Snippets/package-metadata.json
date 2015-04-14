@@ -1,1 +1,1 @@
-{"url": "https://github.com/robdodson/PolymerSnippets", "version": "2014.09.15.16.48.59", "description": "Sublime snippets for Polymer and Web Components"}
+{"description": "Sublime snippets for Polymer and Web Components", "url": "https://github.com/robdodson/PolymerSnippets", "platforms": ["*"], "version": "2015.03.14.16.18.22", "sublime_text": "*", "dependencies": []}

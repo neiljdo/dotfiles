@@ -13,6 +13,7 @@ alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h='history'
 alias ifc='ifconfig'
 alias sz='source ~/.zshrc'
+alias uu='sudo apt-get update && sudo apt-get upgrade'
 alias zs='sz'
 
 # virtualenv aliases
@@ -100,6 +101,7 @@ alias -g mt='$PWD/manage.py test _ts'
 alias -g mtff='mt --failfast'
 alias pmt='python mt'
 alias pmcsu='pm createsuperuser _ds'
+alias pmcc='pm clear_cache'
 
 # django-coverage
 alias -g mtc='$PWD/manage.py test_coverage --settings=$DJANGO_SETTINGS_MODULE_TEST'

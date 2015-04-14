@@ -25,7 +25,8 @@ track.current = True
 [flow]
 autoshelve = true
 
-# Kaleidoscope: http://www.kaleidoscopeapp.com/
 [extdiff]
-cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
-opts.ksdiff = hg
+cmd.kdiff3 =
+
+[merge-tools]
+kdiff3.args = $base $local $other -o $output

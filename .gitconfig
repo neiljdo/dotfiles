@@ -48,6 +48,7 @@
 [merge]
   log = true
   renameLimit = 5000
+  tool = kdiff3
 
 [push]
   default = current

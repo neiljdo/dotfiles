@@ -16,6 +16,7 @@ Install via [Package Control](https://sublime.wbond.net/)
 - `.bashrc`
 - `.brew`
 - `.curlrc`
+- `.editorconfig`
 - `.env`
 - `.envrc`
 - `.exports`
@@ -72,3 +73,4 @@ If you want other file types add them in or submit a pull request.
 - [fainder](https://github.com/fainder)
 - [Jeloi](https://github.com/Jeloi)
 - [gwarnants](https://github.com/gwarnants)
+- [michelegera](https://github.com/michelegera)

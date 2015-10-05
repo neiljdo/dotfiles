@@ -43,6 +43,7 @@ export HADOOP_HOME="/usr/lib/"
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh
+
+CURL_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'

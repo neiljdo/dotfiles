@@ -11,6 +11,12 @@ import json
 import time
 import codecs
 import cgi
+import yaml
+
+pygments_local = {
+    'github': 'pygments_css/github.css',
+    'github2014': 'pygments_css/github2014.css'
+}
 
 
 def is_ST3():
@@ -19,21 +25,15 @@ def is_ST3():
 
 
 if is_ST3():
+    from .helper import INSTALLED_DIRECTORY
     from . import desktop
-    from . import yaml
     from .markdown_settings import Settings
     from .markdown_wrapper import StMarkdown as Markdown
-    from .lib.markdown_preview_lib.pygments.formatters import get_formatter_by_name
-    from .helper import INSTALLED_DIRECTORY
     from urllib.request import urlopen, url2pathname, pathname2url
     from urllib.parse import urlparse, urlunparse
     from urllib.error import HTTPError, URLError
     from urllib.parse import quote
     from .markdown.extensions import codehilite
-    try:
-        PYGMENTS_AVAILABLE = codehilite.pygments
-    except:
-        PYGMENTS_AVAILABLE = False
 
     def Request(url, data, headers):
         ''' Adapter for urllib2 used in ST2 '''
@@ -43,22 +43,22 @@ if is_ST3():
     unicode_str = str
 
 else:
+    from helper import INSTALLED_DIRECTORY
     import desktop
-    import yaml
     from markdown_settings import Settings
     from markdown_wrapper import StMarkdown as Markdown
-    from lib.markdown_preview_lib.pygments.formatters import get_formatter_by_name
-    from helper import INSTALLED_DIRECTORY
     from urllib2 import Request, urlopen, HTTPError, URLError
     from urllib import quote, url2pathname, pathname2url
     from urlparse import urlparse, urlunparse
     import markdown.extensions.codehilite as codehilite
-    try:
-        PYGMENTS_AVAILABLE = codehilite.pygments
-    except:
-        PYGMENTS_AVAILABLE = False
 
     unicode_str = unicode
+
+from pygments.formatters import get_formatter_by_name
+try:
+    PYGMENTS_AVAILABLE = codehilite.pygments
+except:
+    PYGMENTS_AVAILABLE = False
 
 _CANNOT_CONVERT = u'cannot convert markdown'
 
@@ -76,7 +76,7 @@ ABS_EXCLUDE = tuple(
 )
 
 DEFAULT_EXT = [
-    "extra", "github", "toc", "headerid",
+    "extra", "github", "toc",
     "meta", "sane_lists", "smarty", "wikilinks",
     "admonition"
 ]
@@ -119,7 +119,7 @@ def load_resource(name):
         if is_ST3():
             return sublime.load_resource('Packages/Markdown Preview/{0}'.format(name))
         else:
-            filename = os.path.join(sublime.packages_path(), INSTALLED_DIRECTORY, name)
+            filename = os.path.join(sublime.packages_path(), INSTALLED_DIRECTORY, os.path.normpath(name))
             return load_utf8(filename)
     except:
         print("Error while load_resource('%s')" % name)
@@ -225,50 +225,50 @@ def repl_relative(m, base_path, relative_path):
     link = m.group(0)
     try:
         scheme, netloc, path, params, query, fragment, is_url, is_absolute = parse_url(m.group('path')[1:-1])
+
+        if not is_url:
+            # Get the absolute path of the file or return
+            # if we can't resolve the path
+            path = url2pathname(path)
+            abs_path = None
+            if (not is_absolute):
+                # Convert current relative path to absolute
+                temp = os.path.normpath(os.path.join(base_path, path))
+                if os.path.exists(temp):
+                    abs_path = temp.replace("\\", "/")
+            elif os.path.exists(path):
+                abs_path = path
+
+            if abs_path is not None:
+                convert = False
+                # Determine if we should convert the relative path
+                # (or see if we can realistically convert the path)
+                if (sublime.platform() == "windows"):
+                    # Make sure basepath starts with same drive location as target
+                    # If they don't match, we will stay with absolute path.
+                    if (base_path.startswith('//') and base_path.startswith('//')):
+                        convert = True
+                    else:
+                        base_drive = RE_WIN_DRIVE_PATH.match(base_path)
+                        path_drive = RE_WIN_DRIVE_PATH.match(abs_path)
+                        if (
+                            (base_drive and path_drive) and
+                            base_drive.group('drive').lower() == path_drive.group('drive').lower()
+                        ):
+                            convert = True
+                else:
+                    # OSX and Linux
+                    convert = True
+
+                # Convert the path, url encode it, and format it as a link
+                if convert:
+                    path = pathname2url(os.path.relpath(abs_path, relative_path).replace('\\', '/'))
+                else:
+                    path = pathname2url(abs_path)
+                link = '%s"%s"' % (m.group('name'), urlunparse((scheme, netloc, path, params, query, fragment)))
     except:
         # Parsing crashed an burned; no need to continue.
-        return link
-
-    if not is_url:
-        # Get the absolute path of the file or return
-        # if we can't resolve the path
-        path = url2pathname(path)
-        abs_path = None
-        if (not is_absolute):
-            # Convert current relative path to absolute
-            temp = os.path.normpath(os.path.join(base_path, path))
-            if os.path.exists(temp):
-                abs_path = temp.replace("\\", "/")
-        elif os.path.exists(path):
-            abs_path = path
-
-        if abs_path is not None:
-            convert = False
-            # Determine if we should convert the relative path
-            # (or see if we can realistically convert the path)
-            if (sublime.platform() == "windows"):
-                # Make sure basepath starts with same drive location as target
-                # If they don't match, we will stay with absolute path.
-                if (base_path.startswith('//') and base_path.startswith('//')):
-                    convert = True
-                else:
-                    base_drive = RE_WIN_DRIVE_PATH.match(base_path)
-                    path_drive = RE_WIN_DRIVE_PATH.match(abs_path)
-                    if (
-                        (base_drive and path_drive) and
-                        base_drive.group('drive').lower() == path_drive.group('drive').lower()
-                    ):
-                        convert = True
-            else:
-                # OSX and Linux
-                convert = True
-
-            # Convert the path, url encode it, and format it as a link
-            if convert:
-                path = pathname2url(os.path.relpath(abs_path, relative_path).replace('\\', '/'))
-            else:
-                path = pathname2url(abs_path)
-            link = '%s"%s"' % (m.group('name'), urlunparse((scheme, netloc, path, params, query, fragment)))
+        pass
 
     return link
 
@@ -276,15 +276,19 @@ def repl_relative(m, base_path, relative_path):
 def repl_absolute(m, base_path):
     """ Replace path with absolute path """
     link = m.group(0)
-    scheme, netloc, path, params, query, fragment, is_url, is_absolute = parse_url(m.group('path')[1:-1])
 
-    path = url2pathname(path)
+    try:
+        scheme, netloc, path, params, query, fragment, is_url, is_absolute = parse_url(m.group('path')[1:-1])
 
-    if (not is_absolute and not is_url):
-        temp = os.path.normpath(os.path.join(base_path, path))
-        if os.path.exists(temp):
-            path = pathname2url(temp.replace("\\", "/"))
-            link = '%s"%s"' % (m.group('name'), urlunparse((scheme, netloc, path, params, query, fragment)))
+        if (not is_absolute and not is_url):
+            path = url2pathname(path)
+            temp = os.path.normpath(os.path.join(base_path, path))
+            if os.path.exists(temp):
+                path = pathname2url(temp.replace("\\", "/"))
+                link = '%s"%s"' % (m.group('name'), urlunparse((scheme, netloc, path, params, query, fragment)))
+    except Exception:
+        # Parsing crashed an burned; no need to continue.
+        pass
 
     return link
 
@@ -389,19 +393,24 @@ class Compiler(object):
 
     def get_default_css(self):
         ''' locate the correct CSS with the 'css' setting '''
-        css_name = self.settings.get('css', 'default')
+        css_list = self.settings.get('css', ['default'])
 
-        if self.isurl(css_name):
-            # link to remote URL
-            return u"<link href='%s' rel='stylesheet' type='text/css'>" % css_name
-        elif os.path.isfile(os.path.expanduser(css_name)):
-            # use custom CSS file
-            return u"<style>%s</style>" % load_utf8(os.path.expanduser(css_name))
-        elif css_name == 'default':
-            # use parser CSS file
-            return u"<style>%s</style>" % load_resource(self.default_css)
+        if not isinstance(css_list, list):
+            css_list = [css_list]
 
-        return ''
+        css_text = []
+        for css_name in css_list:
+            if self.isurl(css_name):
+                # link to remote URL
+                css_text.append(u"<link href='%s' rel='stylesheet' type='text/css'>" % css_name)
+            elif os.path.isfile(os.path.expanduser(css_name)):
+                # use custom CSS file
+                css_text.append(u"<style>%s</style>" % load_utf8(os.path.expanduser(css_name)))
+            elif css_name == 'default':
+                # use parser CSS file
+                css_text.append(u"<style>%s</style>" % load_resource(self.default_css))
+
+        return u'\n'.join(css_text)
 
     def get_override_css(self):
         ''' handls allow_css_overrides setting. '''
@@ -606,42 +615,42 @@ class Compiler(object):
 
         def b64(m):
             import base64
-            src = url2pathname(m.group('path')[1:-1])
             data = m.group(0)
-            base_path = self.settings.get('builtin').get("basepath")
-            if base_path is None:
-                base_path = ""
+            try:
+                src = url2pathname(m.group('path')[1:-1])
+                base_path = self.settings.get('builtin').get("basepath")
+                if base_path is None:
+                    base_path = ""
 
-            # Format the link
-            absolute = False
-            if src.startswith('file://'):
-                src = src.replace('file://', '', 1)
-                if sublime.platform() == "windows" and not src.startswith('//'):
-                    src = src.lstrip("/")
-                absolute = True
-            elif sublime.platform() == "windows" and RE_WIN_DRIVE.match(src) is not None:
-                absolute = True
+                # Format the link
+                absolute = False
+                if src.startswith('file://'):
+                    src = src.replace('file://', '', 1)
+                    if sublime.platform() == "windows" and not src.startswith('//'):
+                        src = src.lstrip("/")
+                    absolute = True
+                elif sublime.platform() == "windows" and RE_WIN_DRIVE.match(src) is not None:
+                    absolute = True
 
-            # Make sure we are working with an absolute path
-            if not src.startswith(exclusion_list):
-                if absolute:
-                    src = os.path.normpath(src)
-                else:
-                    src = os.path.normpath(os.path.join(base_path, src))
+                # Make sure we are working with an absolute path
+                if not src.startswith(exclusion_list):
+                    if absolute:
+                        src = os.path.normpath(src)
+                    else:
+                        src = os.path.normpath(os.path.join(base_path, src))
 
-                if os.path.exists(src):
-                    ext = os.path.splitext(src)[1].lower()
-                    for b64_ext in file_types:
-                        if ext in b64_ext:
-                            try:
+                    if os.path.exists(src):
+                        ext = os.path.splitext(src)[1].lower()
+                        for b64_ext in file_types:
+                            if ext in b64_ext:
                                 with open(src, "rb") as f:
                                     data = " src=\"data:%s;base64,%s\"" % (
                                         file_types[b64_ext],
                                         base64.b64encode(f.read()).decode('ascii')
                                     )
-                            except Exception:
-                                pass
-                            break
+                                break
+            except Exception:
+                pass
             return data
 
         def repl(m):
@@ -909,7 +918,7 @@ class GithubCompiler(Compiler):
             if e.code == 401:
                 sublime.error_message('github API auth failed. Please check your OAuth token.')
             else:
-                sublime.error_message('github API responded in an unfashion way :/')
+                sublime.error_message('github API responded in an unfriendly way :/')
         except URLError:
             # Maybe this is a Linux-install of ST which doesn't bundle with SSL support
             # So let's try wrapping curl instead
@@ -925,18 +934,23 @@ class GithubCompiler(Compiler):
         return markdown_html
 
 
-class MultiMarkdownCompiler(Compiler):
+class ExternalMarkdownCompiler(Compiler):
     default_css = "markdown.css"
+
+    def __init__(self, parser):
+        """Initialize."""
+
+        self.parser = parser
+        super(ExternalMarkdownCompiler, self).__init__()
 
     def parser_specific_convert(self, markdown_text):
         import subprocess
-        binary = self.settings.get("multimarkdown_binary", "")
-        if os.path.exists(binary):
-            cmd = [binary]
-            critic_mode = self.settings.get("strip_critic_marks", "accept")
-            if critic_mode in ("accept", "reject"):
-                cmd.append('-a' if critic_mode == "accept" else '-r')
-            sublime.status_message('converting markdown with multimarkdown...')
+        settings = sublime.load_settings("MarkdownPreview.sublime-settings")
+        binary = settings.get('markdown_binary_map', {})[self.parser]
+
+        if len(binary) and os.path.exists(binary[0]):
+            cmd = binary
+            sublime.status_message('converting markdown with %s...' % self.parser)
             if sublime.platform() == "windows":
                 startupinfo = subprocess.STARTUPINFO()
                 startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
@@ -958,7 +972,7 @@ class MultiMarkdownCompiler(Compiler):
                 print(markdown_html)
                 markdown_html = _CANNOT_CONVERT
         else:
-            sublime.error_message("Cannot find multimarkdown binary!")
+            sublime.error_message("Cannot find % binary!" % self.binary)
             markdown_html = _CANNOT_CONVERT
         return markdown_html
 
@@ -966,14 +980,27 @@ class MultiMarkdownCompiler(Compiler):
 class MarkdownCompiler(Compiler):
     default_css = "markdown.css"
 
+    def set_highlight(self, pygments_style, css_class):
+        ''' Set the Pygments css. '''
+
+        if pygments_style and not self.noclasses:
+            style = None
+            if pygments_style not in pygments_local:
+                try:
+                    style = get_formatter_by_name('html', style=pygments_style).get_style_defs('.codehilite pre')
+                except Exception:
+                    pygments_style = 'github'
+            if style is None:
+                style = load_resource(pygments_local[pygments_style]) % {
+                    'css_class': ''.join(['.' + x for x in css_class.split(' ') if x])
+                }
+
+            self.pygments_style = '<style>%s</style>' % style
+        return pygments_style
+
     def get_highlight(self):
-        ''' return the Pygments css if enabled '''
-
-        highlight = ''
-        if self.pygments_style and not self.noclasses:
-            highlight += '<style>%s</style>' % get_formatter_by_name('html', style=self.pygments_style).get_style_defs('.codehilite pre')
-
-        return highlight
+        ''' return the Pygments css if enabled. '''
+        return self.pygments_style if self.pygments_style else ''
 
     def preprocessor_critic(self, text):
         ''' Stip out multi-markdown critic marks.  Accept changes by default '''
@@ -985,28 +1012,29 @@ class MarkdownCompiler(Compiler):
         return text
 
     def process_extensions(self, extensions):
-        re_pygments = re.compile(r"pygments_style\s*=\s*([a-zA-Z][a-zA-Z_\d]*)")
+        re_pygments = re.compile(r"(?:\s*,)?pygments_style\s*=\s*([a-zA-Z][a-zA-Z_\d]*)")
+        re_pygments_replace = re.compile(r"pygments_style\s*=\s*([a-zA-Z][a-zA-Z_\d]*)")
+        re_use_pygments = re.compile(r"use_pygments\s*=\s*(True|False)")
         re_insert_pygment = re.compile(r"(?P<bracket_start>codehilite\([^)]+?)(?P<bracket_end>\s*\)$)|(?P<start>codehilite)")
-        re_no_classes = re.compile(r"noclasses\s*=\s*(True|False)")
+        re_no_classes = re.compile(r"(?:\s*,)?noclasses\s*=\s*(True|False)")
+        re_css_class = re.compile(r"css_class\s*=\s*([\w\-]+)")
         # First search if pygments has manually been set,
         # and if so, read what the desired color scheme to use is
         self.pygments_style = None
         self.noclasses = False
-
-        use_pygments = self.settings.get('enable_pygments', True)
-        if use_pygments and not PYGMENTS_AVAILABLE:
-            use_pygments = False
-        if use_pygments:
-            codehilite.pygments = True
-        else:
-            codehilite.pygments = False
+        use_pygments = True
+        pygments_css = None
 
         count = 0
         for e in extensions:
             if e.startswith("codehilite"):
+                m = re_use_pygments.search(e)
+                use_pygments = True if m is None else m.group(1) == 'True'
+                m = re_css_class.search(e)
+                css_class = m.group(1) if m else 'codehilite'
                 pygments_style = re_pygments.search(e)
                 if pygments_style is None:
-                    self.pygments_style = "github"
+                    pygments_css = "github"
                     m = re_insert_pygment.match(e)
                     if m is not None:
                         if m.group('bracket_start'):
@@ -1016,9 +1044,20 @@ class MarkdownCompiler(Compiler):
                             start = m.group('start') + "(pygments_style="
                             end = ')'
 
-                        extensions[count] = start + self.pygments_style + end
+                        extensions[count] = start + pygments_css + end
                 else:
-                    self.pygments_style = pygments_style.group(1)
+                    pygments_css = pygments_style.group(1)
+
+                # Set the style, but erase the setting if the CSS is pygments_local.
+                # Don't allow 'no_css' with non internal themes.
+                # Replace the setting with the correct name if the style was invalid.
+                original = pygments_css
+                pygments_css = self.set_highlight(pygments_css, css_class)
+                if pygments_css in pygments_local:
+                    extensions[count] = re_no_classes.sub('', re_pygments.sub('', e))
+                elif original != pygments_css:
+                    extensions[count] = re_pygments_replace.sub('pygments_style=%s' % pygments_css, e)
+
                 noclasses = re_no_classes.search(e)
                 if noclasses is not None and noclasses.group(1) == "True":
                     self.noclasses = True
@@ -1027,12 +1066,17 @@ class MarkdownCompiler(Compiler):
         # Second, if nothing manual was set, see if "enable_highlight" is enabled with pygment support
         # If no style has been set, setup the default
         if (
-            self.pygments_style is None and
+            pygments_css is None and
             self.settings.get("enable_highlight") is True
         ):
+            pygments_css = self.set_highlight('github', 'codehilite')
             guess_lang = str(bool(self.settings.get("guess_language", True)))
-            extensions.append("codehilite(guess_lang=%s,pygments_style=github)" % guess_lang)
-            self.pygments_style = "github"
+            use_pygments = bool(self.settings.get("enable_pygments", True))
+            extensions.append(
+                "codehilite(guess_lang=%s,use_pygments=%s)" % (
+                    guess_lang, str(use_pygments)
+                )
+            )
 
         if not use_pygments:
             self.pygments_style = None
@@ -1066,15 +1110,20 @@ class MarkdownCompiler(Compiler):
 
 class MarkdownPreviewSelectCommand(sublime_plugin.TextCommand):
     def run(self, edit, target='browser'):
+
+        settings = sublime.load_settings("MarkdownPreview.sublime-settings")
+        md_map = settings.get('markdown_binary_map', {})
         parsers = [
             "markdown",
-            "github",
-            "multimarkdown"
+            "github"
         ]
+
+        # Add external markdown binaries.
+        for k in md_map.keys():
+            parsers.append(k)
 
         self.target = target
 
-        settings = sublime.load_settings("MarkdownPreview.sublime-settings")
         enabled_parsers = set()
         for p in settings.get("enabled_parsers", ["markdown", "github"]):
             if p in parsers:
@@ -1118,9 +1167,12 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
 
         if parser == "github":
             compiler = GithubCompiler()
-        elif parser == "multimarkdown":
-            compiler = MultiMarkdownCompiler()
+        elif parser == 'markdown':
+            compiler = MarkdownCompiler()
+        elif parser in settings.get("enabled_parsers", ("markdown", "github")):
+            compiler = ExternalMarkdownCompiler(parser)
         else:
+            # Fallback to Python Markdown
             compiler = MarkdownCompiler()
 
         html, body = compiler.run(self.view, preview=(target in ['disk', 'browser']))
@@ -1258,8 +1310,10 @@ class MarkdownBuildCommand(sublime_plugin.WindowCommand):
 
         if parser == "github":
             compiler = GithubCompiler()
-        elif parser == "multimarkdown":
-            compiler = MultiMarkdownCompiler()
+        elif parser == 'markdown':
+            compiler = MarkdownCompiler()
+        elif parser in settings.get("enabled_parsers", ("markdown", "github")):
+            compiler = ExternalMarkdownCompiler(parser)
         else:
             compiler = MarkdownCompiler()
 

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>author</key>
-	<string>github.com&#x2f;szupie</string>
+	<string>github.com/szupie</string>
 	<key>colorSpaceName</key>
 	<string>sRGB</string>
 	<key>gutterSettings</key>
@@ -20,9 +20,9 @@
 		<string>#679c00</string>
 	</dict>
 	<key>name</key>
-	<string>Monokai Extended</string>
+	<string>Monokai Extended Light</string>
 	<key>semanticClass</key>
-	<string>theme.dark.monokai_extended</string>
+	<string>theme.light.monokai_extended</string>
 	<key>settings</key>
 	<array>
 		<dict>
@@ -271,7 +271,7 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Library class&#x2f;type</string>
+			<string>Library class/type</string>
 			<key>scope</key>
 			<string>support.type, support.class</string>
 			<key>settings</key>
@@ -352,7 +352,7 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>HTML: Doctype&#x2f;XML Processing</string>
+			<string>HTML: Doctype/XML Processing</string>
 			<key>scope</key>
 			<string>meta.tag.sgml.doctype.xml, declaration.sgml.html declaration.doctype, declaration.sgml.html declaration.doctype entity, declaration.sgml.html declaration.doctype string,  declaration.xml-processing, declaration.xml-processing entity, declaration.xml-processing string, doctype</string>
 			<key>settings</key>
@@ -711,6 +711,17 @@
 			<dict>
 				<key>foreground</key>
 				<string>#cfcfc2</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>CoffeeScript String Interpolated</string>
+			<key>scope</key>
+			<string>punctuation.section.embedded.coffee</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#e69f66</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1297,6 +1308,84 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Markup: Heading 1</string>
+			<key>scope</key>
+			<string>markup.heading.1.markdown</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#cf6e00</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup: Heading 2</string>
+			<key>scope</key>
+			<string>markup.heading.2.markdown</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#ba6300</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup: Heading 3</string>
+			<key>scope</key>
+			<string>markup.heading.3.markdown</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#a65800</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup: Heading 4</string>
+			<key>scope</key>
+			<string>markup.heading.4.markdown</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#914e00</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup: Heading 5</string>
+			<key>scope</key>
+			<string>markup.heading.5.markdown</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#7d4300</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup: Heading 6</string>
+			<key>scope</key>
+			<string>markup.heading.6.markdown</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#693800</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Markup: italic</string>
 			<key>scope</key>
 			<string>markup.italic</string>
@@ -1332,6 +1421,19 @@
 				<string>underline</string>
 				<key>foreground</key>
 				<string>#679c00</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup: strike</string>
+			<key>scope</key>
+			<string>markup.strike</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string>strike</string>
+				<key>foreground</key>
+				<string>#cc4273</string>
 			</dict>
 		</dict>
 		<dict>
@@ -1842,6 +1944,17 @@
 			<dict>
 				<key>foreground</key>
 				<string>#49483e</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Nginx path</string>
+			<key>scope</key>
+			<string>string.other.path.nginx</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#fc951e</string>
 			</dict>
 		</dict>
 	</array>

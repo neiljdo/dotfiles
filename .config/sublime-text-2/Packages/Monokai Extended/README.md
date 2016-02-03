@@ -76,10 +76,12 @@ Adds scopes, support and/or improves styling for:
 * `js: source`
 * `js: function`
 * `js: numeric constant`
+* `js: literal language variable` (When using [babel-sublime](https://github.com/babel/babel-sublime))
 * `js: []`
 * `js: ()`
 * `js: {}`
 * `JSON string`
+* `CoffeeScript: #{}`
 * `diff.range`
 * `markdown: plain` (Also install [sublime-markdown-extended](https://github.com/jonschlinkert/sublime-markdown-extended) for additional features.)
 * `markdown: raw inline`
@@ -127,12 +129,17 @@ The following improvements apply to both CSS and LESS.
 
 
 
-## Author
+## Authors
 
 **Jon Schlinkert**
 
 + [http://twitter.com/jonschlinkert](http://twitter.com/jonschlinkert)
 + [http://github.com/jonschlinkert](http://github.com/jonschlinkert)
+
+**Alexander Krivoshhekov**
+
++ [http://twitter.com/FlatDev](http://twitter.com/FlatDev)
++ [http://github.com/SuperPaintman](http://github.com/SuperPaintman)
 
 
 ## Copyright and license

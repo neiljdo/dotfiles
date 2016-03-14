@@ -1,5 +1,21 @@
 <snippet>
 	<content><![CDATA[
+<!--
+A comment describing this element
+
+Example:
+
+    <my-elem></my-elem>
+
+Example:
+
+    <my-elem>
+      <h2>Hello my-elem</h2>
+    </my-elem>
+
+@demo demo/index.html
+-->
+
 <dom-module id="$1">
 	<template>
 		<style>
@@ -7,7 +23,7 @@
 				display: block;
 			}
 		</style>
-		$2
+		$4
 	</template>
 	<script>
 		Polymer({

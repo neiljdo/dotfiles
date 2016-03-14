@@ -357,7 +357,7 @@
             "name": "LESS mixins",
             "scope": "entity.other.less.mixin",
             "settings": {
-                "fontStyle": " italic",
+                "fontStyle": "italic",
                 "foreground": "#e0fdce"
             }
         },
@@ -369,6 +369,14 @@
                 "foreground": "#ff9117"
             }
         },
+        // JavaScript
+        {
+            "name": "JS: this",
+            "scope": "variable.language.this.js",
+            "settings": {
+                "foreground": "#ae81ff"
+            }
+        },
         {
             "name": "JS: Function Name",
             "scope": "meta.function.js, entity.name.function.js, support.function.dom.js",
@@ -378,16 +386,32 @@
             }
         },
         {
+            "name": "JS: Method Name",
+            "scope": "entity.name.method.js",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#a6e22e"
+            }
+        },
+        {
+            "name": "JS: Accessor Name",
+            "scope": "entity.name.accessor.js",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#a6e22e"
+            }
+        },
+        {
             "name": "JS: Storage Type",
             "scope": "storage.type.js",
             "settings": {
-                "fontStyle": " italic",
+                "fontStyle": "italic",
                 "foreground": "#66d9ef"
             }
         },
         {
             "name": "JS: Source",
-            "scope": "text.html.basic source.js.embedded.html",
+            "scope": "text.html.basic, source.js.embedded.html",
             "settings": {
                 "fontStyle": "",
                 "foreground": "#ffffff"
@@ -397,7 +421,7 @@
             "name": "JS: Function",
             "scope": "storage.type.function.js",
             "settings": {
-                "fontStyle": " italic",
+                "fontStyle": "italic",
                 "foreground": "#66d9ef"
             }
         },
@@ -430,6 +454,13 @@
             }
         },
         {
+            "name": "JS: Template String",
+            "scope": "punctuation.template-string.element.begin.js, punctuation.template-string.element.end.js",
+            "settings": {
+                "foreground": "#e69f66"
+            }
+        },
+        {
             "name": "JSON String",
             "scope": "meta.structure.dictionary.json string.quoted.double.json",
             "settings": {
@@ -438,10 +469,17 @@
         },
         // CoffeeScript
         {
-            "name": "CoffeeScript String Interpolated",
+            "name": "CoffeeScript: Template String",
             "scope": "punctuation.section.embedded.coffee",
             "settings": {
                 "foreground": "#e69f66"
+            }
+        },
+        {
+            "name": "CoffeeScript: this",
+            "scope": "variable.language.this.coffee",
+            "settings": {
+                "foreground": "#ae81ff"
             }
         },
         {
@@ -624,7 +662,7 @@
             "scope": "storage.type.class.python, storage.type.function.python, storage.modifier.global.python",
             "settings": {
                 "fontStyle": "",
-                "foreground": "#a6e22e"
+                "foreground": "#3bc0f0"
             }
         },
         {
@@ -910,7 +948,7 @@
             "name": "Markup: Quote",
             "scope": "markup.quote",
             "settings": {
-                "fontStyle": " italic",
+                "fontStyle": "italic",
                 "foreground": "#66d9ef"
             }
         },

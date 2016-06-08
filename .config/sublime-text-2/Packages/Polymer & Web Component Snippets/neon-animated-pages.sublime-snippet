@@ -1,9 +1,9 @@
 <snippet>
     <content><![CDATA[
-<neon-animated-pages selected="${1:0}">
-    <section>$2</section>
-    <section>$3</section>
-    <section>$4</section>
+<neon-animated-pages selected="${1:0}" entry-animation="${2:slide-from-right-animation}" exit-animation="${3:slide-left-animation}">
+    <neon-animatable>$4</neon-animatable>
+    <neon-animatable>$5</neon-animatable>
+    <neon-animatable>$6</neon-animatable>
 </neon-animated-pages>
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

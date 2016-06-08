@@ -1,10 +1,19 @@
-# [sublime-monokai-extended](https://github.com/jonschlinkert/sublime-monokai-extended)
+# [sublime-monokai-extended](https://github.com/jonschlinkert/sublime-monokai-extended) [![package control total downloads](https://img.shields.io/packagecontrol/dt/Monokai%20Extended.svg?style=flat-square)](https://packagecontrol.io/packages/Monokai%20Extended/)
 
-> Extends Monokai from Soda with new syntax highlighting for Markdown, LESS, and Handlebars and improved syntax highlighting for RegEx, HTML, LESS, CSS, JavaScript and more.
+_(Companion to [sublime-markdown-extended](https://github.com/jonschlinkert/sublime-markdown-extended))_
 
-Companion to [sublime-markdown-extended](https://github.com/jonschlinkert/sublime-markdown-extended).
+<br>
 
-#### [Jump to Examples ↓](#examples)
+Extends [Soda Monokai][soda] with:
+
+* Additional syntax highlighting for markdown, LESS, coffee, diffs, and handlebars and more! 
+* Improved syntax highlighting for regular expressions, HTML, LESS, CSS, JavaScript and more!
+
+<br>
+
+#### See: [examples ↓](#examples) | [before and after screenshots][ba]
+
+<br>
 
 ## Getting Started
 
@@ -17,6 +26,7 @@ If you already have [Package Control](http://wbond.net/sublime_packages/package_
 * Select "Install Package" from the Command Palette: <kbd>Ctrl+Shift+P</kbd> on Windows and Linux or <kbd>⇧⌘P</kbd> on OS X)
 * Search for "**Monokai Extended**" and click <kbd>enter</kbd>.
 
+
 #### Manual Installation
 
 Go to `Preferences -> Browse Packages`, and then either download and unzip this plugin into that directory, or:
@@ -24,6 +34,7 @@ Go to `Preferences -> Browse Packages`, and then either download and unzip this 
 ``` bash
 git clone https://github.com/jonschlinkert/sublime-monokai-extended.git "sublime-monokai-extended"
 ```
+
 
 ### 2. Switch Themes
 
@@ -101,14 +112,16 @@ Adds scopes, support and/or improves styling for:
 * `markdown: separator`
 * `markdown: table`
 
-
 ## Examples
 
 ### Markdown
 
-See detailed [before and after examples](https://github.com/jonschlinkert/sublime-monokai-extended/issues/4)
+See **[before and after examples][ba]**
 
 ![image](https://f.cloud.github.com/assets/383994/726833/0fde0d16-e138-11e2-8e3d-8dbfc91224e7.png)
+
+
+***
 
 
 ### CSS
@@ -142,10 +155,13 @@ The following improvements apply to both CSS and LESS.
 + [http://github.com/SuperPaintman](http://github.com/SuperPaintman)
 
 
-## Copyright and license
-Copyright 2013 Jon Schlinkert
+## License
 
-[MIT License](LICENSE-MIT)
+Copyright © 2013-2016, [Jon Schlinkert](https://github.com/jonschlinkert).
+Released under the [MIT license](LICENSE).
 
+
+[soda]: https://github.com/buymeasoda/soda-theme
+[ba]: https://github.com/jonschlinkert/sublime-monokai-extended/issues/4
 [yfm]: http://assemble.io/docs/YAML-front-matter.html "YAML Front Matter"
 [gfm]: https://help.github.com/articles/github-flavored-markdown#syntax-highlighting "GitHub Flavored Markdown"

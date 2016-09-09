@@ -1,0 +1,47 @@
+[
+  {"keys": ["super+shift+w"], "command": "close_window"},
+  {"keys": ["ctrl+shift+w"], "command": "close_all"},
+
+  {
+      "keys": [
+          "ctrl+super+left"
+      ], 
+      "args": {
+          "action": "prev_edit_point"
+      }, 
+      "command": "run_emmet_action", 
+      "context": [
+          {
+              "key": "emmet_action_enabled.prev_edit_point"
+          }
+      ]
+  },
+  {
+      "keys": [
+          "ctrl+super+right"
+      ], 
+      "args": {
+          "action": "next_edit_point"
+      }, 
+      "command": "run_emmet_action", 
+      "context": [
+          {
+              "key": "emmet_action_enabled.next_edit_point"
+          }
+      ]
+  },
+  {
+      "keys": [
+          "ctrl+super+j"
+      ], 
+      "args": {
+          "action": "matching_pair"
+      }, 
+      "command": "run_emmet_action", 
+      "context": [
+          {
+              "key": "emmet_action_enabled.matching_pair"
+          }
+      ]
+  }
+]

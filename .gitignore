@@ -6,6 +6,11 @@
 Backup/
 Settings/
 
+# sublime-text-3 config
+Cache/
+Index/
+Local/
+
 # Package Control
 Package\ Control.cache/
 *.last-run

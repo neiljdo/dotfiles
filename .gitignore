@@ -2,10 +2,6 @@
 *.pyc
 *.cache
 
-# sublime-text-2 config
-Backup/
-Settings/
-
 # sublime-text-3 config
 Cache/
 Index/
@@ -18,5 +14,3 @@ Package\ Control.cache/
 *.bak
 *.chback
 
-# Specific files in package directories
-.config/sublime-text-2/Packages/PyV8/linux64/config.json

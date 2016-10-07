@@ -10,7 +10,7 @@ ZSH_THEME="monokai-prose"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(anaconda django docker git git-flow-avh mercurial node npm nvm python tmux virtualenv virtualenvwrapper z)
+plugins=(anaconda django docker git git-flow-avh history mercurial node npm nvm python sublime tmux virtualenv virtualenvwrapper z)
 
 # Aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"

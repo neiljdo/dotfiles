@@ -1,7 +1,19 @@
 {
 	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
 	"installed_packages":
 	[
-		"Package Control"
+		"AdvancedNewFile",
+		"Anaconda",
+		"Boxy Theme",
+		"Djaneiro",
+		"Emmet",
+		"GitGutter",
+		"Package Control",
+		"requirementstxt",
+		"SideBarEnhancements",
+		"SublimeLinter"
 	]
 }

@@ -11,6 +11,8 @@ Local/
 Package\ Control.cache/
 *.last-run
 
+# Backup
+Backup/
 *.bak
 *.chback
 

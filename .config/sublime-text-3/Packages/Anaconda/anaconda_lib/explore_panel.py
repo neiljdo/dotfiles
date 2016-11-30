@@ -5,6 +5,7 @@
 import sublime
 
 from .typing import List
+from Default.history_list import get_jump_history_for_view
 
 
 class ExplorerPanel:
@@ -49,7 +50,12 @@ class ExplorerPanel:
             cluster = self.options
 
         if len(cluster) == 1 and not forced:
-            Jumper(self.view, cluster[0]['position']).jump()
+            try:
+                Jumper(self.view, cluster[0]['position']).jump()
+            except KeyError:
+                if len(cluster[0].get('options', [])) == 1 and not forced:
+                    Jumper(
+                        self.view, cluster[0]['options'][0]['position']).jump()
             return
 
         self.last_cluster = cluster
@@ -120,6 +126,7 @@ class Jumper:
         if transient is True:
             flags |= sublime.TRANSIENT
 
+        get_jump_history_for_view(self.view).push_selection(self.view)
         sublime.active_window().open_file(self.position, flags)
         if not transient:
             self._toggle_indicator()
@@ -128,7 +135,7 @@ class Jumper:
         """Toggle mark indicator to focus the cursor
         """
 
-        path, line, column = self.position.split(':')
+        path, line, column = self.position.rsplit(':', 2)
         pt = self.view.text_point(int(line) - 1, int(column))
         region_name = 'anaconda.indicator.{}.{}'.format(
             self.view.id(), line

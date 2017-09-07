@@ -1,0 +1,58 @@
+{
+    "always_show_minimap_viewport": true,
+    "binary_file_patterns":
+    [
+        "*.dds",
+        "*.eot",
+        "*.gif",
+        "*.ico",
+        "*.jar",
+        "*.jpeg",
+        "*.jpg",
+        "*.pdf",
+        "*.png",
+        "*.swf",
+        "*.tga",
+        "*.ttf",
+        "*.zip",
+        "/C/Users/no186007/Documents/_projects/skill tool/skills_tool/**"
+    ],
+    "bold_folder_labels": true,
+    "caret_extra_bottom": 1,
+    "caret_extra_top": 1,
+    "caret_extra_width": 1,
+    "caret_style": "blink",
+    "color_scheme": "Packages/Boxy Theme/schemes/Boxy Ocean.tmTheme",
+    "default_line_ending": "unix",
+    "draw_white_space": "all",
+    "ensure_newline_at_eof_on_save": true,
+    "fade_fold_buttons": false,
+    "font_face": "Inconsolata",
+    "font_size": 14,
+    "highlight_line": true,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "indent_guide_options":
+    [
+        "draw_normal",
+        "draw_active"
+    ],
+    "line_padding_bottom": 3,
+    "line_padding_top": 3,
+    "overlay_scroll_bars": "enabled",
+    "rulers":
+    [
+        79,
+        100
+    ],
+    "show_encoding": true,
+    "show_line_endings": true,
+    "theme": "Boxy Ocean.sublime-theme",
+    "theme_icons_materialized": true,
+    "theme_unified": true,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "word_wrap": false
+}

@@ -10,7 +10,8 @@ ZSH_THEME="monokai-prose"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(anaconda django docker git git-flow-avh hadoop history mercurial node npm nvm python sublime tmux virtualenv virtualenvwrapper z)
+# plugins=(anaconda django docker git git-flow-avh hadoop history mercurial node npm nvm python sublime tmux virtualenv virtualenvwrapper z)
+plugins=(git colored-man colorize git github history jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting sublime tmux virtualenv z)
 
 # Aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -37,11 +38,11 @@ ANACONDA=".anaconda"
 ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/projects/dsci)
 
 # java
-export JAVA_HOME="$HOME/jdk1.8.0_102"
-PATH=$PATH:$JAVA_HOME/bin
+# export JAVA_HOME="$HOME/jdk1.8.0_102"
+# PATH=$PATH:$JAVA_HOME/bin
 
 # hadoop
-export HADOOP_HOME="$HOME/hadoop-2.7.3"
+# export HADOOP_HOME="$HOME/hadoop-2.7.3"
 
 # nvm
 export NVM_DIR="${HOME}/.nvm"
@@ -50,12 +51,12 @@ export NVM_DIR="${HOME}/.nvm"
 CURL_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/alpha/google-cloud-sdk/path.zsh.inc'
+# source $HOME/google-cloud-sdk/path.zsh.inc
 
 # The next line enables shell command completion for gcloud.
-source '/home/alpha/google-cloud-sdk/completion.zsh.inc'
+# source $HOME/google-cloud-sdk/completion.zsh.inc
 
-export PATH=$PATH:/home/alpha/google_appengine
+# export PATH=$PATH:$HOME/google_appengine
 
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh

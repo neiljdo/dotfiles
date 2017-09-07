@@ -34,8 +34,8 @@ if [ -d "${PYENV_ROOT}" ]; then
 fi
 
 # anaconda
-ANACONDA=".anaconda"
-ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/projects/dsci)
+ANACONDA=".anaconda3"
+# ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/projects/dsci)
 
 # java
 # export JAVA_HOME="$HOME/jdk1.8.0_102"

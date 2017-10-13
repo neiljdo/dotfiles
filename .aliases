@@ -12,6 +12,7 @@ alias g="git"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h='history'
 alias ifc='ifconfig'
+alias s="ssh"
 alias sz='source ~/.zshrc'
 alias uu='sudo apt-get update && sudo apt-get upgrade'
 alias zs='sz'

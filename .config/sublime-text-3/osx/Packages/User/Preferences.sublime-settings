@@ -40,6 +40,10 @@
 	],
 	"line_padding_bottom": 3,
 	"line_padding_top": 3,
+	"mdpopups.sublime_user_lang_map":
+	{
+	},
+	"mdpopups.use_sublime_highlighter": true,
 	"overlay_scroll_bars": "enabled",
 	"rulers":
 	[

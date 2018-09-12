@@ -14,11 +14,14 @@
 		"BracketHighlighter",
 		"Color Highlighter",
 		"ColorHelper",
+		"Dockerfile Syntax Highlighting",
 		"GitGutter",
-		"Markdown Preview",
+		"LaTeXTools",
 		"MarkdownEditing",
+		"MarkdownPreview",
 		"Package Control",
 		"Pretty JSON",
+		"R-Box",
 		"SideBarEnhancements",
 		"UnicodeMath"
 	]

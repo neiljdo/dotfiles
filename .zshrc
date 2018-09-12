@@ -58,5 +58,18 @@ CURL_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'
 
 # export PATH=$PATH:$HOME/google_appengine
 
+# mecab
+export PATH=$PATH:/usr/local/Cellar/mecab/0.996/libexec/mecab/
+
+# torch
+. /Users/no186007/torch/install/bin/torch-activate
+
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/no186007/Documents/lnd/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc'; fi

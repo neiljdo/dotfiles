@@ -36,6 +36,7 @@ fi
 # anaconda
 ANACONDA=".anaconda3"
 # ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/projects/dsci)
+export PATH=/User/no186007/.anaconda3/bin:$PATH
 
 # java
 # export JAVA_HOME="$HOME/jdk1.8.0_102"
@@ -64,12 +65,11 @@ export PATH=$PATH:/usr/local/Cellar/mecab/0.996/libexec/mecab/
 # torch
 . /Users/no186007/torch/install/bin/torch-activate
 
-# Make sure that this is the last thing that gets executed
-source $ZSH/oh-my-zsh.sh
-
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/no186007/Documents/lnd/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Make sure that this is the last thing that gets executed
+source $ZSH/oh-my-zsh.sh

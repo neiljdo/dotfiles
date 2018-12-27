@@ -3,10 +3,11 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 
 ## `brew install`
 ```
-$> brew install \
-    vim \
-    bash \
-    zsh
+$> brew list
+bash        gettext     lame        libpng      lua         opus        r           snappy      vim         xz
+ffmpeg      gmp         libevent    libvorbis   mpfr        pcre        readline    sqlite      x264        youtube-dl
+gcc         isl         libmpc      libvpx      ncurses     perl        ruby        theora      x265        z
+gdbm        jpeg        libogg      libyaml     openssl     python      sdl2        tmux        xvid        zsh
 ```
 
 ## `brew cask install`
@@ -50,6 +51,10 @@ $> brew cask install \
     transmission \
     vlc \
     webpquicklook
+$> brew cask list
+alfred                        docker                        google-backup-and-sync        karabiner-elements            skyfonts                      spectacle                     vlc
+android-file-transfer         flux                          google-chrome                 macdjview                     skype                         sublime-text
+calibre                       gitkraken                     iterm2                        rstudio                       slack                         transmission
 
 # With issues
 $> brew cask install \

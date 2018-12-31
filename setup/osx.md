@@ -3,16 +3,16 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 
 ## `brew install`
 ```
-$> brew list
-bash        gettext     lame        libpng      lua         opus        r           snappy      vim         xz
-ffmpeg      gmp         libevent    libvorbis   mpfr        pcre        readline    sqlite      x264        youtube-dl
-gcc         isl         libmpc      libvpx      ncurses     perl        ruby        theora      x265        z
-gdbm        jpeg        libogg      libyaml     openssl     python      sdl2        tmux        xvid        zsh
+$ brew list
+bash        gettext     jpeg        libogg      libyaml     openssl     perl        ruby        theora      x265            z
+ffmpeg      git         lame        libpng      lua         opus        python      sdl2        tmux        xvid            zsh
+gcc         gmp         libevent    libvorbis   mpfr        pcre        r           snappy      vim         xz
+gdbm        isl         libmpc      libvpx      ncurses     pcre2       readline    sqlite      x264        youtube-dl
 ```
 
 ## `brew cask install`
 ```
-$> brew cask install \
+$ brew cask install \
     alfred \
     android-file-transfer \
     anki \
@@ -51,13 +51,12 @@ $> brew cask install \
     transmission \
     vlc \
     webpquicklook
-$> brew cask list
-alfred                        docker                        google-backup-and-sync        karabiner-elements            skyfonts                      spectacle                     vlc
-android-file-transfer         flux                          google-chrome                 macdjview                     skype                         sublime-text
-calibre                       gitkraken                     iterm2                        rstudio                       slack                         transmission
-
+$ brew cask list
+alfred                    docker                    google-backup-and-sync    karabiner-elements        skyfonts                  spectacle                 vlc
+android-file-transfer     flux                      google-chrome             macdjview                 skype                     sublime-text              zotero
+calibre                   gitkraken                 iterm2                    rstudio                   slack                     transmission
 # With issues
-$> brew cask install \
+$ brew cask install \
     asepsis \                               # permission errors
     dropbox \                               # repeat
     latexian \                              # not available anymore

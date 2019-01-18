@@ -52,9 +52,10 @@ $ brew cask install \
     vlc \
     webpquicklook
 $ brew cask list
-alfred                    docker                    google-backup-and-sync    karabiner-elements        skyfonts                  spectacle                 vlc
-android-file-transfer     flux                      google-chrome             macdjview                 skype                     sublime-text              zotero
-calibre                   gitkraken                 iterm2                    rstudio                   slack                     transmission
+alfred                         flux                           google-chrome                  qbittorrent                    slack                          vlc
+android-file-transfer          gitkraken                      iterm2                         rstudio                        spectacle                      zotero
+calibre                        gnucash                        karabiner-elements             skyfonts                       sublime-text
+docker                         google-backup-and-sync         macdjview                      skype                          transmission
 # With issues
 $ brew cask install \
     asepsis \                               # permission errors

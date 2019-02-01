@@ -4,10 +4,10 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 ## `brew install`
 ```
 $ brew list
-bash        gettext     jpeg        libogg      libyaml     openssl     perl        ruby        theora      x265            z
-ffmpeg      git         lame        libpng      lua         opus        python      sdl2        tmux        xvid            zsh
-gcc         gmp         libevent    libvorbis   mpfr        pcre        r           snappy      vim         xz
-gdbm        isl         libmpc      libvpx      ncurses     pcre2       readline    sqlite      x264        youtube-dl
+bash        gettext     jpeg        libogg      libyaml     openssl     perl        ruby        theora      x264            youtube-dl
+ffmpeg      git         lame        libpng      lua         opus        python      sdl2        tmux        x265            z
+gcc         gmp         libevent    libvorbis   mpfr        pcre        r           snappy      tree        xvid            zsh
+gdbm        isl         libmpc      libvpx      ncurses     pcre2       readline    sqlite      vim         xz
 ```
 
 ## `brew cask install`

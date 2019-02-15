@@ -4,11 +4,11 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 ## `brew install`
 ```
 $ brew list
-bash        ghostscript     jpeg        libpng      lua         pcre        readline    theora      x265        zsh
-ffmpeg      git             lame        libtiff     mpfr        pcre2       ruby        tmux        xvid
-gcc         gmp             libevent    libvorbis   ncurses     perl        sdl2        tree        xz
-gdbm        go              libmpc      libvpx      openssl     python      snappy      vim         youtube-dl
-gettext     isl             libogg      libyaml     opus        r           sqlite      x264        z
+bash            ghostscript     jpeg            libpng          lua             pcre            readline        theora          x265            zsh
+ffmpeg          git             lame            libtiff         mpfr            pcre2           ruby            tmux            xvid
+gcc             gmp             libevent        libvorbis       ncurses         perl            sdl2            tree            xz
+gdbm            go              libmpc          libvpx          openssl         python          snappy          vim             youtube-dl
+gettext         isl             libogg          libyaml         opus            r               sqlite          x264            z
 ```
 
 ## `brew cask install`
@@ -53,10 +53,10 @@ $ brew cask install \
     vlc \
     webpquicklook
 $ brew cask list
-alfred                         flux                           google-chrome                  mactex                         skype                          transmission
-android-file-transfer          gitkraken                      iterm2                         qbittorrent                    slack                          vlc
-calibre                        gnucash                        karabiner-elements             rstudio                        spectacle                      zotero
-docker                         google-backup-and-sync         macdjview                      skyfonts                       sublime-text
+alfred                         flux                           google-chrome                  macdjview                      skyfonts                       sublime-text
+android-file-transfer          gitkraken                      iterm2                         mactex                         skype                          transmission
+calibre                        gnucash                        karabiner-elements             qbittorrent                    slack                          vlc
+docker                         google-backup-and-sync         licecap                        rstudio                        spectacle                      zotero
 # With issues
 $ brew cask install \
     asepsis \                               # permission errors

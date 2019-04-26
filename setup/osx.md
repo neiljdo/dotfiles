@@ -4,13 +4,13 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 ## `brew install`
 ```
 $ brew list
-bash            gmp         libogg      mpfr        python      theora      xz
-ffmpeg          go          libpng      ncurses     r           tmux        youtube-dl
-gcc             isl         libtiff     openssl     readline    tree        z
-gdbm            jpeg        libvorbis   opus        ruby        vim         zsh
-gettext         lame        libvpx      pcre        sdl2        x264
-ghostscript     libevent    libyaml     pcre2       snappy      x265
-git             libmpc      lua         perl        sqlite      xvid
+bash        gmp         libogg      mpfr        python      theora      xz
+ffmpeg      go          libpng      ncurses     r           tmux        youtube-dl
+gcc         isl         libtiff     openssl     readline    tree        z
+gdbm        jpeg        libvorbis   opus        ruby        vim         zsh
+gettext     lame        libvpx      pcre        sdl2        x264
+ghostscript libevent    libyaml     pcre2       snappy      x265
+git         libmpc      lua         perl        sqlite      xvid
 ```
 
 ## `brew cask install`
@@ -55,11 +55,12 @@ $ brew cask install \
     vlc \
     webpquicklook
 $ brew cask list
-alfred                  gitkraken               karabiner-elements      rstudio                 sublime-text
-android-file-transfer   gnucash                 licecap                 skyfonts                transmission
-calibre                 google-backup-and-sync  macdjview               skype                   vlc
-docker                  google-chrome           mactex                  slack                   zotero
-flux                    iterm2                  qbittorrent             spectacle
+alfred                  flux                    java                    qbittorrent             spectacle
+android-file-transfer   gitkraken               java6                   rstudio                 sublime-text
+background-music        gnucash                 karabiner-elements      secure-pipes            the-unarchiver
+calibre                 google-backup-and-sync  licecap                 skyfonts                transmission
+djview                  google-chrome           macdjview               skype                   vlc
+docker                  iterm2                  mactex                  slack                   zotero
 # With issues
 $ brew cask install \
     asepsis \                               # permission errors

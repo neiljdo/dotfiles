@@ -4,13 +4,13 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 ## `brew install`
 ```
 $ brew list
-bash        gmp         libogg      mpfr        python      theora      xz
-ffmpeg      go          libpng      ncurses     r           tmux        youtube-dl
-gcc         isl         libtiff     openssl     readline    tree        z
-gdbm        jpeg        libvorbis   opus        ruby        vim         zsh
-gettext     lame        libvpx      pcre        sdl2        x264
-ghostscript libevent    libyaml     pcre2       snappy      x265
-git         libmpc      lua         perl        sqlite      xvid
+bash            ghostscript     lame        libvpx      pcre        sdl2        x264
+cabal-install   git             libevent    libyaml     pcre2       snappy      x265
+ffmpeg          gmp             libmpc      lua         perl        sqlite      xvid
+gcc             go              libogg      mpfr        python      theora      xz
+gdbm            haskell-stack   libpng      ncurses     r           tmux        youtube-dl
+gettext         isl             libtiff     openssl     readline    tree        z
+ghc             jpeg            libvorbis   opus        ruby        vim         zsh
 ```
 
 ## `brew cask install`
@@ -55,12 +55,13 @@ $ brew cask install \
     vlc \
     webpquicklook
 $ brew cask list
-alfred                  flux                    java                    qbittorrent             spectacle
-android-file-transfer   gitkraken               java6                   rstudio                 sublime-text
-background-music        gnucash                 karabiner-elements      secure-pipes            the-unarchiver
-calibre                 google-backup-and-sync  licecap                 skyfonts                transmission
-djview                  google-chrome           macdjview               skype                   vlc
-docker                  iterm2                  mactex                  slack                   zotero
+alfred                  foxitreader             java6                   secure-pipes            the-unarchiver
+android-file-transfer   gitkraken               karabiner-elements      skim                    transmission
+background-music        gnucash                 licecap                 skyfonts                vlc
+calibre                 google-backup-and-sync  macdjview               skype                   zotero
+djview                  google-chrome           mactex                  slack
+docker                  iterm2                  qbittorrent             spectacle
+flux                    java                    rstudio                 sublime-text
 # With issues
 $ brew cask install \
     asepsis \                               # permission errors

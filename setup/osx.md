@@ -4,13 +4,19 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 ## `brew install`
 ```
 $ brew list
-bash            ghostscript     lame        libvpx      pcre        sdl2        x264
-cabal-install   git             libevent    libyaml     pcre2       snappy      x265
-ffmpeg          gmp             libmpc      lua         perl        sqlite      xvid
-gcc             go              libogg      mpfr        python      theora      xz
-gdbm            haskell-stack   libpng      ncurses     r           tmux        youtube-dl
-gettext         isl             libtiff     openssl     readline    tree        z
-ghc             jpeg            libvorbis   opus        ruby        vim         zsh
+bash            jpeg            openssl         tmux
+cabal-install   lame            opus            tree
+ffmpeg          libevent        pcre            vim
+gcc             libmpc          pcre2           x264
+gdbm            libogg          perl            x265
+gettext         libpng          python          xvid
+ghc             libtiff         r               xz
+ghostscript     libvorbis       readline        youtube-dl
+git             libvpx          ruby            z
+gmp             libyaml         sdl2            zsh
+go              lua             snappy          zsh-syntax-highlighting
+haskell-stack   mpfr            sqlite
+isl             ncurses         theora
 ```
 
 ## `brew cask install`

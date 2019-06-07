@@ -11,7 +11,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(django git-flow-avh hadoop mercurial node npm nvm virtualenvwrapper)
-plugins=(anaconda docker git colored-man colorize git github history jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting sublime tmux virtualenv z python scala sbt)
+plugins=(anaconda docker git colored-man-pages colorize git github history jira vagrant virtualenv pip python brew osx sublime tmux virtualenv z python scala sbt)
 
 # Aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"

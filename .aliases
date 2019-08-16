@@ -149,3 +149,7 @@ alias -g ce='coverage erase'
 alias -g ch='coverage html'
 alias crmt='ce && cr mt'
 alias crmtff='ce && cr mtff'
+
+# youtube-dl
+alias -g yt.dlb='youtube-dl -f "bestvideo+bestaudio"'
+alias yt.dlbnp='yt.dlb --no-playlist'

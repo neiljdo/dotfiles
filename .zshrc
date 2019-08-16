@@ -11,7 +11,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(django git-flow-avh hadoop mercurial node npm nvm virtualenvwrapper)
-plugins=(anaconda docker git colored-man-pages colorize git github history jira vagrant virtualenv pip python brew osx sublime tmux virtualenv z python scala sbt)
+plugins=(anaconda docker git colored-man-pages colorize git github history jira vagrant virtualenv pip python brew osx sublime tmux virtualenv z python scala sbt vi-mode)
 
 # Aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -71,9 +71,6 @@ if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/path.zsh.inc' ]; then so
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Make sure that this is the last thing that gets executed
-source $ZSH/oh-my-zsh.sh
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/no186007/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -89,3 +86,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Make sure that this is the last thing that gets executed
+source $ZSH/oh-my-zsh.sh

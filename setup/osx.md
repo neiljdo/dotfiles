@@ -4,19 +4,30 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 ## `brew install`
 ```
 $ brew list
-bash            jpeg            openssl         tmux
-cabal-install   lame            opus            tree
-ffmpeg          libevent        pcre            vim
-gcc             libmpc          pcre2           x264
-gdbm            libogg          perl            x265
-gettext         libpng          python          xvid
-ghc             libtiff         r               xz
-ghostscript     libvorbis       readline        youtube-dl
-git             libvpx          ruby            z
-gmp             libyaml         sdl2            zsh
-go              lua             snappy          zsh-syntax-highlighting
-haskell-stack   mpfr            sqlite
-isl             ncurses         theora
+aom             graphite2       libtool         readline
+bash            graphviz        libunistring    rtmpdump
+cabal-install   gts             libvorbis       rubberband
+cairo           harfbuzz        libvpx          ruby
+cmake           haskell-stack   libyaml         sdl2
+djvulibre       icu4c           little-cms2     snappy
+ffmpeg          isl             lua             speex
+flac            jasper          lzo             sqlite
+fontconfig      jpeg            mpfr            tesseract
+freetype        lame            ncurses         theora
+frei0r          leptonica       netpbm          tmux
+fribidi         libass          nettle          tree
+gcc             libbluray       openblas        unbound
+gd              libevent        opencore-amr    vim
+gdbm            libffi          openjpeg        webp
+gettext         libidn2         openssl         x264
+ghc             libmpc          opus            x265
+ghostscript     libogg          p11-kit         xvid
+giflib          libpng          pcre            xz
+git             libsamplerate   pcre2           youtube-dl
+glib            libsndfile      perl            z
+gmp             libsoxr         pixman          zsh
+gnutls          libtasn1        python          zsh-syntax-highlighting
+go              libtiff         r               zstd
 ```
 
 ## `brew cask install`
@@ -61,13 +72,13 @@ $ brew cask install \
     vlc \
     webpquicklook
 $ brew cask list
-alfred                  foxitreader             java6                   secure-pipes            the-unarchiver
-android-file-transfer   gitkraken               karabiner-elements      skim                    transmission
+alfred                  flux                    java                    rstudio                 sublime-text
+android-file-transfer   foxitreader             java6                   secure-pipes            the-unarchiver
+anki                    gitkraken               karabiner-elements      skim                    transmission
 background-music        gnucash                 licecap                 skyfonts                vlc
 calibre                 google-backup-and-sync  macdjview               skype                   zotero
 djview                  google-chrome           mactex                  slack
 docker                  iterm2                  qbittorrent             spectacle
-flux                    java                    rstudio                 sublime-text
 # With issues
 $ brew cask install \
     asepsis \                               # permission errors

@@ -86,5 +86,10 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+# Custom aliases
+source $HOME/Box/neiljohn.ortega/tools/lfkaliases
+
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh

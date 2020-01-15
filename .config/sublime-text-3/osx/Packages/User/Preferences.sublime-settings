@@ -23,7 +23,6 @@
 	"caret_style": "blink",
 	"color_scheme": "Packages/Boxy Theme/schemes/Boxy Ocean.tmTheme",
 	"default_line_ending": "unix",
-	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
 	"fade_fold_buttons": false,
 	"font_face": "Inconsolata",

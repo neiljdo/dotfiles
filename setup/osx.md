@@ -28,6 +28,14 @@ glib            libsndfile      perl            z
 gmp             libsoxr         pixman          zsh
 gnutls          libtasn1        python          zsh-syntax-highlighting
 go              libtiff         r               zstd
+
+$ brew list
+curl            htop            libmpc          mysql           perl            tmux            zsh
+gcc             hwloc           libusb          ncurses         python          tree            zsh-completions
+gdbm            isl             libyaml         open-mpi        readline        vim             zsh-syntax-highlighting
+gettext         k9s             lua             openssl@1.1     ruby            xz
+git             kubernetes-cli  minikube        pcre            skaffold        youtube-dl
+gmp             libevent        mpfr            pcre2           sqlite          z
 ```
 
 ## `brew cask install`
@@ -86,6 +94,12 @@ $ brew cask install \
     latexian \                              # not available anymore
     pdftk                                   # not available anymore
     valentina-studio \                      # repeat
+
+$ brew cask list
+alfred                        chrome-remote-desktop-host    firefox                       iterm2                        skim                          sublime-text
+anki                          djview                        foxitreader                   karabiner-elements            skyfonts                      the-unarchiver
+background-music              docker                        gitkraken                     macdjview                     skype                         vlc
+calibre                       eqmac                         gnucash                       pycharm                       spectacle                     zotero
 ```
 
 # Sublime Packages
@@ -122,3 +136,20 @@ $ brew cask install \
 - zzz A File Icon zzz
 
 More suggested packages [here](http://sourabhbajaj.com/mac-setup/SublimeText/Plugins.html).
+
+## Steps
+
+1.  Install brew
+3.  Clone dotfiles
+4.  Install karabiner-elements
+5.  Symlink dotfiles/karabiner*.json to ~/.config/karabiner
+6.  Install other casks
+7.  Symlink Sublime packages dir
+8.  Install zsh
+9.  Symlink:
+    *   .aliases
+    *   .gitconfig
+    *   .oh-my-zsh
+    *   .tmux.conf
+    *   .zshrc
+10. Set-up anaconda locally

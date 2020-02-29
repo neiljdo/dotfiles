@@ -33,10 +33,11 @@ if [ -d "${PYENV_ROOT}" ]; then
   eval "$(pyenv init -)"
 fi
 
+# TODO: Probably not needed anymore
 # anaconda
-ANACONDA=".anaconda3"
+# ANACONDA=".anaconda3"
 # ANACONDA_ADDITIONAL_PATHS=($HOME/Documents/projects/dsci)
-export PATH=/User/no186007/.anaconda3/bin:$PATH
+# export PATH=/User/no186007/.anaconda3/bin:$PATH
 
 # java
 # export JAVA_HOME="$HOME/jdk1.8.0_102"
@@ -65,22 +66,16 @@ export PATH=$PATH:/usr/local/Cellar/mecab/0.996/libexec/mecab/
 # torch
 . /Users/no186007/torch/install/bin/torch-activate
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/no186007/Documents/lnd/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/no186007/Documents/lnd/google-cloud-sdk/completion.zsh.inc'; fi
-
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/ST22364/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('$HOME/.anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/ST22364/.anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/ST22364/.anaconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/.anaconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/ST22364/.anaconda3/bin:$PATH"
+        export PATH="$HOME/.anaconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup

@@ -86,5 +86,15 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # Custom aliases
 source $HOME/Box/neiljohn.ortega/tools/lfk.sh
 
+# >>> Haskell >>>
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+# <<< Haskell <<<
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
+
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh

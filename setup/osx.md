@@ -30,12 +30,14 @@ gnutls          libtasn1        python          zsh-syntax-highlighting
 go              libtiff         r               zstd
 
 $ brew list
-curl            htop            libmpc          mysql           perl            tmux            zsh
-gcc             hwloc           libusb          ncurses         python          tree            zsh-completions
-gdbm            isl             libyaml         open-mpi        readline        vim             zsh-syntax-highlighting
-gettext         k9s             lua             openssl@1.1     ruby            xz
-git             kubernetes-cli  minikube        pcre            skaffold        youtube-dl
-gmp             libevent        mpfr            pcre2           sqlite          z
+curl			hwloc			lua			    pcre2			tmux			zsh
+gcc 			isl			    minikube		perl			tree			zsh-completions
+gdbm			k9s			    mpfr			python			vim             zsh-syntax-highlighting
+gettext			kubernetes-cli	mysql			python@3.8		watch
+git 			libevent		ncurses			readline		xz
+gmp	    		libmpc			open-mpi		ruby			yamllint
+haskell-stack	libusb			openssl@1.1		skaffold		youtube-dl
+htop			libyaml			pcre			sqlite			z
 ```
 
 ## `brew cask install`
@@ -96,10 +98,11 @@ $ brew cask install \
     valentina-studio \                      # repeat
 
 $ brew cask list
-alfred                        chrome-remote-desktop-host    firefox                       iterm2                        skim                          sublime-text
-anki                          djview                        foxitreader                   karabiner-elements            skyfonts                      the-unarchiver
-background-music              docker                        gitkraken                     macdjview                     skype                         vlc
-calibre                       eqmac                         gnucash                       pycharm                       spectacle                     zotero
+alfred                         djview                         gitkraken                      pycharm                        sublime-text
+anki                           docker                         gnucash                        skim                           the-unarchiver
+background-music               eqmac                          iterm2                         skyfonts                       visual-studio-code
+calibre                        firefox                        karabiner-elements             skype                          vlc
+chrome-remote-desktop-host     foxitreader                    macdjview                      spectacle                      zotero
 ```
 
 # Sublime Packages

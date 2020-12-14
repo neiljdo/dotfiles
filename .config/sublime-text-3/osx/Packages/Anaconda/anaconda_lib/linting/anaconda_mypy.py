@@ -73,12 +73,18 @@ class MyPy(object):
         """Wrap calls to MyPy as a library
         """
 
+        err_sum = '--no-error-summary'
+        if MyPy.VERSION < (0, 761, 0):
+            err_sum = ''
+
         err_ctx = '--hide-error-context'
         if MyPy.VERSION < (0, 4, 5):
             err_ctx = '--suppress-error-context'
 
-        args = shlex.split('\'{0}\' -O -m mypy {1} {2} \'{3}\''.format(
-            sys.executable, err_ctx,
+        dont_follow_imports = "--follow-imports silent"
+
+        args = shlex.split('\'{0}\' -O -m mypy {1} {2} {3} {4} \'{5}\''.format(
+            sys.executable, err_sum, err_ctx, dont_follow_imports,
             ' '.join(self.settings[:-1]), self.filename)
         )
         env = os.environ.copy()
@@ -111,14 +117,17 @@ class MyPy(object):
                     self.silent and 'stub' in line.lower()):
                 continue
 
-            data = line.split(':') if os.name != 'nt' else line[2:].split(':')
+            data = line.split(
+                ':', maxsplit=3
+            ) if os.name != 'nt' else line[2:].split(':', maxsplit=3)
+
             errors.append({
                 'level': 'W',
                 'lineno': int(data[1]),
                 'offset': 0,
                 'code': ' ',
                 'raw_error': '[W] MyPy {0}: {1}'.format(
-                    data[2], data[3]
+                    data[2].strip(), data[3].strip()
                 ),
                 'message': '[W] MyPy%s: %s',
                 'underline_range': True

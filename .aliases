@@ -153,3 +153,9 @@ alias crmtff='ce && cr mtff'
 # youtube-dl
 alias -g yt.dlb='youtube-dl -f "bestvideo+bestaudio"'
 alias yt.dlbnp='yt.dlb --no-playlist'
+
+# Neovim
+alias vim=nvim
+alias vi=nvim
+alias vx=/usr/local/bin/vim
+

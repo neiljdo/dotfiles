@@ -1,93 +1,7 @@
-syntax on
-filetype plugin indent on
+source $HOME/.vim/vim-plug/plugins.vim
+source $HOME/.vim/general/settings.vim
+source $HOME/.vim/keys/mappings.vim
 
-set autoindent
-set backspace=indent,eol,start
-set completeopt=menuone,noinsert,noselect
-set cursorline
-set encoding=utf-8
-set expandtab
-set exrc
-set fileencoding=utf-8
-set guicursor=
-set hidden
-set incsearch
-set mouse=a
-set nobackup
-set noerrorbells
-set nohlsearch
-set noshowmode
-set noswapfile
-set nowrap
-set nu
-set path=.,**
-set relativenumber
-set ruler
-set scrolloff=8
-set signcolumn=yes
-set shiftwidth=4
-set smartcase
-set smartindent
-set splitbelow
-set splitright
-set tabstop=4 softtabstop=4
-set termguicolors
-set undodir=~/.vim/undodir
-set undofile
-
-" Give more space for displaying messages.
-set cmdheight=2
-
-" Having longer updatetime (default is 4000ms=4s) leads to noticeable
-" delays and poor user experience.
-set updatetime=50
-
-" Don't pass messages to |ins-completion-menu|
-set shortmess+=c
-
-set colorcolumn=80
-
-let $RTP=split(&runtimepath, ',')[0]
-let $RC="$HOME/.vim/vimrc"
-
-call plug#begin('~/.vim/plugged')
-
-" YouCompleteMe repo manually cloned because support
-" for Mojave is no longer available
-" Manually checked out the following commit for installation to push through
-" (see https://github.com/ycm-core/YouCompleteMe/issues/3805#issuecomment-727643020)
-Plug 'ycm-core/YouCompleteMe', { 'commit': '4e480a31' }
-
-" Neovim lsp Plugins
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/nlua.nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
-
-" Neovim Treesitter
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/playground'
-
-" Debugger Plugins
-" Plug 'puremourning/vimspector'
-Plug 'szw/vim-maximizer'
-
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'kien/ctrlp.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim'
-Plug 'gruvbox-community/gruvbox'
-Plug 'leafgarland/typescript-vim'
-Plug 'mbbill/undotree'
-Plug 'theprimeagen/vim-be-good'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-utils/vim-man'
-Plug 'sheerun/vim-polyglot'
-Plug 'jremmen/vim-ripgrep'
-Plug 'lyuts/vim-rtags'
-
-call plug#end()
 
 colorscheme gruvbox
 set background=dark
@@ -111,7 +25,6 @@ if executable('rg')
 endif
 
 let loaded_matchparen = 1
-let mapleader = " "
 
 let g:netrw_browse_split = 2
 let g:netrw_banner = 0
@@ -138,42 +51,6 @@ let g:fzf_branch_actions = {
     \   'confirm': v:true,
     \ }}
 
-" Remaps
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <leader>ps :Rg<SPACE>
-" nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
-" nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
-" nnoremap <leader>pf :lua require('telescope.builtin').find_files()<CR>
-nnoremap <leader><CR> :so ~/.vim/vimrc<CR>
-nnoremap <leader>+ :vertical resize +5<CR>
-nnoremap <leader>- :vertical resize -5<CR>
-nnoremap <leader>rp :resize 100<CR>
-" nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)<CR>}<CR><esc>kkI<esc>
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-" Yanking
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-
-" Git-related
-nnoremap <leader>gc :GBranches<CR>
-
-" YCM Remaps
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
-
-" LSP Remaps
-nnoremap <leader>va :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
-
-inoremap <C-c> <esc>
 
 " LSP Config
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']

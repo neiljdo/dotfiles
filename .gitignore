@@ -125,4 +125,5 @@ tags
 .config/.vim/undodir
 .config/.vim/pack
 .config/nvim/pack
+.config/nvim/session
 

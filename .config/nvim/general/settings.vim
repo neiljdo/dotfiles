@@ -19,7 +19,8 @@ set expandtab                                       " Converts tabs to spaces
 set exrc
 set fileencoding=utf-8                              " The encoding written to file
 set formatoptions-=cro                              " Stop newline continuation of comments
-set guicursor=
+set guicursor=                                      " Disable cursor-styling
+set guifont=Hack\ Nerd\ Font
 set hidden                                          " Required to keep multiple buffers open multiple buffers
 set incsearch
 set mouse=a                                         " Enable mouse
@@ -47,7 +48,7 @@ set splitbelow                                      " Horizontal splits will aut
 set splitright                                      " Vertical splits will automatically be to the right
 set tabstop=2 softtabstop=2                         " Insert 2 spaces for a tab
 set termguicolors
-set undodir=~/.vim/undodir
+set undodir=$HOME/.config/nvim/undodir
 set undofile
 set updatetime=50                                   " Faster completion
 
@@ -55,5 +56,5 @@ set updatetime=50                                   " Faster completion
 set shortmess+=c
 
 let $RTP=split(&runtimepath, ',')[0]
-let $RC="$HOME/.vim/vimrc"
+let $RC="$HOME/.config/nvim/init.vim"
 

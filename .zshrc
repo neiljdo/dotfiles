@@ -11,7 +11,43 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # plugins=(django git-flow-avh hadoop mercurial node npm nvm virtualenvwrapper)
-plugins=(anaconda docker git colored-man-pages colorize git github history jira vagrant virtualenv pip python brew osx sublime tmux virtualenv z python scala sbt vi-mode minikube kubectl iterm2 node npm nvm)
+plugins=(
+  anaconda
+  docker
+  git
+  colored-man-pages
+  colorize
+  github
+  history
+  jira
+  vagrant
+  virtualenv
+  pip
+  python
+  brew
+  osx
+  sublime
+  tmux
+  virtualenv
+  z
+  python
+  scala
+  sbt
+  vi-mode
+  minikube
+  kubectl
+  iterm2
+  node
+  npm
+  nvm
+  vi-mode
+  fzf
+  ripgrep
+  gitignore
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-completions
+)
 
 # Aliases
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -20,7 +56,7 @@ plugins=(anaconda docker git colored-man-pages colorize git github history jira 
 WORKON_HOME=$HOME/.virtualenvs
 
 # tmux - support 256 colors
-TERM="xterm-256color"
+[ -z "$TMUX" ] && TERM="alacritty"
 
 # Add RVM to PATH for scripting
 PATH=$PATH:$HOME/.rvm/bin
@@ -64,7 +100,7 @@ CURL_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'
 export PATH=$PATH:/usr/local/Cellar/mecab/0.996/libexec/mecab/
 
 # torch
-. $HOME/torch/install/bin/torch-activate
+# . $HOME/torch/install/bin/torch-activate
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -80,8 +116,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 # Custom aliases
 source $HOME/Documents/lfkml/box-proxy/tools/lfk.sh

@@ -8,8 +8,10 @@ source $HOME/.config/nvim/keys/which-key.vim
 source $HOME/.config/nvim/themes/gruvbox.vim
 
 " Plugin configurations
-source $HOME/.config/nvim/plug-config/nerdcommenter.vim
+source $HOME/.config/nvim/plug-config/gitgutter.vim
+source $HOME/.config/nvim/plug-config/git-messenger.vim
 source $HOME/.config/nvim/plug-config/startify.vim
+source $HOME/.config/nvim/plug-config/vim-commentary.vim
 
 let g:vim_be_good_log_file = 1
 

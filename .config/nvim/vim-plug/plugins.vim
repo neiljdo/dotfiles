@@ -36,13 +36,18 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
   Plug 'stsewd/fzf-checkout.vim'
   " Colorscheme
   Plug 'gruvbox-community/gruvbox'
-  " Better comments
-  Plug 'preservim/nerdcommenter'
+  " Commenting
+  Plug 'tpope/vim-commentary'
+  " Git
+  Plug 'rhysd/git-messenger.vim'
+  Plug 'junegunn/gv.vim'
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-rhubarb'
   Plug 'leafgarland/typescript-vim'
   " Undo time travel
   Plug 'mbbill/undotree'
   Plug 'theprimeagen/vim-be-good'
-  Plug 'tpope/vim-fugitive'
   Plug 'vim-utils/vim-man'
   Plug 'sheerun/vim-polyglot'
   Plug 'jremmen/vim-ripgrep'

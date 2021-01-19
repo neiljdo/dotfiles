@@ -120,10 +120,9 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/vim
 
-.config/.vim/.netrwbook
-.config/.vim/plugged
-.config/.vim/undodir
-.config/.vim/pack
-.config/nvim/pack
-.config/nvim/session
+.config/*vim/.netrwbook
+.config/*vim/autoload/plugged
+.config/*vim/undodir
+.config/*vim/pack
+.config/*vim/session
 

@@ -17,7 +17,7 @@ nnoremap <leader>ps :Rg<SPACE>
 " nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 " nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
 " nnoremap <leader>pf :lua require('telescope.builtin').find_files()<CR>
-nnoremap <leader><CR> :so $RC<CR>
+nnoremap <leader><CR> :so $MYVIMRC<CR>
 
 
 " Better nav for omnicomplete
@@ -70,12 +70,11 @@ vnoremap <leader>y "+y
 nnoremap <leader>gc :GBranches<CR>
 
 " YCM Remaps
-nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
+" nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+" nnoremap <silent> <leader>gf :YcmCompleter FixIt<CR>
 
 " LSP Remaps
-nnoremap <leader>va :lua vim.lsp.buf.definition()<CR>
-nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
-
-nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
+" nnoremap <leader>va :lua vim.lsp.buf.definition()<CR>
+" nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
+" nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
 

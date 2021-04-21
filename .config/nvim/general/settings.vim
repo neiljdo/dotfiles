@@ -20,6 +20,7 @@ set guicursor=                                      " Disable cursor-styling
 set guifont=Hack\ Nerd\ Font
 set hidden                                          " Required to keep multiple buffers open multiple buffers
 set incsearch
+set iskeyword+=-
 set mouse=a                                         " Enable mouse
 set nobackup                                        " Recommended by coc
 set nocompatible

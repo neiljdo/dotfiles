@@ -83,8 +83,9 @@ fi
 # export HADOOP_HOME="$HOME/hadoop-2.7.3"
 
 # nvm
-export NVM_DIR="${HOME}/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 CURL_CA_BUNDLE='/etc/ssl/certs/ca-certificates.crt'
 
@@ -139,6 +140,23 @@ if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-clou
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# For `zsh-completions`
+autoload -U compinit && compinit
+
+# >>> Bat
+export BAT_THEME="gruvbox"
+# <<< Bat
+
+# >>> Julia
+export JULIA_NUM_THREADS=6
+# <<< Julia
+
+# Set Spaceship ZSH as a prompt
+autoload -U promptinit; promptinit
+prompt spaceship
+
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh
+
+# eval "$(starship init zsh)"
 

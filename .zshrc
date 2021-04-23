@@ -105,21 +105,21 @@ export PATH=$PATH:/usr/local/Cellar/mecab/0.996/libexec/mecab/
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$($HOME/miniconda3/bin/conda 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "${HOME}/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "${HOME}/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="${HOME}/miniconda3/bin:$PATH"
+        export PATH="$HOME/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 
 # Custom aliases
-source $HOME/Documents/lfkml/box-proxy/tools/lfk.sh
+# source $HOME/Documents/lfkml/box-proxy/tools/lfk.sh
 
 # >>> Haskell >>>
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
@@ -141,7 +141,7 @@ if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-clou
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # For `zsh-completions`
-autoload -U compinit && compinit
+# autoload -U compinit && compinit
 
 # >>> Bat
 export BAT_THEME="gruvbox"
@@ -152,8 +152,8 @@ export JULIA_NUM_THREADS=6
 # <<< Julia
 
 # Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
+# autoload -U promptinit; promptinit
+# prompt spaceship
 
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh

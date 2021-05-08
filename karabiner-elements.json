@@ -1,97 +1,105 @@
 {
-  "title": "neiljdo's Modifications",
-  "rules": [
-    {
-      "description": "Change right_shift + down_arrow to page_down",
-      "manipulators": [
+    "rules": [
         {
-          "type": "basic",
-          "from": {
-            "key_code": "down_arrow",
-            "modifiers": {
-              "mandatory": ["right_shift"],
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_down"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Change right_shift + up_arrow to page_up",
-      "manipulators": [
+            "description": "Change right_shift + down_arrow to page_down",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "down_arrow",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "page_down"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
         {
-          "type": "basic",
-          "from": {
-            "key_code": "up_arrow",
-            "modifiers": {
-              "mandatory": ["right_shift"],
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "page_up"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Change left_command to left_command if pressed with other keys (Post return_or_enter when pressed alone)",
-      "manipulators": [
+            "description": "Change right_shift + up_arrow to page_up",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "up_arrow",
+                        "modifiers": {
+                            "mandatory": [
+                                "right_shift"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "page_up"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
         {
-          "type": "basic",
-          "from": {
-            "key_code": "left_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_command"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "return_or_enter"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "description": "Change right_command to right_command if pressed with other keys (Post delete_or_backspace when pressed alone)",
-      "manipulators": [
+            "description": "Change left_command to left_command if pressed with other keys (Post return_or_enter when pressed alone)",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "left_command",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "left_command"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "return_or_enter"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
         {
-          "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "optional": [
-                "any"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_command"
-            }
-          ],
-          "to_if_alone": [
-            {
-              "key_code": "delete_or_backspace"
-            }
-          ],
-          "type": "basic"
+            "description": "Change right_command to right_command if pressed with other keys (Post delete_or_backspace when pressed alone)",
+            "manipulators": [
+                {
+                    "from": {
+                        "key_code": "right_command",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "right_command"
+                        }
+                    ],
+                    "to_if_alone": [
+                        {
+                            "key_code": "delete_or_backspace"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ],
+    "title": "neiljdo's Modifications"
 }

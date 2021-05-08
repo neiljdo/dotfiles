@@ -15,4 +15,3 @@ endif
 highlight LineNr guifg=#458588
 highlight qfFileName guifg=#aed75f
 highlight Comment cterm=italic gui=italic ctermfg=244 guifg=#928374
-

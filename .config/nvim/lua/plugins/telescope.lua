@@ -71,4 +71,3 @@ require('telescope').setup {
         }
     }
 }
-

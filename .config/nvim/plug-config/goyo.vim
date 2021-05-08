@@ -1,14 +1,14 @@
 " nmap <silent> <leader>z :Goyo<CR>
-" autocmd User GoyoEnter set laststatus=0 
+" autocmd User GoyoEnter set laststatus=0
 " autocmd User GoyoLeave set laststatus=2
 " function! s:goyo_enter()
-  
+
 "   set wrap
 "   set conceallevel=0
 "   set tw=100
 "   set noshowcmd
 "   set scrolloff=999
-"   set laststatus=0 
+"   set laststatus=0
 
 " endfunction
 
@@ -26,4 +26,3 @@
 
 autocmd! User GoyoEnter lua require('galaxyline').disable_galaxyline()
 autocmd! User GoyoLeave lua require('galaxyline').galaxyline_augroup()
-

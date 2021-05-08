@@ -65,4 +65,3 @@ let g:far#enable_undo=1
 " U v_U   - Execute |:Farundo| --all=1<CR>, to undo all replacements by |:Fardo|. For param '--all=' see |farundo-params|.
 
 " q v_q   - Close searching result buffer and its preview buffer (if exists)
-

@@ -52,7 +52,7 @@ gls.left[2] = {
   ViMode = {
     provider = function()
       -- auto change color according the vim mode
-      local mode_color = {n = colors.purple, 
+      local mode_color = {n = colors.purple,
                           i = colors.green,
                           v = colors.blue,
                           [''] = colors.blue,
@@ -66,9 +66,9 @@ gls.left[2] = {
                           R = colors.red,
                           Rv = colors.red,
                           cv = colors.red,
-                          ce=colors.red, 
+                          ce=colors.red,
                           r = colors.cyan,
-                          rm = colors.cyan, 
+                          rm = colors.cyan,
                           ['r?'] = colors.cyan,
                           ['!']  = colors.red,
                           t = colors.red}
@@ -269,4 +269,3 @@ gls.short_line_left[1] = {
 --   autocmd!
 --   autocmd ColorScheme * call s:my_bookmark_color()
 -- augroup END
-

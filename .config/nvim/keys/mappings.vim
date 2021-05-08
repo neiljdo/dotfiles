@@ -77,4 +77,3 @@ nnoremap <leader>gc :GBranches<CR>
 " nnoremap <leader>va :lua vim.lsp.buf.definition()<CR>
 " nnoremap <leader>vd :lua vim.lsp.buf.definition()<CR>
 " nnoremap <leader>vi :lua vim.lsp.buf.implementation()<CR>
-

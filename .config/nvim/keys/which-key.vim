@@ -146,7 +146,7 @@ let g:which_key_map.s = {
       \ 'w' : [':Telescope file_browser'                , 'buf_fuz_find'],
       \ 'u' : [':Telescope colorscheme'                 , 'colorschemes'],
       \ 'z' : [':Telescope current_buffer_fuzzy_find'   , 'buf_fuz_find'],
-      \ } 
+      \ }
 
 " S is for Session
 let g:which_key_map.S = {
@@ -154,7 +154,7 @@ let g:which_key_map.S = {
     \ 'c' : [':SClose'          , 'Close Session'],
     \ 'd' : [':SDelete'         , 'Delete Session'],
     \ 'l' : [':SLoad'           , 'Load Session'],
-    \ 's' : [':Startify'        , 'Start Page'],   
+    \ 's' : [':Startify'        , 'Start Page'],
     \ 'S' : [':SSave'           , 'Save Session'],
     \ }
 
@@ -177,4 +177,3 @@ let g:which_key_map.t = {
 
 " Register which_key_map
 call which_key#register('<Space>', "g:which_key_map")
-

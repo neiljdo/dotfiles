@@ -239,4 +239,3 @@ visual-studio-code
 vlc
 zotero
 ```
-

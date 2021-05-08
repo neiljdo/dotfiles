@@ -38,7 +38,7 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
   " Zen mode
   Plug 'junegunn/goyo.vim'
   " Interactive code
-  Plug 'metakirby5/codi.vim'  
+  Plug 'metakirby5/codi.vim'
   " Better tabline
   Plug 'romgrk/barbar.nvim'
   " Find and replace
@@ -54,7 +54,7 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'nvim-telescope/telescope-media-files.nvim'
-  " Intellisense 
+  " Intellisense
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-compe'
   " Plug 'nvim-lua/completion-nvim'
@@ -111,4 +111,3 @@ autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \|   PlugInstall --sync | q
   \| endif
-

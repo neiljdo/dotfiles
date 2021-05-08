@@ -55,7 +55,7 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 2
 let g:netrw_liststyle = 3
 let g:netrw_localrmdir = 'rm -r'
-let g:netrw_winsize = 15 
+let g:netrw_winsize = 15
 
 " LSP Config
 " let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
@@ -69,4 +69,3 @@ let g:netrw_winsize = 15
 " lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
 " lua require'lspconfig'.vuels.setup{ on_attach=require'completion'.on_attach }
 " lua require'lspconfig'.yamlls.setup{ on_attach=require'completion'.on_attach }
-

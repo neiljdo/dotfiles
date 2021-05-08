@@ -17,7 +17,7 @@ set exrc                                            " Enable reading *rc files i
 set fileencoding=utf-8                              " The encoding written to file
 set formatoptions-=cro                              " Stop newline continuation of comments
 set guicursor=                                      " Disable cursor-styling
-set guifont=Hack\ Nerd\ Font
+set guifont=FiraCode\ Nerd\ Font
 set hidden                                          " Required to keep multiple buffers open multiple buffers
 set incsearch
 set iskeyword+=-

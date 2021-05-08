@@ -23,9 +23,6 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'nvim-treesitter/playground'
   Plug 'p00f/nvim-ts-rainbow'
-  " Cool icons
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'ryanoasis/vim-devicons'
   " Auto pairs for '(' '[' '{'
   Plug 'jiangmiao/auto-pairs'
   " Status Line
@@ -83,6 +80,10 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
   Plug 'kevinhwang91/nvim-bqf'
   " Colorizer
   Plug 'norcalli/nvim-colorizer.lua'
+
+  " Cool icons - make this last
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'ryanoasis/vim-devicons'
 
   " From ThePrimeagen
   " TODO(neiljdo): Determine what these are for

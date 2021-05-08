@@ -29,6 +29,8 @@ source $HOME/.config/nvim/plug-config/vim-commentary.vim
 luafile $HOME/.config/nvim/lua/lsp/lspconfig.lua
 luafile $HOME/.config/nvim/lua/lsp/julia-ls.lua
 luafile $HOME/.config/nvim/lua/lsp/vim-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/tsserver-ls.lua
+luafile $HOME/.config/nvim/lua/lsp/haskell-ls.lua
 luafile $HOME/.config/nvim/lua/plugins/colorizer.lua
 luafile $HOME/.config/nvim/lua/plugins/compe.lua
 luafile $HOME/.config/nvim/lua/plugins/galaxyline.lua

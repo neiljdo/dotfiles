@@ -239,3 +239,16 @@ visual-studio-code
 vlc
 zotero
 ```
+
+```
+[I] ➜ brew list
+==> Formulae
+apr		dive		fontconfig	gdbm		go		jsonnet		libevent	libtiff		mpdecimal	nvm		pcre		protobuf	ripgrep		tmux		xz
+apr-util	docker		freetype	gettext		jbig2dec	k9s		libidn		little-cms2	mysql		openjpeg	pcre2		python@3.9	sqlite		utf8proc	z
+bat		fd		fzf		ghostscript	jpeg		kubernetes-cli	libpng		lz4		ncurses		openssl@1.1	poetry		readline	subversion	vksctl		zsh
+
+==> Casks
+adobe-acrobat-pro		alfred				caffeine			docker				font-hack-nerd-font		karabiner-elements		mactex				miniforge			spectacle
+adobe-acrobat-reader		anki				calibre				firefox				gnucash				keycastr			mendeley			postman				the-unarchiver
+alacritty			brave-browser			djview				font-fira-code-nerd-font	intel-power-gadget		krita				menumeters			skype				visual-studio-code
+```

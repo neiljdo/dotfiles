@@ -80,6 +80,8 @@ call plug#begin('$HOME/.config/nvim/autoload/plugged')
   Plug 'kevinhwang91/nvim-bqf'
   " Colorizer
   Plug 'norcalli/nvim-colorizer.lua'
+  " Jsonnet
+  Plug 'google/vim-jsonnet'
 
   " Cool icons - make this last
   Plug 'kyazdani42/nvim-web-devicons'

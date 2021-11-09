@@ -59,11 +59,12 @@ WORKON_HOME=$HOME/.virtualenvs
 [ -z "$TMUX" ] && TERM="alacritty"
 
 # >>> z >>>
-. /usr/local/etc/profile.d/z.sh
+. $(brew --prefix)/etc/profile.d/z.sh
 # <<< z <<<
 
 # >>> Alacritty >>>
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+# cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
 # <<< Alacritty <<<
 
 # Add RVM to PATH for scripting
@@ -112,23 +113,24 @@ export PATH=$PATH:/usr/local/Cellar/mecab/0.996/libexec/mecab/
 # torch
 # . $HOME/torch/install/bin/torch-activate
 
+# TODO: Revisit Miniconda vs Miniforge
 # >>> Miniconda/Miniforge >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
     else
-        export PATH="/usr/local/Caskroom/miniforge/base/bin:$PATH"
+        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< Miniconda/Miniforge <<<
 
 # Custom aliases
-source $HOME/dev-work.sh
+# source $HOME/dev-work.sh
 
 # >>> Haskell >>>
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"

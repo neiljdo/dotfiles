@@ -162,4 +162,4 @@ alias vx=/usr/local/bin/vim
 # SSH
 alias ssh='TERM=xterm-256color ssh'
 
-alias b='batcat'
+alias b='bat'

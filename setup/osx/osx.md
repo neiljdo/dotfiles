@@ -7,16 +7,19 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 3.  Clone dotfiles
 4.  Install karabiner-elements
 5.  Symlink dotfiles/karabiner*.json to ~/.config/karabiner
-6.  Install other casks
+6.  Install other casks and formulae
 7.  Symlink Sublime packages dir
 8.  Install zsh
-9.  Symlink:
+9.  Install fonts
+    *   brew tap homebrew/cask-fonts
+    *   brew install font-fira-code-nerd-font font-hack-nerd-font
+11. Symlink:
     *   .aliases
     *   .gitconfig
     *   .oh-my-zsh
     *   .tmux.conf
     *   .zshrc
-10. Set-up anaconda locally
+12. Set-up anaconda locally
 
 ## Formulae
 ```

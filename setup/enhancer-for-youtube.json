@@ -10,6 +10,7 @@
         "blockhfrformats": false,
         "blockwebmformats": false,
         "blur": 0,
+        "boostvolume": false,
         "brightness": 100,
         "cinemamode": false,
         "cinemamodewideplayer": true,
@@ -43,6 +44,7 @@
         "controlsvisible": false,
         "controlvolume": false,
         "controlvolumemousebutton": false,
+        "convertshorts": false,
         "customcolors": {
             "--dimmer-text": "#cccccc",
             "--hover-background": "#232323",
@@ -66,7 +68,8 @@
         "hidecardsendscreens": false,
         "hidechat": true,
         "hidecomments": false,
-        "hiderelated": false,
+        "hiderelated": true,
+        "hideshorts": false,
         "huerotate": 0,
         "ignoreplaylists": true,
         "ignorepopupplayer": true,
@@ -84,9 +87,9 @@
         "popuplayersize": "640x360",
         "qualityembeds": "medium",
         "qualityembedsfullscreen": "hd1080",
-        "qualityplaylists": "hd720",
+        "qualityplaylists": "hd1440",
         "qualityplaylistsfullscreen": "hd1080",
-        "qualityvideos": "hd720",
+        "qualityvideos": "hd1440",
         "qualityvideosfullscreen": "hd1080",
         "reload": false,
         "reversemousewheeldirection": false,
@@ -95,7 +98,7 @@
         "selectqualityfullscreenoff": false,
         "selectqualityfullscreenon": false,
         "sepia": 0,
-        "speed": 1.5,
+        "speed": 1.3,
         "speedvariation": 0.05,
         "stopvideos": false,
         "theatermode": false,
@@ -109,5 +112,5 @@
         "wideplayer": true,
         "wideplayerviewport": true
     },
-    "version": "2.0.107.2"
+    "version": "2.0.121"
 }

@@ -4,22 +4,33 @@ Generally, follow the instructions [here](http://sourabhbajaj.com/mac-setup/).
 ## Steps
 
 1.  Install brew
+2.  Install Visual Studio Code
+    *   brew install visual-studio-code
+    *   Sync VS Code config
 3.  Clone dotfiles
 4.  Install karabiner-elements
 5.  Symlink dotfiles/karabiner*.json to ~/.config/karabiner
-6.  Install other casks and formulae
-7.  Symlink Sublime packages dir
-8.  Install zsh
-9.  Install fonts
+6.  Install fonts
     *   brew tap homebrew/cask-fonts
     *   brew install font-fira-code-nerd-font font-hack-nerd-font
-11. Symlink:
-    *   .aliases
-    *   .gitconfig
-    *   .oh-my-zsh
-    *   .tmux.conf
-    *   .zshrc
-12. Set-up anaconda locally
+7.  Setup alacritty
+    *   brew install alacritty
+    *   tic -xe alacritty,alacritty-direct /path/to/alacritty.info
+    *   Right-click -> Open from Applications during first use
+8.  Install other casks and formulae
+9.  Setup zsh
+    *   brew install zsh z fzf tmux ripgrep
+    *   Symlink the following:
+        *   .aliases
+        *   .gitconfig
+        *   .oh-my-zsh
+        *   .tmux.conf
+        *   .vim
+        *   .zshrc
+10. Setup Conda
+    *   brew install miniconda|miniforge
+11. Setup nvim
+    *
 
 ## Formulae
 ```
@@ -246,12 +257,30 @@ zotero
 ```
 [I] ➜ brew list
 ==> Formulae
-apr		dive		fontconfig	gdbm		go		jsonnet		libevent	libtiff		mpdecimal	nvm		pcre		protobuf	ripgrep		tmux		xz
-apr-util	docker		freetype	gettext		jbig2dec	k9s		libidn		little-cms2	mysql		openjpeg	pcre2		python@3.9	sqlite		utf8proc	z
-bat		fd		fzf		ghostscript	jpeg		kubernetes-cli	libpng		lz4		ncurses		openssl@1.1	poetry		readline	subversion	vksctl		zsh
+zsh z fzf tmux ripgrep nvm
+
+apr		dive		fontconfig	gdbm		go		jsonnet		libevent	libtiff		mpdecimal		pcre		protobuf			xz
+apr-util		freetype	gettext		jbig2dec	k9s		libidn		little-cms2	mysql		openjpeg	pcre2		python@3.9	sqlite		utf8proc
+bat		fd			ghostscript	jpeg		kubernetes-cli	libpng		lz4		ncurses		openssl@1.1	poetry		readline	subversion	vksctl
 
 ==> Casks
-adobe-acrobat-pro		alfred				caffeine			docker				font-hack-nerd-font		karabiner-elements		mactex				miniforge			spectacle
-adobe-acrobat-reader		anki				calibre				firefox				gnucash				keycastr			mendeley			postman				the-unarchiver
-alacritty			brave-browser			djview				font-fira-code-nerd-font	intel-power-gadget		krita				menumeters			skype				visual-studio-code
+alfred
+caffeine
+visual-studio-code
+karabiner-elements
+font-hack-nerd-font
+font-fira-code-nerd-font
+miniconda/miniforge
+alacritty
+rectangle
+the-unarchiver
+slack
+brave-browser
+skype
+zoom
+docker
+
+adobe-acrobat-pro								mactex
+adobe-acrobat-reader		anki				calibre				firefox				gnucash				keycastr			mendeley			postman
+			djview					intel-power-gadget		krita				menumeters
 ```

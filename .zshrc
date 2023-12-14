@@ -166,5 +166,9 @@ export JULIA_NUM_THREADS=6
 # autoload -U promptinit; promptinit
 # prompt spaceship
 
+# >>> libxslt >>>
+export PATH="/opt/homebrew/opt/libxslt/bin:$PATH"
+# <<< libxslt <<<
+
 # Make sure that this is the last thing that gets executed
 source $ZSH/oh-my-zsh.sh

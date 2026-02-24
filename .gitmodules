@@ -1,3 +1,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/neiljdo/oh-my-zsh.git
+[submodule ".config/.vim/plugged/YouCompleteMe"]
+	path = .config/.vim/plugged/YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe

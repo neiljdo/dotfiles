@@ -72,8 +72,17 @@
 
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
+
+[url "https://git.linecorp.com/"]
+  insteadOf = "git@git.linecorp.com:"
+
 [gui]
 	fontui = -family \"DejaVu Sans\" -size 8 -weight normal -slant roman -underline 0 -overstrike 0
 	fontdiff = -family \"DejaVu Sans Mono\" -size 8 -weight normal -slant roman -underline 0 -overstrike 0
 [init]
 	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -121,6 +121,9 @@ git config --global core.pager delta   # requires delta (see below)
 
 ```bash
 brew install antidote starship zoxide fzf
+
+# OPTIONAL: if you need Bash 5.X
+brew install bash
 ```
 
 **Configure — two files:**
@@ -245,7 +248,7 @@ brew install tmux tree gnupg
 
 # Container & orchestration
 brew install --cask orbstack        # Docker Desktop replacement — lighter, faster on Apple Silicon
-brew install kubectl helm
+brew install helm
 
 # Editors
 brew install neovim
@@ -289,6 +292,9 @@ ollama run llama3.2
 ### Python ML stack (via uv or conda)
 
 ```bash
+# Via brew
+brew install libomp
+
 # Via uv (Apple Silicon — CPU/MPS inference)
 uv add torch torchvision torchaudio  # installs MPS-compatible build
 uv add transformers datasets accelerate
@@ -311,6 +317,14 @@ Install the Claude Code CLI:
 ```bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
+
+**Claude Code user configuration** — symlink the template from this repo to apply shared settings across all projects:
+
+```bash
+ln -sf ~/dotfiles/.claude/settings.user.json ~/.claude/settings.json
+```
+
+Per-project overrides can be defined in `.claude/settings.json` inside any project/repo — these take precedence over the user-level config.
 
 ### MLOps & experiment tracking
 

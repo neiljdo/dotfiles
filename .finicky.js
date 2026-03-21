@@ -1,3 +1,3 @@
 export default {
-  defaultBrowser: ""
+  defaultBrowser: "Brave Browser"
 };

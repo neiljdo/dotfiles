@@ -154,8 +154,8 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # -----------------------------------------------------------------------------
 # Google Cloud SDK — uncomment when needed
 # -----------------------------------------------------------------------------
-# [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]       && source "$HOME/google-cloud-sdk/path.zsh.inc"
-# [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]  && source "$HOME/google-cloud-sdk/completion.zsh.inc"
+[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]       && source "$HOME/google-cloud-sdk/path.zsh.inc"
+[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]  && source "$HOME/google-cloud-sdk/completion.zsh.inc"
 
 # -----------------------------------------------------------------------------
 # tmux: set terminal to support 256 colours outside of a tmux session

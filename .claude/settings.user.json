@@ -1,9 +1,10 @@
 {
+  "autoMemoryDirectory": "./.claude/memory",
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "serena@claude-plugins-official": true
   },
   "effortLevel": "high",
-  "plansDirectory": "./plans",
-  "model": "opusplan"
+  "model": "opusplan",
+  "plansDirectory": "./.claude/plans"
 }

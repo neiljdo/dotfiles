@@ -130,4 +130,6 @@ zsdoc/data
 
 ### Claude ###
 .claude/settings.local.json
+.claude/memory/
+.claude/plans/
 plans

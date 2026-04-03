@@ -293,7 +293,7 @@ ollama run llama3.2
 
 ```bash
 # Via brew
-brew install libomp
+brew install libomp cmake
 
 # Via uv (Apple Silicon — CPU/MPS inference)
 uv add torch torchvision torchaudio  # installs MPS-compatible build

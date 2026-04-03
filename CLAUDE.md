@@ -12,6 +12,8 @@ A macOS dotfiles repository for a developer workstation. It contains shell confi
 - **`.config/karabiner/`** — Karabiner-Elements keyboard remapping configs.
 - **`.ssh/config`** — SSH config with OrbStack integration and Ed25519 key setup.
 - **`README.md`** — Comprehensive MacBook Pro setup guide covering security, tooling, and environment management.
+- **`docs/brave.md`** — Brave browser extension list by category.
+- **`scripts/install-brave-extensions.sh`** — Opens all extension install pages in bulk.
 - **`.claude/settings.user.json`** — Template for user-level Claude Code settings. Symlink to `~/.claude/settings.json`. Per-project overrides go in `.claude/settings.json` inside a project/repo.
 
 ## Conventions
@@ -31,4 +33,6 @@ A macOS dotfiles repository for a developer workstation. It contains shell confi
 - No build, lint, or test commands — this is a config-only repo.
 - The `.gitignore` covers macOS, VS Code, Windows, and Zsh artifacts.
 - Do not commit private keys, secrets, or `.env` files.
-- Use [Conventional Commits](https://www.conventionalcommits.org/) for all commit messages (e.g. `feat:`, `fix:`, `chore:`, `docs:`).
+- Use scoped [Conventional Commits](https://www.conventionalcommits.org/) for all commit messages (e.g. `feat:`, `fix:`, `chore:`, `docs:`).
+- The commit body (when needed) must use a bulleted list with `-` as the bullet character. Each bullet is one concise line (no wrapping prose). Capitalize the first word of each bullet.
+- **Before preparing/creating a commit**: review the session for non-obvious patterns, gotchas, or conventions that were discovered or established. Write anything worth preserving to `CLAUDE.md` (project-wide directives) or the appropriate memory file under `.claude/memory/` (user/project/feedback context). Do this *before* staging and committing.

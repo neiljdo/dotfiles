@@ -1,0 +1,91 @@
+{
+  "exclusionRules": [
+    {
+      "passKeys": "",
+      "pattern": "https?://mail.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://docs.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://hub.mybinder.turing.ac.uk/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://notebooks.quantum-computing.ibm.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://colab.research.google.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://localhost:*/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.powerlanguage.co.uk/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://lab.quantum-computing.ibm.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://lab.qbraid.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "about:srcdoc*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://pennylane.xanadu.ai/lab"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://pennylane.xanadu.ai/lab"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://pennylane.xanadu.ai/lab/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://*.runai-poc.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://cstimer.net/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://127.0.0.1:8889/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://127.0.0.1:8888/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://configure.zsa.io/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://monkeytype.com/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://games.dailymail.co.uk/*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://o2jam.world/*"
+    }
+  ],
+  "keyMappings": "# Insert your preferred key mappings here.\nmap D scrollPageUp",
+  "newTabDestination": "browserNewTabPage",
+  "settingsVersion": "2.4.2"
+}

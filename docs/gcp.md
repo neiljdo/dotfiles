@@ -1,6 +1,6 @@
 # GCP Ops Setup Guide — Local Development & Engineering
 
-> Companion to `macbook-setup-guide.md`. Covers CLI installation, authentication,
+> Companion to `README.md`. Covers CLI installation, authentication,
 > multi-project configuration, and common workflow commands for software and ML engineering on GCP.
 
 ---

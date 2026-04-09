@@ -31,12 +31,14 @@ Or install individually via the links in each section.
 | [Vimium](https://chrome.google.com/webstore/detail/dbepggeogbaibhgnhhndojpepiihcmeb) | `dbepggeogbaibhgnhhndojpepiihcmeb` |
 | [Refined GitHub](https://chrome.google.com/webstore/detail/hlepfoohegkhhmjieoechaddaejaokhf) | `hlepfoohegkhhmjieoechaddaejaokhf` |
 | [Sourcegraph](https://chrome.google.com/webstore/detail/dgjhfomjieapoollkpinjggjioljehan) | `dgjhfomjieapoollkpinjggjioljehan` |
-| [Wappalyzer](https://chrome.google.com/webstore/detail/gppongmhjkpfnbhagpmjfkannfbllamg) | `gppongmhjkpfnbhagpmjfkannfbllamg` |
+| [WhatRuns](https://chrome.google.com/webstore/detail/ogffaloegjglncjfehdfplabnoonmggn) | `ogffaloegjglncjfehdfplabnoonmggn` |
 | [JSON Viewer](https://chrome.google.com/webstore/detail/gbmdgpbipfallnflgajpaliibnhdgobh) | `gbmdgpbipfallnflgajpaliibnhdgobh` |
 | [ColorZilla](https://chrome.google.com/webstore/detail/bhlhnicpbhignbdhedgjhgdocnmhomnp) | `bhlhnicpbhignbdhedgjhgdocnmhomnp` |
 | [WhatFont](https://chrome.google.com/webstore/detail/jabopobgcpjmedljpbcaablpmlmfcogm) | `jabopobgcpjmedljpbcaablpmlmfcogm` |
 | [Auto Copy](https://chrome.google.com/webstore/detail/bijpdibkloghppkbmhcklkogpjaenfkg) | `bijpdibkloghppkbmhcklkogpjaenfkg` |
 | [Allow Right-Click](https://chrome.google.com/webstore/detail/hnafhkjheookmokbkpnfpmemlppjdgoi) | `hnafhkjheookmokbkpnfpmemlppjdgoi` |
+
+> **WhatRuns** — privacy-friendlier alternative to Wappalyzer (which phones home after acquisition). For on-demand lookups without a persistent extension, use [wappalyzer.com](https://www.wappalyzer.com) or [builtwith.com](https://builtwith.com) directly.
 
 ---
 
@@ -57,6 +59,7 @@ Or install individually via the links in each section.
 | [Hypothesis](https://chrome.google.com/webstore/detail/bjfhmglciegochdpefhhlphglcehbmek) | `bjfhmglciegochdpefhhlphglcehbmek` |
 | [CatalyzeX](https://chrome.google.com/webstore/detail/aikkeehnlfpamidigaffhfmgbkdeheil) | `aikkeehnlfpamidigaffhfmgbkdeheil` |
 | [arxiv-utils](https://chrome.google.com/webstore/detail/mnhdpeipjhhkmlhlcljdjpgmilbmehij) | `mnhdpeipjhhkmlhlcljdjpgmilbmehij` |
+| [Google Scholar PDF Reader](https://chrome.google.com/webstore/detail/dahenjhkoodjbpjheillcadbppiidmhp) | `dahenjhkoodjbpjheillcadbppiidmhp` |
 
 ---
 
@@ -98,7 +101,6 @@ Or install individually via the links in each section.
 | [Dark Reader](https://chrome.google.com/webstore/detail/eimadpbcbfnmbkopoojfekhnkhdbieeh) | `eimadpbcbfnmbkopoojfekhnkhdbieeh` |
 | [Imagus](https://chrome.google.com/webstore/detail/immpkjjlgappgfkkfieppnmlhakdmaab) | `immpkjjlgappgfkkfieppnmlhakdmaab` |
 | [Keepa](https://chrome.google.com/webstore/detail/neebplgakaahbhdphmkckjjcegoiijjo) | `neebplgakaahbhdphmkckjjcegoiijjo` |
-| [Coolors for Chrome](https://chrome.google.com/webstore/detail/paebljbhhfgngkcldmbcogmkgegjgmbg) | `paebljbhhfgngkcldmbcogmkgegjgmbg` |
 | [MAL-Sync](https://chrome.google.com/webstore/detail/kekjfbackdeiabghhcdklcdoekaanoel) | `kekjfbackdeiabghhcdklcdoekaanoel` |
 
 ---
@@ -107,6 +109,7 @@ Or install individually via the links in each section.
 
 | Extension | ID | Reason |
 |---|---|---|
+| [Wappalyzer](https://chrome.google.com/webstore/detail/gppongmhjkpfnbhagpmjfkannfbllamg) | `gppongmhjkpfnbhagpmjfkannfbllamg` | Sends browsing data to servers after acquisition; replaced by WhatRuns |
 | [Decentraleyes](https://chrome.google.com/webstore/detail/ldpochfccmkkmhdbclfhpagapcfdljkj) | `ldpochfccmkkmhdbclfhpagapcfdljkj` | Redundant with Brave's built-in shields |
 | [Honey](https://chrome.google.com/webstore/detail/bmnlcjabgnpnenekpadlanbbkooimhnj) | `bmnlcjabgnpnenekpadlanbbkooimhnj` | Privacy risk — harvests browsing data, hijacks affiliate links |
 | [IronVest](https://chrome.google.com/webstore/detail/epanfjkfahimkgomnigadpkobaefekcd) | `epanfjkfahimkgomnigadpkobaefekcd` | Broad permissions, high trust requirement |
@@ -132,3 +135,4 @@ Or install individually via the links in each section.
 | [vidIQ Vision](https://chrome.google.com/webstore/detail/pachckjkecffpdphbpmfolblodfkgbhl) | `pachckjkecffpdphbpmfolblodfkgbhl` |
 | [xBrowserSync](https://chrome.google.com/webstore/detail/lcbjdhceifofjlpecfpeimnnphbcjgnc) | `lcbjdhceifofjlpecfpeimnnphbcjgnc` |
 | [YiNote](https://chrome.google.com/webstore/detail/fhpgggnmdlmekfdpkdgeiccfkignhkdf) | `fhpgggnmdlmekfdpkdgeiccfkignhkdf` |
+| [Coolors for Chrome](https://chrome.google.com/webstore/detail/paebljbhhfgngkcldmbcogmkgegjgmbg) | `paebljbhhfgngkcldmbcogmkgegjgmbg` |

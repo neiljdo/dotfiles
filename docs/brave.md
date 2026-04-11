@@ -55,6 +55,7 @@ Or install individually via the links in each section.
 | Extension | ID |
 |---|---|
 | [Zotero Connector](https://chrome.google.com/webstore/detail/ekhagklcjbdpajgpjgmbionohlpdbjgc) | `ekhagklcjbdpajgpjgmbionohlpdbjgc` |
+| [Obsidian Web Clipper](https://chrome.google.com/webstore/detail/cnjifjpddelmedmihgijeibhnjfabmlf) | `cnjifjpddelmedmihgijeibhnjfabmlf` |
 | [Raindrop.io](https://chrome.google.com/webstore/detail/ldgfbffkinooeloadekpmfoklnobpien) | `ldgfbffkinooeloadekpmfoklnobpien` |
 | [Hypothesis](https://chrome.google.com/webstore/detail/bjfhmglciegochdpefhhlphglcehbmek) | `bjfhmglciegochdpefhhlphglcehbmek` |
 | [CatalyzeX](https://chrome.google.com/webstore/detail/aikkeehnlfpamidigaffhfmgbkdeheil) | `aikkeehnlfpamidigaffhfmgbkdeheil` |

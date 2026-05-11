@@ -2,3 +2,22 @@
 alias ls='eza --icons'
 alias ll='eza -lah --icons'
 alias lt='eza --tree --icons'
+
+# bat
+alias b='bat'
+
+# Common shortcuts
+alias s='ssh'
+alias df='df -h'
+alias du1='du -h -d=1'
+
+# Shell reload — `exec zsh` replaces the current shell process (clean reload)
+alias zr='exec zsh'
+
+# Per-remote git pull/push (omz git plugin has `gpu` for `git push upstream`,
+# and `gluc`/`glum` for pulling upstream)
+alias gln='git pull neiljdo'
+alias gpn='git push neiljdo'
+# alias glh='git pull gh'
+# alias glu='git pull upstream'
+# alias gph='git push gh'

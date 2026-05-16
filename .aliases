@@ -6,6 +6,9 @@ alias lt='eza --tree --icons'
 # bat
 alias b='bat'
 
+# lazygit
+alias lg='lazygit'
+
 # Common shortcuts
 alias s='ssh'
 alias df='df -h'

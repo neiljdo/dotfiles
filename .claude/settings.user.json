@@ -1,4 +1,5 @@
 {
+  "model": "sonnet",
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "serena@claude-plugins-official": true,
@@ -17,5 +18,8 @@
   },
   "effortLevel": "xhigh",
   "plansDirectory": "./.claude/plans",
-  "autoMemoryDirectory": "./.claude/memory"
+  "tui": "fullscreen",
+  "autoMemoryDirectory": "./.claude/memory",
+  "theme": "dark",
+  "remoteControlAtStartup": true
 }

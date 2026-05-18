@@ -79,7 +79,7 @@ if [ -n "$wk_pct" ]; then
 fi
 
 # Line 1: user | host | cwd
-printf "%s | %s | %s\n" "$user" "$host" "$cwd"
+printf "%s@%s | %s\n" "$user" "$host" "$cwd"
 
 # Line 2: worktree_part | branch | model | ctx_part | line2 (skip empty parts)
 parts=()

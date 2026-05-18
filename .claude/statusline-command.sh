@@ -14,9 +14,7 @@ model=$(echo "$input" | jq -r '.model.display_name // ""')
 
 used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 ctx_part=""
-if [ -n "$used" ]; then
-  ctx_part=" | ctx:$(printf '%.0f' "$used")%"
-fi
+[ -n "$used" ] && ctx_part="ctx:$(printf '%.0f' "$used")%"
 
 # Git branch — read from cwd so worktrees pick up their own branch.
 # In a worktree, $cwd/.git is a FILE (containing `gitdir: …/.git/worktrees/<name>`);
@@ -25,13 +23,12 @@ fi
 branch=""
 if [ -n "$raw_cwd" ] && [ -e "$raw_cwd/.git" ]; then
   branch=$(cd "$raw_cwd" && git --no-optional-locks symbolic-ref --short HEAD 2>/dev/null || true)
-  [ -n "$branch" ] && branch=" | $branch"
 fi
 
 # Worktree indicator
 worktree_name=$(echo "$input" | jq -r '.worktree.name // empty')
 worktree_part=""
-[ -n "$worktree_name" ] && worktree_part=" [wt:$worktree_name]"
+[ -n "$worktree_name" ] && worktree_part="[wt:$worktree_name]"
 
 # --- Line 2: session cost + 5h / weekly rate-limit usage (with reset countdowns) ---
 # Fields documented at https://code.claude.com/docs/en/statusline.md
@@ -81,6 +78,14 @@ if [ -n "$wk_pct" ]; then
   line2+="${sep}wk:$(printf '%.0f' "$wk_pct")%${reset_str}"
 fi
 
-printf "%s@%s %s%s | %s%s%s" \
-  "$user" "$host" "$cwd" "$worktree_part" "$model" "$ctx_part" "$branch"
-[ -n "$line2" ] && printf "\n%s" "$line2"
+# Line 1: user host cwd
+printf "%s %s %s\n" "$user" "$host" "$cwd"
+
+# Line 2: worktree_part branch model ctx_part line2 (skip empty parts)
+parts=()
+[ -n "$worktree_part" ] && parts+=("$worktree_part")
+[ -n "$branch" ]       && parts+=("$branch")
+[ -n "$model" ]        && parts+=("$model")
+[ -n "$ctx_part" ]     && parts+=("$ctx_part")
+[ -n "$line2" ]        && parts+=("$line2")
+printf "%s" "${parts[*]}"

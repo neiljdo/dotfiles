@@ -78,14 +78,19 @@ if [ -n "$wk_pct" ]; then
   line2+="${sep}wk:$(printf '%.0f' "$wk_pct")%${reset_str}"
 fi
 
-# Line 1: user host cwd
-printf "%s %s %s\n" "$user" "$host" "$cwd"
+# Line 1: user | host | cwd
+printf "%s | %s | %s\n" "$user" "$host" "$cwd"
 
-# Line 2: worktree_part branch model ctx_part line2 (skip empty parts)
+# Line 2: worktree_part | branch | model | ctx_part | line2 (skip empty parts)
 parts=()
 [ -n "$worktree_part" ] && parts+=("$worktree_part")
-[ -n "$branch" ]       && parts+=("$branch")
-[ -n "$model" ]        && parts+=("$model")
-[ -n "$ctx_part" ]     && parts+=("$ctx_part")
-[ -n "$line2" ]        && parts+=("$line2")
-printf "%s" "${parts[*]}"
+[ -n "$branch" ]        && parts+=("$branch")
+[ -n "$model" ]         && parts+=("$model")
+[ -n "$ctx_part" ]      && parts+=("$ctx_part")
+[ -n "$line2" ]         && parts+=("$line2")
+out=""
+for part in "${parts[@]}"; do
+  [ -n "$out" ] && out+=" | "
+  out+="$part"
+done
+printf "%s" "$out"

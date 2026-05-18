@@ -1,5 +1,8 @@
 {
-  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "serena@claude-plugins-official": true,
@@ -21,9 +24,5 @@
   "tui": "fullscreen",
   "autoMemoryDirectory": "./.claude/memory",
   "theme": "dark",
-  "remoteControlAtStartup": true,
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  }
+  "remoteControlAtStartup": true
 }

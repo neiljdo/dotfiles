@@ -21,5 +21,9 @@
   "tui": "fullscreen",
   "autoMemoryDirectory": "./.claude/memory",
   "theme": "dark",
-  "remoteControlAtStartup": true
+  "remoteControlAtStartup": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  }
 }

@@ -6,7 +6,9 @@
     "preferredEditor": "cursor",
     "focusPaneOnFirstClick": true,
     "warnBeforeQuit": true,
-    "reorderOnNotification": true
+    "warnBeforeClosingTab": true,
+    "reorderOnNotification": true,
+    "workspaceInheritWorkingDirectory": true
   },
 
   "terminal": {
@@ -14,10 +16,15 @@
   },
 
   "sidebar": {
+    "showCustomMetadata": true,
     "showPullRequests": true,
     "makePullRequestsClickable": true,
+    "openPullRequestLinksInCmuxBrowser": true,
     "showPorts": true,
+    "openPortLinksInCmuxBrowser": true,
     "showBranchDirectory": true,
+    "showNotificationMessage": true,
+    "showWorkspaceDescription": true,
     "showLog": true,
     "showProgress": true,
     "branchLayout": "vertical"
@@ -28,8 +35,14 @@
     "cursorIntegration": true
   },
 
+  "browser": {
+    "openTerminalLinksInCmuxBrowser": true,
+    "interceptTerminalOpenCommandInCmuxBrowser": true
+  },
+
   "notifications": {
     "dockBadge": true,
+    "showInMenuBar": true,
     "unreadPaneRing": true,
     "paneFlash": true
   }

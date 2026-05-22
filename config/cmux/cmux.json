@@ -1,49 +1,162 @@
 {
   "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
-  "schemaVersion": 1,
 
   "app": {
-    "preferredEditor": "cursor",
-    "focusPaneOnFirstClick": true,
-    "warnBeforeQuit": true,
-    "warnBeforeClosingTab": true,
-    "reorderOnNotification": true,
-    "workspaceInheritWorkingDirectory": true
-  },
-
-  "terminal": {
-    "autoResumeAgentSessions": true
+    "appearance": "dark",
+    "minimalMode": true,
+    "newWorkspacePlacement": "afterCurrent",
+    "openMarkdownInCmuxViewer": true,
+    "commandPaletteSearchesAllSurfaces": true,
+    "preferredEditor": "cursor --goto",
+    "warnBeforeClosingTab": false
   },
 
   "sidebar": {
-    "showCustomMetadata": true,
+    "branchLayout": "inline",
     "showPullRequests": true,
-    "makePullRequestsClickable": true,
-    "openPullRequestLinksInCmuxBrowser": true,
     "showPorts": true,
-    "openPortLinksInCmuxBrowser": true,
-    "showBranchDirectory": true,
     "showNotificationMessage": true,
-    "showWorkspaceDescription": true,
-    "showLog": true,
-    "showProgress": true,
-    "branchLayout": "vertical"
+    "watchGitStatus": true,
+    "openPullRequestLinksInCmuxBrowser": true,
+    "openPortLinksInCmuxBrowser": true
+  },
+
+  "notifications": {
+    "sound": "Ping",
+    "paneFlash": true,
+    "unreadPaneRing": true,
+    "dockBadge": true
   },
 
   "automation": {
     "claudeCodeIntegration": true,
-    "cursorIntegration": true
+    "suppressSubagentNotifications": true
   },
 
   "browser": {
+    "defaultSearchEngine": "duckduckgo",
+    "theme": "dark",
     "openTerminalLinksInCmuxBrowser": true,
-    "interceptTerminalOpenCommandInCmuxBrowser": true
+    "interceptTerminalOpenCommandInCmuxBrowser": true,
+    "discardHiddenWebViews": true
   },
 
-  "notifications": {
-    "dockBadge": true,
-    "showInMenuBar": true,
-    "unreadPaneRing": true,
-    "paneFlash": true
+  "actions": {
+    "claude-new-tab": {
+      "type": "agent",
+      "agent": "claude",
+      "title": "Claude Code",
+      "icon": { "type": "emoji", "value": "✦" },
+      "target": "newTabInCurrentPane"
+    },
+    "parallel-claude": {
+      "type": "workspaceCommand",
+      "commandName": "Parallel Claude",
+      "title": "Parallel Claude",
+      "icon": { "type": "symbol", "name": "rectangle.split.2x1" }
+    },
+    "claude-dev": {
+      "type": "workspaceCommand",
+      "commandName": "Claude + Dev",
+      "title": "Claude + Dev",
+      "icon": { "type": "symbol", "name": "terminal.fill" }
+    }
+  },
+
+  "ui": {
+    "surfaceTabBar": {
+      "buttons": [
+        "claude-new-tab",
+        "cmux.newTerminal",
+        "cmux.splitRight",
+        "cmux.newBrowser"
+      ]
+    },
+    "newWorkspace": {
+      "action": "parallel-claude",
+      "contextMenu": [
+        { "action": "parallel-claude", "title": "Parallel Claude" },
+        { "action": "claude-dev", "title": "Claude + Dev" },
+        "-",
+        { "action": "cmux.newTerminal", "title": "Terminal" },
+        { "action": "cmux.newBrowser", "title": "Browser" }
+      ]
+    }
+  },
+
+  "commands": [
+    {
+      "name": "Parallel Claude",
+      "workspace": {
+        "name": "Parallel",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.5,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  { "type": "terminal", "name": "Claude A", "command": "claude", "focus": true }
+                ]
+              }
+            },
+            {
+              "pane": {
+                "surfaces": [
+                  { "type": "terminal", "name": "Claude B", "command": "claude" }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Claude + Dev",
+      "workspace": {
+        "name": "Dev",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.55,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  { "type": "terminal", "name": "Claude", "command": "claude", "focus": true }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      { "type": "terminal", "name": "Shell" }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      { "type": "terminal", "name": "Logs" }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+
+  "shortcuts": {
+    "splitRight": "ctrl+shift+\\",
+    "splitDown": "ctrl+shift+-",
+    "nextSurface": "ctrl+shift+]",
+    "prevSurface": "ctrl+shift+[",
+    "jumpToUnread": "ctrl+shift+u",
+    "commandPalette": "cmd+shift+p"
   }
 }

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+
+  "commands": [
+    {
+      "name": "Dev",
+      "workspace": {
+        "name": "Dev",
+        "cwd": ".",
+        "layout": {
+          "direction": "horizontal",
+          "split": 0.55,
+          "children": [
+            {
+              "pane": {
+                "surfaces": [
+                  { "type": "terminal", "name": "Claude", "command": "claude", "focus": true }
+                ]
+              }
+            },
+            {
+              "direction": "vertical",
+              "children": [
+                {
+                  "pane": {
+                    "surfaces": [
+                      { "type": "terminal", "name": "Shell" }
+                    ]
+                  }
+                },
+                {
+                  "pane": {
+                    "surfaces": [
+                      { "type": "browser", "name": "Preview", "url": "http://localhost:8000" }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

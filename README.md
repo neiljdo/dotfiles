@@ -332,6 +332,12 @@ Per-project overrides can be defined in `.claude/settings.json` inside any proje
 ln -sf ~/dotfiles/config/cmux/cmux.json ~/.config/cmux/cmux.json
 ```
 
+For per-project layouts, copy the project template into a repo:
+
+```bash
+cp ~/dotfiles/config/cmux/project-template.cmux.json <repo>/.cmux/cmux.json
+```
+
 ### MLOps & experiment tracking
 
 Ideally, per project and managed via `uv`. Can be installed as standalone CLI tools via the following:

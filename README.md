@@ -326,6 +326,12 @@ ln -sf ~/dotfiles/.claude/settings.user.json ~/.claude/settings.json
 
 Per-project overrides can be defined in `.claude/settings.json` inside any project/repo — these take precedence over the user-level config.
 
+**cmux configuration** — symlink the global config from this repo:
+
+```bash
+ln -sf ~/dotfiles/config/cmux/cmux.json ~/.config/cmux/cmux.json
+```
+
 ### MLOps & experiment tracking
 
 Ideally, per project and managed via `uv`. Can be installed as standalone CLI tools via the following:

@@ -24,5 +24,6 @@
   "tui": "fullscreen",
   "autoMemoryDirectory": "./.claude/memory",
   "theme": "dark",
-  "remoteControlAtStartup": true
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true
 }

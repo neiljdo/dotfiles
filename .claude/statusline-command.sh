@@ -89,6 +89,21 @@ humanize_until() {
   fi
 }
 
+# Color thresholds for rate-limit usage, mirroring the Claude usage tab
+# (green substituted for blue): <50% green, 50-80% yellow, 80%+ red.
+pct_color() {
+  local pi
+  pi=$(printf '%.0f' "$1")
+  if [ "$pi" -ge 80 ]; then
+    printf '%s' $'\033[31m'
+  elif [ "$pi" -ge 50 ]; then
+    printf '%s' $'\033[33m'
+  else
+    printf '%s' $'\033[32m'
+  fi
+}
+ANSI_RESET=$'\033[0m'
+
 line2=""
 sep=""
 if [ -n "$cost" ]; then
@@ -98,13 +113,15 @@ fi
 if [ -n "$fh_pct" ]; then
   reset_str=""
   [ -n "$fh_reset" ] && reset_str=" (→$(humanize_until "$fh_reset"))"
-  line2+="${sep}5h:$(printf '%.0f' "$fh_pct")%${reset_str}"
+  c=$(pct_color "$fh_pct")
+  line2+="${sep}${c}5h:$(printf '%.0f' "$fh_pct")%${reset_str}${ANSI_RESET}"
   sep=" | "
 fi
 if [ -n "$wk_pct" ]; then
   reset_str=""
   [ -n "$wk_reset" ] && reset_str=" (→$(humanize_until "$wk_reset"))"
-  line2+="${sep}wk:$(printf '%.0f' "$wk_pct")%${reset_str}"
+  c=$(pct_color "$wk_pct")
+  line2+="${sep}${c}wk:$(printf '%.0f' "$wk_pct")%${reset_str}${ANSI_RESET}"
 fi
 
 # Line 1: user | host | cwd

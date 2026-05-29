@@ -12,9 +12,30 @@ cwd="${raw_cwd/#$HOME/\~}"
 
 model=$(echo "$input" | jq -r '.model.display_name // ""')
 
-used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+used_tokens=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
 ctx_part=""
-[ -n "$used" ] && ctx_part="ctx:$(printf '%.0f' "$used")%"
+if [ -n "$used_tokens" ]; then
+  # Nominal token count, k-formatted (e.g., 25234 → "25k").
+  if [ "$used_tokens" -ge 1000 ]; then
+    nominal="$((used_tokens / 1000))k"
+  else
+    nominal="$used_tokens"
+  fi
+  pct_str=""
+  [ -n "$used_pct" ] && pct_str=" ($(printf '%.0f' "$used_pct")%)"
+  # Threshold colors are on token count, not percentage:
+  #   0-150k green, 150k-300k yellow, 300k+ red.
+  if [ "$used_tokens" -ge 300000 ]; then
+    color=$'\033[31m'  # red
+  elif [ "$used_tokens" -ge 150000 ]; then
+    color=$'\033[33m'  # yellow
+  else
+    color=$'\033[32m'  # green
+  fi
+  reset=$'\033[0m'
+  ctx_part="${color}ctx:${nominal}${pct_str}${reset}"
+fi
 
 # Git branch — read from cwd so worktrees pick up their own branch.
 # In a worktree, $cwd/.git is a FILE (containing `gitdir: …/.git/worktrees/<name>`);
@@ -25,10 +46,18 @@ if [ -n "$raw_cwd" ] && [ -e "$raw_cwd/.git" ]; then
   branch=$(cd "$raw_cwd" && git --no-optional-locks symbolic-ref --short HEAD 2>/dev/null || true)
 fi
 
-# Worktree indicator
+# Worktree indicator. Suppress when it duplicates the branch — `claude --worktree`
+# names the dir with `+` where the branch uses `/` (e.g. wt `exp+foo` ↔ branch `exp/foo`),
+# and after rename they often match outright. Normalize both, drop the tag if equal.
 worktree_name=$(echo "$input" | jq -r '.worktree.name // empty')
 worktree_part=""
-[ -n "$worktree_name" ] && worktree_part="[wt:$worktree_name]"
+if [ -n "$worktree_name" ]; then
+  norm_wt="${worktree_name#worktree-}"
+  norm_wt="${norm_wt//+//}"
+  if [ "$norm_wt" != "$branch" ]; then
+    worktree_part="[wt:$worktree_name]"
+  fi
+fi
 
 # --- Line 2: session cost + 5h / weekly rate-limit usage (with reset countdowns) ---
 # Fields documented at https://code.claude.com/docs/en/statusline.md

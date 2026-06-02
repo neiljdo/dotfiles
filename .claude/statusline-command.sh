@@ -93,11 +93,11 @@ humanize_until() {
 }
 
 # Color thresholds for rate-limit usage, mirroring the Claude usage tab
-# (green substituted for blue): <75% green, 75-80% yellow, 80%+ red.
+# (green substituted for blue): <75% green, 75-90% yellow, 90%+ red.
 pct_color() {
   local pi
   pi=$(printf '%.0f' "$1")
-  if [ "$pi" -ge 80 ]; then
+  if [ "$pi" -ge 90 ]; then
     printf '%s' $'\033[31m'
   elif [ "$pi" -ge 75 ]; then
     printf '%s' $'\033[33m'

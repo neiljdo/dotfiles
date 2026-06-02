@@ -11,6 +11,9 @@ raw_cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // ""')
 cwd="${raw_cwd/#$HOME/\~}"
 
 model=$(echo "$input" | jq -r '.model.display_name // ""')
+# Reasoning effort — absent when the current model doesn't support it (Sonnet 4.5
+# pre-4.6, etc.). Values: low / medium / high / xhigh / max / ultra.
+effort=$(echo "$input" | jq -r '.effort.level // ""')
 
 used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 used_tokens=$(echo "$input" | jq -r '.context_window.total_input_tokens // empty')
@@ -132,6 +135,7 @@ parts=()
 [ -n "$worktree_part" ] && parts+=("$worktree_part")
 [ -n "$branch" ]        && parts+=("$branch")
 [ -n "$model" ]         && parts+=("$model")
+[ -n "$effort" ]        && parts+=("effort:$effort")
 [ -n "$ctx_part" ]      && parts+=("$ctx_part")
 [ -n "$line2" ]         && parts+=("$line2")
 out=""

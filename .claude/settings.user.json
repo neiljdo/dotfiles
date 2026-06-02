@@ -17,7 +17,30 @@
     "security-guidance@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true
+    "plugin-dev@claude-plugins-official": true,
+    "research-superpowers@research-superpowers-marketplace": true,
+    "understand-anything@understand-anything": true,
+    "claude-obsidian@agricidaniel-claude-obsidian": true
+  },
+  "extraKnownMarketplaces": {
+    "research-superpowers-marketplace": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/neiljdo/.claude/aim-skill-staging/kthorn-research-superpower"
+      }
+    },
+    "understand-anything": {
+      "source": {
+        "source": "github",
+        "repo": "Lum1104/Understand-Anything"
+      }
+    },
+    "agricidaniel-claude-obsidian": {
+      "source": {
+        "source": "github",
+        "repo": "AgriciDaniel/claude-obsidian"
+      }
+    }
   },
   "effortLevel": "xhigh",
   "plansDirectory": "./.claude/plans",

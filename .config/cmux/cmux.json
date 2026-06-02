@@ -71,6 +71,16 @@
         "cmux.splitRight",
         "cmux.newBrowser"
       ]
+    },
+    "newWorkspace": {
+      "action": "parallel-claude",
+      "contextMenu": [
+        { "action": "parallel-claude", "title": "Parallel Claude" },
+        { "action": "claude-dev", "title": "Claude + Dev" },
+        "-",
+        { "action": "cmux.newTerminal", "title": "Terminal" },
+        { "action": "cmux.newBrowser", "title": "Browser" }
+      ]
     }
   },
 

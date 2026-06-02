@@ -49,12 +49,6 @@
       "icon": { "type": "emoji", "value": "✦" },
       "target": "newTabInCurrentPane"
     },
-    "parallel-claude": {
-      "type": "workspaceCommand",
-      "commandName": "Parallel Claude",
-      "title": "Parallel Claude",
-      "icon": { "type": "symbol", "name": "rectangle.split.2x1" }
-    },
     "claude-dev": {
       "type": "workspaceCommand",
       "commandName": "Claude + Dev",
@@ -73,9 +67,7 @@
       ]
     },
     "newWorkspace": {
-      "action": "parallel-claude",
       "contextMenu": [
-        { "action": "parallel-claude", "title": "Parallel Claude" },
         { "action": "claude-dev", "title": "Claude + Dev" },
         "-",
         { "action": "cmux.newTerminal", "title": "Terminal" },
@@ -85,32 +77,6 @@
   },
 
   "commands": [
-    {
-      "name": "Parallel Claude",
-      "workspace": {
-        "name": "Parallel",
-        "layout": {
-          "direction": "horizontal",
-          "split": 0.5,
-          "children": [
-            {
-              "pane": {
-                "surfaces": [
-                  { "type": "terminal", "name": "Claude A", "command": "claude", "focus": true }
-                ]
-              }
-            },
-            {
-              "pane": {
-                "surfaces": [
-                  { "type": "terminal", "name": "Claude B", "command": "claude" }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    },
     {
       "name": "Claude + Dev",
       "workspace": {

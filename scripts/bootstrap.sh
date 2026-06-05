@@ -131,7 +131,7 @@ symlink "$DOTFILES_DIR/.config/cmux/cmux.json"   "$HOME/.config/cmux/cmux.json"
 # karabiner.json is copied, not symlinked — Karabiner-Elements rewrites it
 # on every binding change, which would break a symlink.
 # To save changes back to dotfiles: cp ~/.config/karabiner/karabiner.json ~/dotfiles/.config/karabiner/karabiner.json
-local dst="$HOME/.config/karabiner/karabiner.json"
+dst="$HOME/.config/karabiner/karabiner.json"
 mkdir -p "$HOME/.config/karabiner"
 if [ -e "$dst" ] && [ ! -L "$dst" ]; then
   warning "backing up existing karabiner.json → ${dst}.bak"

@@ -103,7 +103,8 @@ gh auth login                   # GitHub CLI
 
 ```bash
 fnm install --lts
-fnm use --lts
+fnm use lts-latest
+fnm default lts-latest    # persist as default across new shells
 ```
 
 ### 5. Reload shell

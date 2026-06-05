@@ -143,9 +143,7 @@ Install from `Brewfile` directly: `brew bundle`
 
 **OrbStack** — Docker Desktop replacement. Lighter and faster on Apple Silicon.
 
-**uv** — primary Python tool. Replaces pyenv + pip + venv + pipx.
-
-**miniforge** — conda, for ML workloads that require non-Python binaries (MKL, HDF5). Install only if needed: `brew install --cask miniforge`. Do not run alongside uv's Python management simultaneously.
+**uv / Python** — see **[docs/python.md](docs/python.md)** for the full workflow — project setup, per-project ML dependencies, miniforge, and direnv integration.
 
 **fnm** — Node version manager, written in Rust. ~30x faster startup than nvm.
 

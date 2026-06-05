@@ -94,8 +94,6 @@ Then add `~/.ssh/id_ed25519.pub` to GitHub, servers, etc.
 
 ```bash
 gh auth login                   # GitHub CLI
-gcloud auth login               # Google Cloud (if used)
-gcloud auth application-default login
 ```
 
 ### 4. Node — fnm
@@ -180,7 +178,13 @@ cp ~/dotfiles/.config/cmux/project-template.cmux.json <repo>/.cmux/cmux.json
 
 ---
 
-## 7. Secrets & Credentials
+## 7. Google Cloud (GCP)
+
+See **[docs/gcp.md](docs/gcp.md)** for the full setup guide — installation, authentication (CLI + ADC), multi-project configuration, and workflow commands.
+
+---
+
+## 8. Secrets & Credentials
 
 - Use a **password manager** (1Password, Bitwarden) — not iCloud Keychain for work credentials
 - Never store secrets in dotfiles or shell history
@@ -189,7 +193,7 @@ cp ~/dotfiles/.config/cmux/project-template.cmux.json <repo>/.cmux/cmux.json
 
 ---
 
-## 8. Dotfiles Structure
+## 9. Dotfiles Structure
 
 Tracked files and their symlink targets:
 
@@ -211,7 +215,7 @@ Tracked files and their symlink targets:
 
 ---
 
-## 9. Hardening Checklist
+## 10. Hardening Checklist
 
 | Area | Action | Priority |
 |---|---|---|
@@ -227,7 +231,7 @@ Tracked files and their symlink targets:
 
 ---
 
-## 10. What to Skip
+## 11. What to Skip
 
 - **SIP (System Integrity Protection):** Do not disable it.
 - **Disabling Gatekeeper globally:** Unnecessary risk.

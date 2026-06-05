@@ -30,9 +30,6 @@ fi
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
 
-# Wire eza alias completions — must come after antidote to avoid being cleared
-compdef _eza ll lt
-
 # -----------------------------------------------------------------------------
 # Prompt — Starship
 # Config: ~/.config/starship.toml

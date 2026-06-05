@@ -71,9 +71,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 fpath+="${ZDOTDIR:-$HOME}/.zsh_functions"
 
 # -----------------------------------------------------------------------------
-# fzf
+# fzf — Ctrl+T (files), Ctrl+R (history), Alt+C (cd); Tab unaffected
 # -----------------------------------------------------------------------------
-[ -f "$HOME/.fzf.zsh" ] && source "$HOME/.fzf.zsh"
+eval "$(fzf --zsh)"
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 

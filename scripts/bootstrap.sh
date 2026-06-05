@@ -87,7 +87,7 @@ fi
 # 4. Homebrew packages
 # -----------------------------------------------------------------------------
 info "Installing packages from Brewfile..."
-brew bundle --file="$DOTFILES_DIR/Brewfile" --no-lock
+brew bundle --file="$DOTFILES_DIR/Brewfile"
 success "Brewfile done"
 
 # -----------------------------------------------------------------------------

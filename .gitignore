@@ -133,3 +133,4 @@ zsdoc/data
 .claude/memory/
 .claude/plans/
 plans
+Brewfile.lock.json

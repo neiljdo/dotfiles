@@ -386,7 +386,11 @@ setopt HIST_IGNORE_SPACE   # commands prefixed with a space are not saved
 **Automated setup** — on a new machine, run the bootstrap script:
 
 ```bash
+# From a fresh machine (no clone yet)
 bash <(curl -fsSL https://raw.githubusercontent.com/neiljdo/dotfiles/main/scripts/bootstrap.sh)
+
+# From an existing clone
+bash ~/dotfiles/scripts/bootstrap.sh
 ```
 
 This installs Xcode CLI tools, Homebrew, all packages from `Brewfile`, symlinks every dotfile, generates the antidote bundle, and sets zsh as the default shell. See the script for what's left to do manually (FileVault, SSH keys, service auth).

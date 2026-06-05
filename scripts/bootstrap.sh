@@ -78,11 +78,10 @@ info "Checking Homebrew..."
 if ! command -v brew &>/dev/null; then
   info "Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  # Apple Silicon path
-  eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)"
-else
-  success "Homebrew already installed"
 fi
+# Always set up Homebrew PATH — needed on re-runs where brew isn't in PATH yet
+eval "$(/opt/homebrew/bin/brew shellenv)" 2>/dev/null || eval "$(/usr/local/bin/brew shellenv)"
+success "Homebrew ready"
 
 # -----------------------------------------------------------------------------
 # 3. Clone dotfiles

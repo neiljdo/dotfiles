@@ -118,9 +118,4 @@ cask "miniforge"        # conda for ML/GPU workloads
 # VS Code / Cursor extensions
 # -----------------------------------------------------------------------------
 vscode "anthropic.claude-code"
-vscode "anysphere.remote-ssh"
-
-# -----------------------------------------------------------------------------
-# npm globals
-# -----------------------------------------------------------------------------
-npm "corepack"
+vscode "ms-vscode-remote.remote-ssh"

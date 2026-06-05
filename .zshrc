@@ -173,3 +173,6 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # - Prefix any command with a space to prevent it from being saved to history.
 # - To benchmark shell startup: for i in $(seq 10); do /usr/bin/time zsh -lic exit; done
 # =============================================================================
+
+# GitHub MCP server (claude-plugins-official) bearer token — sourced from gh CLI keyring, no plaintext secret on disk
+export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"

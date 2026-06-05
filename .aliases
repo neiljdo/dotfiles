@@ -24,3 +24,19 @@ alias gpn='git push neiljdo'
 # alias glh='git pull gh'
 # alias glu='git pull upstream'
 # alias gph='git push gh'
+
+# Global pipe aliases
+alias -g L='| less'
+alias -g G='| grep'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g F='| tail -f'
+alias -g J='| jq'
+alias -g Y='| yq'
+alias -g C='| pbcopy'
+alias -g NUL='> /dev/null 2>&1'
+
+# brew
+alias bupf='brew upgrade --formula'
+alias -g bupcg='brew upgrade --cask --greedy'
+alias bupcgd='bupcg --dry-run'

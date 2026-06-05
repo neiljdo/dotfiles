@@ -1,7 +1,8 @@
-# eza
-alias ls='eza --icons'
-alias ll='eza -lah --icons'
-alias lt='eza --tree --icons'
+# eza — --icons applied via EZA_OPTS so _eza completion isn't confused by the flag
+export EZA_OPTS="--icons"
+alias ls='eza'
+alias ll='eza -lah'
+alias lt='eza --tree'
 
 # bat
 alias b='bat'

@@ -22,6 +22,9 @@ else
   compinit -C
 fi
 
+# Wire alias completions to their underlying commands
+compdef ll=eza lt=eza
+
 # -----------------------------------------------------------------------------
 # Antidote — plugin manager
 # Regenerate static file when .zsh_plugins.txt changes:

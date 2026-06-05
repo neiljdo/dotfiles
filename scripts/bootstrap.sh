@@ -128,7 +128,20 @@ symlink "$DOTFILES_DIR/.ssh/config"       "$HOME/.ssh/config"
 symlink "$DOTFILES_DIR/.config/starship.toml"    "$HOME/.config/starship.toml"
 symlink "$DOTFILES_DIR/.config/ghostty/config"   "$HOME/.config/ghostty/config"
 symlink "$DOTFILES_DIR/.config/cmux/cmux.json"   "$HOME/.config/cmux/cmux.json"
-symlink "$DOTFILES_DIR/.config/karabiner/karabiner.json"          "$HOME/.config/karabiner/karabiner.json"
+# karabiner.json is copied, not symlinked — Karabiner-Elements rewrites it
+# on every binding change, which would break a symlink.
+# To save changes back to dotfiles: cp ~/.config/karabiner/karabiner.json ~/dotfiles/.config/karabiner/karabiner.json
+local dst="$HOME/.config/karabiner/karabiner.json"
+mkdir -p "$HOME/.config/karabiner"
+if [ -e "$dst" ] && [ ! -L "$dst" ]; then
+  warning "backing up existing karabiner.json → ${dst}.bak"
+  cp "$dst" "${dst}.bak"
+elif [ -L "$dst" ]; then
+  warning "replacing karabiner.json symlink with a copy"
+  rm "$dst"
+fi
+cp "$DOTFILES_DIR/.config/karabiner/karabiner.json" "$dst"
+success "copied: karabiner.json"
 symlink "$DOTFILES_DIR/.config/karabiner/karabiner-elements.json" "$HOME/.config/karabiner/karabiner-elements.json"
 
 # Claude Code

@@ -190,7 +190,8 @@ Tracked files and their symlink targets:
 ~/dotfiles/.config/starship.toml        → ~/.config/starship.toml
 ~/dotfiles/.config/ghostty/config       → ~/.config/ghostty/config
 ~/dotfiles/.config/cmux/cmux.json       → ~/.config/cmux/cmux.json
-~/dotfiles/.config/karabiner/           → ~/.config/karabiner/
+~/dotfiles/.config/karabiner/karabiner.json          → ~/.config/karabiner/karabiner.json  (copied, not symlinked)
+~/dotfiles/.config/karabiner/karabiner-elements.json → ~/.config/karabiner/karabiner-elements.json
 ~/dotfiles/.claude/settings.user.json   → ~/.claude/settings.json
 ~/dotfiles/.claude/statusline-command.sh → ~/.claude/statusline-command.sh
 ```

@@ -60,6 +60,7 @@ brew "helm"             # Kubernetes package manager
 # AI & ML
 # -----------------------------------------------------------------------------
 brew "ollama"           # local LLM runner
+brew "asitop"           # Apple Silicon perf monitor
 brew "libomp"           # OpenMP (required for some ML libs)
 brew "cmake"
 
@@ -118,11 +119,6 @@ cask "miniforge"        # conda for ML/GPU workloads
 # -----------------------------------------------------------------------------
 vscode "anthropic.claude-code"
 vscode "anysphere.remote-ssh"
-
-# -----------------------------------------------------------------------------
-# uv tools
-# -----------------------------------------------------------------------------
-uv "modal"
 
 # -----------------------------------------------------------------------------
 # npm globals

@@ -151,12 +151,12 @@ symlink "$DOTFILES_DIR/.claude/statusline-command.sh" "$HOME/.claude/statusline-
 # 6. Antidote bundle
 # -----------------------------------------------------------------------------
 info "Generating antidote bundle..."
-ANTIDOTE="$(brew --prefix)/bin/antidote"
-if [ -x "$ANTIDOTE" ]; then
-  "$ANTIDOTE" bundle < "$HOME/.zsh_plugins.txt" > "$HOME/.zsh_plugins.zsh"
+ANTIDOTE_ZSH="$(brew --prefix)/opt/antidote/share/antidote/antidote.zsh"
+if [ -f "$ANTIDOTE_ZSH" ]; then
+  zsh -c "source '$ANTIDOTE_ZSH' && antidote bundle < '$HOME/.zsh_plugins.txt' > '$HOME/.zsh_plugins.zsh'"
   success "Antidote bundle generated"
 else
-  warning "antidote not found — run manually after shell restart: antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh"
+  warning "antidote init not found — run manually after shell restart: antidote bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.zsh"
 fi
 
 # -----------------------------------------------------------------------------

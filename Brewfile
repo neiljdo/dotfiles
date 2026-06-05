@@ -46,6 +46,7 @@ brew "tree"
 # -----------------------------------------------------------------------------
 brew "direnv"           # per-directory env vars
 brew "fnm"              # Node version manager
+brew "uv"               # Python package/project manager (replaces pip + venv + pyenv)
 brew "gnupg"            # GPG
 brew "actionlint"       # GitHub Actions linter
 brew "neovim"           # terminal editor ($EDITOR)

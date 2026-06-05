@@ -98,20 +98,14 @@ gcloud auth login               # Google Cloud (if used)
 gcloud auth application-default login
 ```
 
-### 4. Python — uv
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-### 5. Node — fnm
+### 4. Node — fnm
 
 ```bash
 fnm install --lts
 fnm use --lts
 ```
 
-### 6. Reload shell
+### 5. Reload shell
 
 ```bash
 exec zsh
@@ -129,7 +123,7 @@ All packages are declared in `Brewfile`. Key tools:
 | Modern CLI | bat, eza, ripgrep, fd, bottom, dust, duf |
 | Git | git, git-delta, gh, lazygit |
 | Data | jq, yq, curl, wget |
-| Dev | direnv, fnm, gnupg, neovim |
+| Dev | direnv, fnm, uv, gnupg, neovim |
 | Cloud | helm |
 | AI/ML | ollama, lm-studio |
 | Terminals | ghostty, cmux |

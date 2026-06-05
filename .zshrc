@@ -22,9 +22,6 @@ else
   compinit -C
 fi
 
-# Wire alias completions to their underlying commands
-compdef ll=eza lt=eza
-
 # -----------------------------------------------------------------------------
 # Antidote — plugin manager
 # Regenerate static file when .zsh_plugins.txt changes:
@@ -32,6 +29,9 @@ compdef ll=eza lt=eza
 # -----------------------------------------------------------------------------
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 antidote load
+
+# Wire eza alias completions — must come after antidote to avoid being cleared
+compdef _eza ll lt
 
 # -----------------------------------------------------------------------------
 # Prompt — Starship

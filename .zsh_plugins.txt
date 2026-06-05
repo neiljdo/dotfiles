@@ -58,6 +58,6 @@ ohmyzsh/ohmyzsh path:plugins/uv
 ohmyzsh/ohmyzsh path:plugins/vi-mode
 
 # macOS-specific — only loaded on macOS
-ohmyzsh/ohmyzsh path:plugins/brew     kind:fpath
+ohmyzsh/ohmyzsh path:plugins/brew
 ohmyzsh/ohmyzsh path:plugins/macos
 ohmyzsh/ohmyzsh path:plugins/iterm2

@@ -383,7 +383,15 @@ setopt HIST_IGNORE_SPACE   # commands prefixed with a space are not saved
 
 ## 13. Dotfiles
 
-Track your config in a git repo:
+**Automated setup** — on a new machine, run the bootstrap script:
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/neiljdo/dotfiles/main/scripts/bootstrap.sh)
+```
+
+This installs Xcode CLI tools, Homebrew, all packages from `Brewfile`, symlinks every dotfile, generates the antidote bundle, and sets zsh as the default shell. See the script for what's left to do manually (FileVault, SSH keys, service auth).
+
+**Tracked files:**
 
 ```
 ~/.zshrc

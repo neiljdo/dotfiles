@@ -357,9 +357,12 @@ brew install --cask raycast         # Spotlight replacement — app launcher, cl
 brew install --cask orbstack        # Docker/container management (lighter than Docker Desktop)
 brew install --cask tableplus       # Database GUI
 brew install --cask ghostty         # Fast GPU-accelerated terminal (alternative to iTerm2)
+# cmux — install from https://cmux.app (not on Homebrew)
 ```
 
 **Raycast:** replaces Spotlight (`⌘ Space`). Offers clipboard history, window management, script commands, and 1,300+ extensions.
+
+**cmux:** macOS terminal built on Ghostty with native workspace layouts, sidebar (branches, ports, PRs), and first-class Claude Code / Cursor integration. Global config at `~/.config/cmux/cmux.json`.
 
 ---
 
@@ -384,11 +387,16 @@ Track your config in a git repo:
 
 ```
 ~/.zshrc
+~/.aliases
 ~/.zsh_plugins.txt
 ~/.gitconfig
-~/.ssh/config       # no private keys — config only
+~/.tmux.conf
+~/.ssh/config               # no private keys — config only
 ~/.config/starship.toml
-~/.aliases
+~/.config/ghostty/config
+~/.config/cmux/cmux.json
+~/.claude/settings.json     # symlink to dotfiles/.claude/settings.user.json
+~/.claude/statusline-command.sh
 ```
 
 This lets you rebuild a new machine in minutes.

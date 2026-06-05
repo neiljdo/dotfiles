@@ -59,11 +59,14 @@ System Settings → General → Software Update
 Installs Xcode CLI tools, Homebrew, all packages from `Brewfile`, symlinks all dotfiles, generates the antidote bundle, and sets zsh as the default shell.
 
 ```bash
-# From a fresh machine (no clone yet)
+# From a fresh machine — clones to ~/dotfiles by default
 bash <(curl -fsSL https://raw.githubusercontent.com/neiljdo/dotfiles/main/scripts/bootstrap.sh)
 
-# From an existing clone
-bash ~/dotfiles/scripts/bootstrap.sh
+# From an existing clone — auto-detects repo root from script location
+bash /path/to/dotfiles/scripts/bootstrap.sh
+
+# Override clone destination
+DOTFILES_DIR=~/code/dotfiles bash /path/to/dotfiles/scripts/bootstrap.sh
 ```
 
 See `scripts/bootstrap.sh` for the full list of what runs. Safe to re-run — all steps are idempotent.

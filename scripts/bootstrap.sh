@@ -2,14 +2,19 @@
 # bootstrap.sh — set up a new Mac from this dotfiles repo
 #
 # Usage:
+#   # From a fresh machine (clones to ~/dotfiles by default):
 #   curl -fsSL https://raw.githubusercontent.com/neiljdo/dotfiles/main/scripts/bootstrap.sh | bash
-#   — or, after cloning —
-#   bash ~/dotfiles/scripts/bootstrap.sh
+#
+#   # From an existing clone (auto-detects repo root from script location):
+#   bash /path/to/dotfiles/scripts/bootstrap.sh
+#
+#   # Override clone destination:
+#   DOTFILES_DIR=~/code/dotfiles bash /path/to/dotfiles/scripts/bootstrap.sh
 #
 # What this does (all idempotent — safe to re-run):
 #   1. Install Xcode CLI tools
 #   2. Install Homebrew
-#   3. Clone dotfiles repo to ~/dotfiles (skipped if already present)
+#   3. Clone dotfiles repo (skipped if already present)
 #   4. Install all packages via Brewfile
 #   5. Symlink dotfiles into $HOME
 #   6. Generate antidote bundle
@@ -18,14 +23,21 @@
 # What this does NOT do (manual steps required):
 #   - FileVault, Firewall, Screen lock (System Settings)
 #   - SSH key generation (ssh-keygen)
-#   - Service auth: gh auth login, gcloud auth login, etc.
+#   - Service auth: gh auth login
 #   - fnm: fnm install --lts && fnm use --lts
-#   - uv install: curl -LsSf https://astral.sh/uv/install.sh | sh
 
 set -euo pipefail
 
 DOTFILES_REPO="https://github.com/neiljdo/dotfiles.git"
-DOTFILES_DIR="$HOME/dotfiles"
+
+# If run from an existing clone, derive the repo root from the script's location.
+# Otherwise fall back to DOTFILES_DIR env var or ~/dotfiles.
+_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -f "$_SCRIPT_DIR/../Brewfile" ]; then
+  DOTFILES_DIR="$(cd "$_SCRIPT_DIR/.." && pwd)"
+else
+  DOTFILES_DIR="${DOTFILES_DIR:-$HOME/dotfiles}"
+fi
 
 # -----------------------------------------------------------------------------
 info()    { printf '\033[34m==>\033[0m %s\n' "$*"; }

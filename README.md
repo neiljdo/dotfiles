@@ -155,26 +155,7 @@ Install from `Brewfile` directly: `brew bundle`
 
 ## 6. Claude Code
 
-```bash
-# Install the CLI (not in Brewfile — installer manages its own updates)
-curl -fsSL https://claude.ai/install.sh | bash
-```
-
-The bootstrap script symlinks `.claude/settings.user.json` → `~/.claude/settings.json` and `.claude/statusline-command.sh` → `~/.claude/statusline-command.sh`.
-
-Per-project overrides go in `.claude/settings.json` inside the project repo — these take precedence over the user-level config.
-
-**cmux configuration** is handled by the bootstrap symlink. To set it up manually:
-
-```bash
-ln -sf ~/dotfiles/.config/cmux/cmux.json ~/.config/cmux/cmux.json
-```
-
-For per-project layouts, copy the project template into a repo:
-
-```bash
-cp ~/dotfiles/.config/cmux/project-template.cmux.json <repo>/.cmux/cmux.json
-```
+See **[docs/claude-code.md](docs/claude-code.md)** for the full setup guide — installation, dotfiles integration, settings structure, statusline, and cmux workspace config.
 
 ---
 
